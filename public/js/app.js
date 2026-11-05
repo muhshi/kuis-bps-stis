@@ -42,7 +42,6 @@ const catCards = document.querySelectorAll('.cat-card');
 const badgeCatLogika = document.getElementById('badge-cat-logika');
 const badgeCatData = document.getElementById('badge-cat-data');
 const badgeCatStis = document.getElementById('badge-cat-stis');
-const btnLogout = document.getElementById('btn-logout');
 const btnViewLbFromCat = document.getElementById('btn-view-lb-from-cat');
 
 // Quiz Screen DOM
@@ -267,19 +266,6 @@ catCards.forEach(card => {
       alert(err.message);
     }
   });
-});
-
-btnLogout.addEventListener('click', () => {
-  if (confirm('Yakin ingin ganti peserta? (Data skormu tetap aman tersimpan di leaderboard)')) {
-    localStorage.removeItem('bps_participant_id');
-    localStorage.removeItem('bps_participant_info');
-    state.participantId = null;
-    state.participant = null;
-    state.participantStatus = null;
-
-    screenCategory.classList.add('hidden');
-    screenReg.classList.remove('hidden');
-  }
 });
 
 // ==========================================

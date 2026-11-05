@@ -44,6 +44,12 @@ Aplikasi web kuis interaktif ultra-ringan berbasis scan QR Code ala Kahoot yang 
 ## 📝 Changelog
 
 ### [2026-11-05]
+- **Anti-Spam & Keadilan Peringkat (Eliminasi Tombol Ganti Peserta)**:
+  - Menghapus tombol "Ganti Nama / Peserta Lain" di menu kategori agar siswa tidak dapat menghapus sesi dan bermain berulang kali dengan nama yang sama untuk mengakali papan peringkat (*leaderboard integrity*).
+- **Audit Menyeluruh & Penyeimbangan Bank Soal (Total 90 Soal)**:
+  - Jumlah bank soal: **30 soal Logika**, **30 soal Data BPS**, dan **30 soal Kedinasan STIS** (diambil 10 soal acak tanpa repetisi per ronde permainan).
+  - Melakukan audit faktual dan matematis menyeluruh terhadap seluruh 90 pertanyaan, opsi jawaban, dan penjelasan.
+  - Menyeimbangkan sebaran kunci jawaban secara merata pada setiap kategori: A: 23, B: 23, C: 22, D: 22 (masing-masing opsi muncul 7-8 kali per kategori), sehingga siswa tidak bisa menebak pola jawaban.
 - **Default Light Mode Layar TV Booth (tv.html & tv.css v6.0)**:
   - **Standarisasi Default Light Mode**: Menjadikan **Mode Terang (Light Mode)** sebagai setelan baku (*default*) resmi untuk tampilan TV monitor booth, dengan kartu putih bersih, kanvas *slate* cerah, teks *slate-900* berkontras tinggi yang sangat mudah terbaca dari jarak jauh di ruangan pameran yang terang benderang.
   - **Aksen Podium Light Mode**: Juara #1 dihiasi gradasi emas hangat (*amber*), Juara #2 perak (*slate*), Juara #3 perunggu (*copper*), dan School Battle beraksen hijau zamrud (*emerald*).
