@@ -44,6 +44,9 @@ Aplikasi web kuis interaktif ultra-ringan berbasis scan QR Code ala Kahoot yang 
 ## 📝 Changelog
 
 ### [2026-11-05]
+- **Koreksi Data Akademik STIS (Bank Soal)**:
+  - Memperbaiki soal gelar akademik D-IV Komputasi Statistik: Seluruh lulusan jenjang Diploma IV di Politeknik Statistika STIS (baik D-IV Statistika maupun D-IV Komputasi Statistik) menyandang gelar resmi yang sama, yaitu **S.Tr.Stat** (*Sarjana Terapan Statistika*). Tidak ada gelar S.Tr.Kom.
+  - Soal nomor 80 disesuaikan untuk mengedukasi bahwa seluruh lulusan D-IV bergelar **S.Tr.Stat**, dan soal nomor 81 difokuskan pada gelar akademik lulusan program studi Diploma III (D-III) Statistika, yaitu **A.Md.Stat** (*Ahli Madya Statistika*).
 - **Perbaikan Bug UI/UX & Interaksi (Berdasarkan Skill Frontend Design, Taste, Emil Kowalski, Hallmark, Impeccable)**:
   - **Toggle Light / Dark Mode**: Memperbaiki toggle tema agar instan beralih antara Mode Terang (default) dan Mode Gelap, menjaga keutuhan ikon serta teks label (`☀️ Mode Terang` / `🌙 Mode Gelap`).
   - **Modal Cek Peringkat HP**: Memperbaiki tombol "🏆 Cek Papan Peringkat (Leaderboard)" pada layar hasil dan menu kategori agar membuka dialog modal fixed-center dengan animasi *scale-up* halus, backdrop-blur, serta fitur tutup via backdrop/tombol silang.

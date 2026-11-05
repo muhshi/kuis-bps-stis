@@ -1109,29 +1109,29 @@
     "id": 80,
     "kategori_kode": "stis",
     "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Gelar akademik vokasi yang berhak disandang oleh lulusan program studi D-IV Statistika STIS adalah...",
+    "pertanyaan": "Gelar akademik vokasi yang disandang oleh lulusan program Diploma IV (baik prodi D-IV Statistika maupun D-IV Komputasi Statistik) di STIS adalah...",
     "opsi": {
       "A": "S.Tr.Stat (Sarjana Terapan Statistika)",
-      "B": "S.Stat (Sarjana Statistika)",
-      "C": "S.Si (Sarjana Sains)",
-      "D": "A.Md.Stat"
+      "B": "S.Tr.Kom (Sarjana Terapan Komputer)",
+      "C": "S.Stat (Sarjana Statistika)",
+      "D": "S.Kom (Sarjana Komputer)"
     },
     "kunci": "A",
-    "penjelasan": "S.Tr.Stat (Sarjana Terapan Statistika)! Gelar resmi nasional untuk lulusan sarjana terapan bidang statistik."
+    "penjelasan": "S.Tr.Stat (Sarjana Terapan Statistika)! Seluruh lulusan D-IV di Politeknik Statistika STIS, baik prodi Statistika maupun Komputasi Statistik, sama-sama bergelar resmi S.Tr.Stat."
   },
   {
     "id": 81,
     "kategori_kode": "stis",
     "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Gelar akademik vokasi yang disandang oleh lulusan program studi D-IV Komputasi Statistik STIS adalah...",
+    "pertanyaan": "Sementara itu, gelar akademik vokasi yang disandang oleh lulusan program studi Diploma III (D-III) Statistika STIS adalah...",
     "opsi": {
-      "A": "S.Tr.Kom (Sarjana Terapan Komputer)",
-      "B": "S.Kom (Sarjana Komputer)",
-      "C": "S.T (Sarjana Teknik)",
-      "D": "A.Md.Kom"
+      "A": "A.Md.Stat (Ahli Madya Statistika)",
+      "B": "A.Md.Kom (Ahli Madya Komputer)",
+      "C": "D.Stat (Diploma Statistika)",
+      "D": "S.Tr.Stat"
     },
     "kunci": "A",
-    "penjelasan": "S.Tr.Kom (Sarjana Terapan Komputer)! Mengukuhkan keahlian ganda dalam komputasi rekayasa data dan statistik."
+    "penjelasan": "A.Md.Stat (Ahli Madya Statistika)! Gelar vokasi resmi jenjang Diploma III untuk ahli statistik terapan BPS."
   },
   {
     "id": 82,
