@@ -44,6 +44,11 @@ Aplikasi web kuis interaktif ultra-ringan berbasis scan QR Code ala Kahoot yang 
 ## 📝 Changelog
 
 ### [2026-11-05]
+- **Deployment Live Server Berhasil (10.133.21.24:3000)**:
+  - Repositori resmi telah di-*push* ke GitHub: `https://github.com/muhshi/kuis-bps-stis.git`.
+  - Berhasil di-deploy dan berjalan via Docker Compose di server `bpsdemak@10.133.21.24` (`apps/kuis-bps-stis`).
+  - Menggunakan **Port 3000** (bebas konflik dengan layanan server lain) dengan status kontainer `healthy`.
+  - Mode database menggunakan **Local Persistent Storage / SQLite** mandiri yang terisolasi dengan data persisten di volume `./data`.
 - **Persiapan Deployment Docker & Produksi**:
   - Menyediakan berkas kontainerisasi siap pakai: `Dockerfile` (Node.js 20 Alpine dengan *layer caching* & *healthcheck*), `docker-compose.yml`, `.dockerignore`, dan `.env.example`.
   - Mendukung arsitektur **Dual-Mode Database**: Standalone Local Persistent File Mode (Zero-setup untuk kemudahan pameran) dan PostgreSQL Driver Mode (jika dihubungkan ke server database).
