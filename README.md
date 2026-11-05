@@ -44,6 +44,9 @@ Aplikasi web kuis interaktif ultra-ringan berbasis scan QR Code ala Kahoot yang 
 ## 📝 Changelog
 
 ### [2026-11-05]
+- **Persiapan Deployment Docker & Produksi**:
+  - Menyediakan berkas kontainerisasi siap pakai: `Dockerfile` (Node.js 20 Alpine dengan *layer caching* & *healthcheck*), `docker-compose.yml`, `.dockerignore`, dan `.env.example`.
+  - Mendukung arsitektur **Dual-Mode Database**: Standalone Local Persistent File Mode (Zero-setup untuk kemudahan pameran) dan PostgreSQL Driver Mode (jika dihubungkan ke server database).
 - **Pembesaran Tampilan QR Code Layar TV**:
   - Memperbesar bingkai kode QR di layar TV monitor booth dari 92px menjadi **130px** (+41% lebih besar dengan resolusi vektor SVG tajam), sehingga pengunjung booth dapat memindai (*scan*) QR Code secara instan dari jarak 2–3 meter.
 - **Anti-Spam & Keadilan Peringkat (Eliminasi Tombol Ganti Peserta)**:

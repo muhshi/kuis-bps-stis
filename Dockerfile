@@ -1,28 +1,27 @@
-# Multi-stage lightweight Node.js Dockerfile (< 75MB)
-FROM node:20-alpine AS builder
-
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --omit=dev
-
 FROM node:20-alpine
 
 WORKDIR /app
+
+# Install production dependencies
+COPY package*.json ./
+RUN npm ci --only=production
+
+# Copy application source code
+COPY . .
+
+# Ensure data directory exists
+RUN mkdir -p /app/src/data
+
+# Expose web port
+EXPOSE 3000
+
+# Environment variables
 ENV NODE_ENV=production
 ENV PORT=3000
 
-# Copy node modules from builder
-COPY --from=builder /app/node_modules ./node_modules
-COPY package*.json ./
-COPY src/ ./src/
-COPY public/ ./public/
-
-# Security: run as non-root node user
-USER node
-
-EXPOSE 3000
-
+# Health check
 HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
   CMD wget --no-verbose --tries=1 --spider http://localhost:3000/api/health || exit 1
 
-CMD ["node", "src/server.js"]
+# Start command
+CMD ["npm", "start"]
