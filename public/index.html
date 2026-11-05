@@ -9,11 +9,18 @@
 <body>
   <div id="app-container">
 
+    <!-- TOP NAVIGATION (BRAND + THEME TOGGLE) -->
+    <div class="app-top-nav">
+      <div class="header-badge">
+        <span>🏛️ BPS × STIS</span>
+      </div>
+      <button id="btn-theme-toggle" class="theme-toggle-btn" title="Ganti Mode Terang/Gelap">
+        🌙
+      </button>
+    </div>
+
     <!-- SCREEN 1: REGISTRATION -->
     <div id="screen-reg" class="screen">
-      <div class="header-badge">
-        <span>🏛️ BPS & Politeknik Statistika STIS</span>
-      </div>
       <h1>Tantangan Kuis Data & Logika</h1>
       <p class="subtitle">Mainkan di HP-mu! Selesaikan 3 kategori seru, kumpulkan skor maksimal, dan rebut posisi puncak di layar booth!</p>
 
@@ -43,21 +50,18 @@
 
     <!-- SCREEN 2: CHOOSE CATEGORY -->
     <div id="screen-category" class="screen hidden">
-      <div class="header-badge">
-        <span>🎯 Pilih Kategori Kuis</span>
-      </div>
       <h1 id="cat-welcome-title">Halo, Peserta!</h1>
       <p class="subtitle" id="cat-welcome-sub">Pilih salah satu kategori. Kamu bisa kerjakan ketiganya secara bergantian!</p>
 
       <!-- Cumulative Score Banner -->
-      <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 14px; padding: 12px 14px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;">
+      <div style="background: var(--inner-card); border: 1.5px solid var(--inner-border); border-radius: 14px; padding: 12px 14px; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center;">
         <div>
-          <div style="font-size: 0.76rem; color: #94a3b8; font-weight: 700;">TOTAL AKUMULASI SKOR</div>
-          <div style="font-size: 1.35rem; font-weight: 900; color: #fbbf24;" id="banner-grand-score">0 Poin</div>
+          <div style="font-size: 0.74rem; color: var(--text-muted); font-weight: 700;">TOTAL AKUMULASI SKOR</div>
+          <div style="font-size: 1.35rem; font-weight: 900; color: #d97706;" id="banner-grand-score">0 Poin</div>
         </div>
         <div style="text-align: right;">
-          <div style="font-size: 0.76rem; color: #94a3b8; font-weight: 700;">PROGRES</div>
-          <div style="font-size: 1rem; font-weight: 800; color: #38bdf8;" id="banner-progress">0/3 Selesai</div>
+          <div style="font-size: 0.74rem; color: var(--text-muted); font-weight: 700;">PROGRES</div>
+          <div style="font-size: 0.95rem; font-weight: 800; color: #0284c7;" id="banner-progress">0/3 Selesai</div>
         </div>
       </div>
 
@@ -91,6 +95,11 @@
         </div>
       </div>
 
+      <!-- Leaderboard Button -->
+      <button id="btn-view-lb-from-cat" class="btn-outline-gold">
+        🏆 Cek Papan Peringkat (Leaderboard)
+      </button>
+
       <button id="btn-logout" class="btn-secondary" style="margin-top: 8px;">
         Ganti Nama / Peserta Lain
       </button>
@@ -110,7 +119,7 @@
         <div class="timer-bar-fill" id="timer-bar"></div>
       </div>
 
-      <div style="font-size: 0.82rem; color: #94a3b8; font-weight: 700; margin-bottom: 6px;" id="q-counter">
+      <div style="font-size: 0.82rem; color: var(--text-muted); font-weight: 700; margin-bottom: 6px;" id="q-counter">
         Soal 1 dari 10
       </div>
 
@@ -158,9 +167,9 @@
     <div id="screen-result" class="screen hidden">
       <div class="result-header">
         <div class="trophy-icon" id="res-trophy">🏆</div>
-        <div style="font-size: 0.88rem; color: #94a3b8; font-weight: 700;" id="res-cat-label">HASIL KATEGORI LOGIKA</div>
-        <h2 style="font-size: 2.2rem; font-weight: 900; color: #fff; margin: 4px 0;" id="res-score">12,500</h2>
-        <div style="font-size: 0.85rem; color: #38bdf8;" id="res-name-school">Rian Dwi • SMAN 1 Semarang</div>
+        <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 700;" id="res-cat-label">HASIL KATEGORI LOGIKA</div>
+        <h2 style="font-size: 2.2rem; font-weight: 900; margin: 4px 0;" id="res-score">12,500</h2>
+        <div style="font-size: 0.85rem; color: #0284c7; font-weight: 600;" id="res-name-school">Rian Dwi • SMAN 1 Semarang</div>
       </div>
 
       <div class="badge-card">
@@ -186,18 +195,49 @@
       </div>
 
       <!-- Action Button: Next Category or All Finished -->
-      <button id="btn-next-category" class="btn-primary" style="margin-bottom: 8px;">
-        🔥 Tantang Kategori Lainnya (Tambah Skor!)
+      <button id="btn-next-category" class="btn-primary" style="margin-bottom: 6px;">
+        🔥 Tantang Kategori Lain (Tambah Skor!)
       </button>
 
-      <div style="background: rgba(2, 132, 199, 0.15); border: 1px dashed rgba(56, 189, 248, 0.35); border-radius: 14px; padding: 12px; margin-bottom: 12px; text-align: center;">
-        <div style="font-size: 0.85rem; color: #38bdf8; font-weight: 700;">📺 Cek Namamu di Layar TV Booth!</div>
-        <div style="font-size: 0.78rem; color: #cbd5e1; margin-top: 2px;">Skormu terupdate secara realtime di papan leaderboard pameran.</div>
-      </div>
+      <!-- Leaderboard Button on Result Screen -->
+      <button id="btn-view-lb-from-res" class="btn-outline-gold">
+        🏆 Cek Posisi Peringkatmu (Leaderboard)
+      </button>
 
       <button id="btn-back-to-menu" class="btn-secondary">
         📋 Kembali ke Menu Kategori
       </button>
+    </div>
+
+    <!-- MODAL / OVERLAY: MOBILE LEADERBOARD -->
+    <div id="modal-leaderboard" class="modal-overlay hidden">
+      <div class="modal-header">
+        <div>
+          <h2 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main);">🏆 Live Leaderboard</h2>
+          <div style="font-size: 0.78rem; color: var(--text-muted);">Papan Juara Pameran BPS & STIS</div>
+        </div>
+        <button id="btn-close-modal-lb" class="modal-close-btn">&times;</button>
+      </div>
+
+      <!-- Leaderboard Category Filter in Modal -->
+      <div style="display: flex; gap: 6px; margin-bottom: 12px; overflow-x: auto; padding-bottom: 4px;">
+        <button class="mobile-cat-pill active" data-cat="all" style="padding: 5px 10px; border-radius: 8px; border: 1px solid var(--inner-border); background: #0284c7; color: #fff; font-size: 0.78rem; font-weight: 700; cursor: pointer; white-space: nowrap;">👑 Juara Umum</button>
+        <button class="mobile-cat-pill" data-cat="logika" style="padding: 5px 10px; border-radius: 8px; border: 1px solid var(--inner-border); background: var(--inner-card); color: var(--text-main); font-size: 0.78rem; font-weight: 700; cursor: pointer; white-space: nowrap;">⚡ Logika</button>
+        <button class="mobile-cat-pill" data-cat="data" style="padding: 5px 10px; border-radius: 8px; border: 1px solid var(--inner-border); background: var(--inner-card); color: var(--text-main); font-size: 0.78rem; font-weight: 700; cursor: pointer; white-space: nowrap;">📊 Data</button>
+        <button class="mobile-cat-pill" data-cat="stis" style="padding: 5px 10px; border-radius: 8px; border: 1px solid var(--inner-border); background: var(--inner-card); color: var(--text-main); font-size: 0.78rem; font-weight: 700; cursor: pointer; white-space: nowrap;">🎓 STIS</button>
+      </div>
+
+      <!-- List Container -->
+      <div id="mobile-lb-list" style="flex: 1; overflow-y: auto; margin-bottom: 12px;">
+        <div style="text-align: center; padding: 24px; color: var(--text-muted);">Memuat peringkat...</div>
+      </div>
+
+      <!-- Link to Fullscreen TV -->
+      <div style="text-align: center; border-top: 1px solid var(--inner-border); padding-top: 10px;">
+        <a href="/tv.html" target="_blank" style="font-size: 0.82rem; color: #0284c7; font-weight: 700; text-decoration: none;">
+          📺 Buka Tampilan Layar Penuh TV (tv.html) ➔
+        </a>
+      </div>
     </div>
 
   </div>

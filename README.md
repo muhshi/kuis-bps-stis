@@ -4,80 +4,27 @@ Aplikasi web kuis interaktif ultra-ringan berbasis scan QR Code ala Kahoot yang 
 
 ---
 
-## 🌟 Alur Kuis di Smartphone Peserta
+## 🌟 Fitur Unggulan Terbaru
 
-1. **Registrasi Cepat (1 Kali Saja):**
-   - Siswa scan QR code dengan HP masing-masing ➔ Isi Nama, Asal Sekolah, dan No. WA.
-2. **Menu Pemilihan Kategori Kuis:**
-   - Siswa bebas memilih salah satu dari 3 kategori tantangan:
-     * ⚡ **The Logic Master:** 10 soal teka-teki logika cepat, pola angka, dan asah nalar.
-     * 📊 **Detektif Data Indonesia:** 10 soal fakta unik sensus, demografi Gen Z, dan data BPS.
-     * 🎓 **Pejuang STIS:** 10 soal seputar kuliah ikatan dinas gratis, prodi D-III/D-IV, dan SPMB.
-3. **Penyelesaian Bertahap (Non-Stop):**
-   - Setelah menyelesaikan 10 soal di satu kategori, siswa melihat skor kategori tersebut dan total akumulasi poinnya.
-   - Kategori yang sudah selesai akan diberi tanda **✅ SELESAI** dan dikunci (tidak bisa diulang).
-   - Siswa bisa langsung menekan tombol **"🔥 Tantang Kategori Lainnya"** untuk melanjutkan ke kategori yang belum dikerjakan.
-   - Jika ketiga kategori telah selesai, siswa dinyatakan tuntas dan skormu tercatat di **Grand Leaderboard**.
-4. **Offline-Tolerant:** 10 soal diunduh langsung di memori HP sehingga kuis berjalan lancar tanpa terpengaruh sinyal pameran yang padat.
-
----
-
-## 📺 Layar TV Dashboard (Booth Display)
-
-* **Multi-Tab Leaderboard:**
-  - 👑 **Juara Umum (Akumulasi):** Peringkat siswa berdasarkan total poin dari seluruh kategori yang diselesaikan.
-  - ⚡ **The Logic Master:** Peringkat khusus kategori Logika.
-  - 📊 **Detektif Data BPS:** Peringkat khusus kategori Fakta Data.
-  - 🎓 **Pejuang STIS:** Peringkat khusus kategori Politeknik Statistika STIS.
-* **Auto-Cycle Tab:** Layar TV otomatis berganti kategori setiap 10 detik agar suasana booth terus dinamis dan hidup.
-* **School Battle:** Klasemen Top 5 Sekolah Teraktif di pameran.
-* **Screen Wake Lock API:** Layar TV tidak akan sleep/mati otomatis.
-* **In-Memory Cache (2,5s):** Polling TV tidak membebani database PostgreSQL.
+1. **Light / Dark Mode (Default Light Mode / Sesuai Device):**
+   - Tampilan default otomatis bersih dan cerah (Light Mode), atau otomatis menyesuaikan tema perangkat siswa (`prefers-color-scheme`).
+   - Tersedia tombol toggle (☀️ / 🌙) di pojok atas agar peserta bisa beralih mode kapan saja sesuai kenyamanan mata mereka.
+2. **Cek Leaderboard Langsung di HP Siswa:**
+   - Di menu kategori dan di layar hasil kuis, siswa dapat langsung menekan tombol **"🏆 Cek Papan Peringkat (Leaderboard)"**.
+   - Menampilkan modal interaktif berisi Top 10 Juara Umum & per kategori, dengan baris khusus bertanda **⭐ (Kamu)** untuk mempermudah siswa melihat posisi mereka.
+   - Dilengkapi tautan langsung menuju `/tv.html` untuk tampilan layar penuh monitor booth.
+3. **Multi-Kategori Mandiri (Non-Stop):**
+   - Siswa bebas memilih salah satu dari 3 kategori tantangan (Logika, Data, STIS).
+   - Kategori yang sudah selesai akan diberi tanda **✅ SELESAI** dan dikunci agar tidak bisa diulang.
+   - Siswa dapat melanjutkan ke kategori berikutnya untuk mendongkrak skor kumulatif menuju posisi puncak Juara Umum!
+4. **Offline-Tolerant:** 10 soal diunduh langsung di awal sesi sehingga game loop berjalan 100% mulus di jaringan pameran yang padat.
+5. **Screen Wake Lock & Auto-Cycle di TV:** Layar TV booth otomatis berganti kategori setiap 10 detik dan tidak akan sleep/mati otomatis.
 
 ---
 
-## 🚀 Panduan Menjalankan & Deploy
+## 📺 Akses & URL untuk Operator Booth
 
-### A. Menjalankan di Server Ubuntu dengan Docker
-
-1. **Clone repository dan masuk ke folder:**
-   ```bash
-   cd /path/to/kuis
-   ```
-
-2. **Siapkan konfigurasi `.env`:**
-   ```bash
-   cp .env.example .env
-   nano .env
-   ```
-   *Sesuaikan host, user, dan password PostgreSQL yang sudah aktif di server Anda.*
-
-3. **Inisialisasi Database (Opsional untuk PostgreSQL host):**
-   ```bash
-   psql -h localhost -U postgres -d kuis_stis -f src/db/schema.sql
-   ```
-   *(Aplikasi memiliki mode in-memory otomatis jika database belum terhubung).*
-
-4. **Jalankan Container Docker:**
-   ```bash
-   docker compose up -d --build
-   ```
-
----
-
-### B. Menjalankan Lokal (Development)
-
-```bash
-npm install
-npm test    # Menjalankan 7 automated unit test
-npm start   # Menjalankan server di port 3000
-```
-
----
-
-## 📱 Akses & URL untuk Operator Booth
-
-* **Web Kuis Siswa (Untuk QR Code Umum):**  
+* **Web Kuis Siswa (Untuk QR Code Booth):**  
   `http://<IP-SERVER-ATAU-DOMAIN>/`
 * **QR Code Langsung Kategori Tertentu (Opsional jika booth punya 3 banner terpisah):**  
   * Logika: `http://<IP-SERVER-ATAU-DOMAIN>/?kategori=logika`  
@@ -93,6 +40,8 @@ npm start   # Menjalankan server di port 3000
 ## 📝 Changelog
 
 ### [2026-11-05]
+- **Fitur Light & Dark Mode**: Implementasi tema default Light Mode yang ramah mata dengan auto-detection `prefers-color-scheme` dan tombol toggle (☀️ / 🌙) yang persisten di `localStorage`.
+- **Fitur Mobile Leaderboard Modal**: Penambahan tombol "🏆 Cek Papan Peringkat" di layar HP siswa (pada menu kategori & layar hasil) lengkap dengan indikator posisi siswa ⭐ (Kamu) dan filter kategori.
 - **Fitur Multi-Kategori per Siswa**: Siswa mengisi data 1 kali di HP sendiri, lalu dapat menyelesaikan 3 kategori kuis (Logika, Data, STIS) secara berurutan tanpa antre.
 - **Kunci Kategori Selesai**: Kategori yang sudah selesai dikerjakan otomatis dikunci dan menampilkan centang ✅ SELESAI serta skor yang didapat.
 - **Akumulasi Skor Grand Leaderboard**: Sistem menghitung total akumulasi skor dari semua kategori yang diselesaikan untuk menentukan Juara Umum pameran.

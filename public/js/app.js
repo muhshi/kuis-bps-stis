@@ -23,6 +23,9 @@ const screenReg = document.getElementById('screen-reg');
 const screenCategory = document.getElementById('screen-category');
 const screenQuiz = document.getElementById('screen-quiz');
 const screenResult = document.getElementById('screen-result');
+const modalLeaderboard = document.getElementById('modal-leaderboard');
+
+const btnThemeToggle = document.getElementById('btn-theme-toggle');
 
 const formRegister = document.getElementById('form-register');
 const inputNama = document.getElementById('input-nama');
@@ -40,6 +43,7 @@ const badgeCatLogika = document.getElementById('badge-cat-logika');
 const badgeCatData = document.getElementById('badge-cat-data');
 const badgeCatStis = document.getElementById('badge-cat-stis');
 const btnLogout = document.getElementById('btn-logout');
+const btnViewLbFromCat = document.getElementById('btn-view-lb-from-cat');
 
 // Quiz Screen DOM
 const catPill = document.getElementById('cat-pill');
@@ -72,15 +76,58 @@ const offlineRetryBox = document.getElementById('offline-retry-box');
 const btnRetrySubmit = document.getElementById('btn-retry-submit');
 const btnNextCategory = document.getElementById('btn-next-category');
 const btnBackToMenu = document.getElementById('btn-back-to-menu');
+const btnViewLbFromRes = document.getElementById('btn-view-lb-from-res');
 
-// Initialize app on load
+// Mobile Leaderboard Modal DOM
+const btnCloseModalLb = document.getElementById('btn-close-modal-lb');
+const mobileLbList = document.getElementById('mobile-lb-list');
+const mobileCatPills = document.querySelectorAll('.mobile-cat-pill');
+let currentModalCat = 'all';
+
+// ==========================================
+// 1. THEME MANAGEMENT (Light / Dark Mode)
+// ==========================================
+function initTheme() {
+  const savedTheme = localStorage.getItem('bps_theme');
+  const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  // Default light mode unless user saved dark or system prefers dark
+  if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+    applyTheme('dark');
+  } else {
+    applyTheme('light');
+  }
+}
+
+function applyTheme(theme) {
+  if (theme === 'dark') {
+    document.body.classList.add('dark-mode');
+    btnThemeToggle.textContent = '☀️';
+    btnThemeToggle.title = 'Beralih ke Mode Terang';
+  } else {
+    document.body.classList.remove('dark-mode');
+    btnThemeToggle.textContent = '🌙';
+    btnThemeToggle.title = 'Beralih ke Mode Gelap';
+  }
+  localStorage.setItem('bps_theme', theme);
+}
+
+btnThemeToggle.addEventListener('click', () => {
+  const isDark = document.body.classList.contains('dark-mode');
+  applyTheme(isDark ? 'light' : 'dark');
+});
+
+// Initialize on load
+initTheme();
 window.addEventListener('DOMContentLoaded', () => {
   if (state.participantId && state.participant) {
     showCategoryScreen();
   }
 });
 
-// 1. REGISTRATION HANDLER
+// ==========================================
+// 2. REGISTRATION HANDLER
+// ==========================================
 formRegister.addEventListener('submit', async (e) => {
   e.preventDefault();
   window.soundFX.unlock();
@@ -112,10 +159,8 @@ formRegister.addEventListener('submit', async (e) => {
     localStorage.setItem('bps_participant_info', JSON.stringify(state.participant));
 
     if (preselectedCategory) {
-      // Direct jump to preselected category from QR Code
       startQuizWithData(json.data);
     } else {
-      // Show Category Screen
       await refreshParticipantStatus();
       screenReg.classList.add('hidden');
       screenCategory.classList.remove('hidden');
@@ -128,7 +173,9 @@ formRegister.addEventListener('submit', async (e) => {
   }
 });
 
-// 2. CATEGORY SCREEN LOGIC
+// ==========================================
+// 3. CATEGORY SCREEN LOGIC
+// ==========================================
 async function showCategoryScreen() {
   screenReg.classList.add('hidden');
   screenQuiz.classList.add('hidden');
@@ -163,11 +210,8 @@ function renderCategoryScreen(status) {
   const completedMap = new Map();
   status.completedCategories.forEach(c => completedMap.set(c.kategori_kode, c.total_score));
 
-  // Update card 1 (Logika)
   updateCatCard('logika', completedMap.get('logika'), badgeCatLogika);
-  // Update card 2 (Data)
   updateCatCard('data', completedMap.get('data'), badgeCatData);
-  // Update card 3 (STIS)
   updateCatCard('stis', completedMap.get('stis'), badgeCatStis);
 }
 
@@ -184,7 +228,6 @@ function updateCatCard(catCode, score, badgeEl) {
   }
 }
 
-// Click on category cards
 catCards.forEach(card => {
   card.addEventListener('click', async () => {
     window.soundFX.unlock();
@@ -228,7 +271,9 @@ btnLogout.addEventListener('click', () => {
   }
 });
 
-// 3. QUIZ GAMEPLAY
+// ==========================================
+// 4. QUIZ GAMEPLAY
+// ==========================================
 function startQuizWithData(data) {
   state.sessionId = data.sessionId;
   state.currentCategory = data.kategoriKode;
@@ -298,7 +343,7 @@ function renderTimer(remainingMs) {
   timerBar.style.width = `${percent}%`;
 
   if (percent > 45) {
-    timerBar.style.backgroundColor = '#38bdf8';
+    timerBar.style.backgroundColor = '#0284c7';
   } else if (percent > 20) {
     timerBar.style.backgroundColor = '#f59e0b';
   } else {
@@ -359,7 +404,9 @@ btnNextQuestion.addEventListener('click', () => {
   startCurrentQuestion();
 });
 
-// 4. FINISH CATEGORY & SUBMIT
+// ==========================================
+// 5. FINISH CATEGORY & SUBMIT
+// ==========================================
 async function finishQuizGame() {
   screenQuiz.classList.add('hidden');
   screenResult.classList.remove('hidden');
@@ -399,7 +446,6 @@ async function submitFinalResult() {
     resCorrect.textContent = `${result.correctCount} / ${result.totalQuestions}`;
     resCumulative.textContent = `${(result.participantStatus.totalScore || result.categoryScore).toLocaleString('id-ID')} Poin`;
 
-    // Check remaining categories
     const remainingCount = result.participantStatus.availableCategories.length;
     if (remainingCount > 0) {
       btnNextCategory.textContent = `🔥 Tantang Kategori Lain (${remainingCount} Tersisa)`;
@@ -430,3 +476,84 @@ btnNextCategory.addEventListener('click', () => {
 btnBackToMenu.addEventListener('click', () => {
   showCategoryScreen();
 });
+
+// ==========================================
+// 6. MOBILE LEADERBOARD MODAL
+// ==========================================
+btnViewLbFromCat.addEventListener('click', () => openLeaderboardModal('all'));
+btnViewLbFromRes.addEventListener('click', () => openLeaderboardModal('all'));
+btnCloseModalLb.addEventListener('click', () => {
+  modalLeaderboard.classList.add('hidden');
+});
+
+mobileCatPills.forEach(pill => {
+  pill.addEventListener('click', () => {
+    currentModalCat = pill.getAttribute('data-cat');
+    mobileCatPills.forEach(p => {
+      if (p.getAttribute('data-cat') === currentModalCat) {
+        p.style.background = '#0284c7';
+        p.style.color = '#fff';
+      } else {
+        p.style.background = 'var(--inner-card)';
+        p.style.color = 'var(--text-main)';
+      }
+    });
+    fetchMobileLeaderboard(currentModalCat);
+  });
+});
+
+async function openLeaderboardModal(cat = 'all') {
+  currentModalCat = cat;
+  modalLeaderboard.classList.remove('hidden');
+  await fetchMobileLeaderboard(currentModalCat);
+}
+
+async function fetchMobileLeaderboard(cat) {
+  mobileLbList.innerHTML = `<div style="text-align: center; padding: 24px; color: var(--text-muted);">Memuat peringkat...</div>`;
+
+  try {
+    const res = await fetch(`/api/leaderboard?kategori=${cat}&t=${Date.now()}`);
+    const json = await res.json();
+    if (!json.success) throw new Error(json.error);
+
+    const players = json.data.topPlayers || [];
+    if (players.length === 0) {
+      mobileLbList.innerHTML = `<div style="text-align: center; padding: 24px; color: var(--text-muted);">Belum ada peserta di kategori ini.</div>`;
+      return;
+    }
+
+    mobileLbList.innerHTML = players.map(p => {
+      const isMe = state.participant && p.nama.toLowerCase() === state.participant.nama.toLowerCase();
+      const medal = p.rank === 1 ? '🥇' : p.rank === 2 ? '🥈' : p.rank === 3 ? '🥉' : `#${p.rank}`;
+
+      return `
+        <div class="mobile-lb-row ${isMe ? 'my-rank' : ''}">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="font-weight: 900; font-size: 1rem; min-width: 28px;">${medal}</div>
+            <div>
+              <div style="font-weight: 700; color: var(--text-main);">${escapeHtml(p.nama)} ${isMe ? '⭐ (Kamu)' : ''}</div>
+              <div style="font-size: 0.76rem; color: var(--text-muted);">${escapeHtml(p.sekolah)} • ${p.badgeTitle || ''}</div>
+            </div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-weight: 900; color: #0284c7; font-size: 0.98rem;">${p.totalScore.toLocaleString('id-ID')}</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted);">${p.totalTimeSeconds}s</div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  } catch (err) {
+    mobileLbList.innerHTML = `<div style="text-align: center; padding: 24px; color: #ef4444;">Gagal memuat: ${err.message}</div>`;
+  }
+}
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return str.replace(/[&<>"']/g, m => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  }[m]));
+}
