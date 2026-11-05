@@ -21,7 +21,7 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  padding: 24px 32px;
+  padding: 20px 28px;
   display: flex;
   flex-direction: column;
 }
@@ -31,29 +31,29 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 16px;
+  padding-bottom: 12px;
 }
 
 .tv-brand {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 
 .tv-logo-badge {
   background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
   color: #fff;
   font-weight: 900;
-  font-size: 1.4rem;
-  padding: 10px 18px;
-  border-radius: 14px;
+  font-size: 1.3rem;
+  padding: 8px 16px;
+  border-radius: 12px;
   box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
 }
 
 .tv-title-box h1 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 900;
   letter-spacing: -0.5px;
   background: linear-gradient(90deg, #38bdf8, #818cf8, #f472b6);
@@ -62,7 +62,7 @@ body {
 }
 
 .tv-title-box p {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #94a3b8;
   font-weight: 600;
 }
@@ -70,7 +70,7 @@ body {
 .tv-meta {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
 }
 
 .live-pill {
@@ -80,10 +80,10 @@ body {
   background: rgba(239, 68, 68, 0.2);
   border: 1px solid rgba(239, 68, 68, 0.4);
   color: #f87171;
-  padding: 6px 14px;
+  padding: 6px 12px;
   border-radius: 999px;
   font-weight: 800;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .live-pill.reconnecting {
@@ -93,8 +93,8 @@ body {
 }
 
 .live-dot {
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   background: #ef4444;
   border-radius: 50%;
   box-shadow: 0 0 10px #ef4444;
@@ -108,19 +108,45 @@ body {
 }
 
 .tv-clock {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: #cbd5e1;
   font-variant-numeric: tabular-nums;
 }
 
+/* Category Switcher Tabs */
+.tv-tabs-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.tv-tab {
+  padding: 8px 18px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  font-size: 0.92rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tv-tab.active {
+  background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+  color: #fff;
+  border-color: #38bdf8;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.35);
+}
+
 /* TV Main Content Grid */
 .tv-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 24px;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 20px;
   flex: 1;
-  min-height: 0; /* important for flex scrolling */
+  min-height: 0;
 }
 
 /* Card Styles */
@@ -129,7 +155,7 @@ body {
   backdrop-filter: blur(16px);
   border: 1px solid var(--border-tv);
   border-radius: 20px;
-  padding: 20px;
+  padding: 18px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
@@ -139,13 +165,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding-bottom: 10px;
+  padding-bottom: 8px;
 }
 
 .tv-card-header h2 {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 800;
   color: #e2e8f0;
 }
@@ -154,20 +180,20 @@ body {
 .leaderboard-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 7px;
   overflow-y: hidden;
   flex: 1;
 }
 
 .lb-row {
   display: grid;
-  grid-template-columns: 50px 1.4fr 1.2fr 100px 90px;
+  grid-template-columns: 46px 1.4fr 1.2fr 110px 85px;
   align-items: center;
-  padding: 10px 14px;
+  padding: 8px 12px;
   background: rgba(15, 23, 42, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 12px;
-  font-size: 1rem;
+  font-size: 0.96rem;
   transition: all 0.3s ease;
 }
 
@@ -187,7 +213,7 @@ body {
 }
 
 .lb-rank {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 900;
   color: #94a3b8;
 }
@@ -206,7 +232,7 @@ body {
 
 .lb-school {
   color: #94a3b8;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -216,20 +242,20 @@ body {
   font-weight: 900;
   color: #38bdf8;
   text-align: right;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
 }
 
 .lb-time {
   color: #64748b;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   text-align: right;
 }
 
-/* Right Column Cards */
+/* Right Column */
 .right-col {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
 }
 
 .school-list {
@@ -251,18 +277,18 @@ body {
 
 .school-name {
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.96rem;
   color: #f1f5f9;
 }
 
 .school-meta {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: #94a3b8;
 }
 
 .school-score {
   font-weight: 900;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: #10b981;
 }
 
@@ -274,36 +300,36 @@ body {
   background: rgba(15, 23, 42, 0.5);
   border: 1px dashed rgba(56, 189, 248, 0.3);
   border-radius: 16px;
-  padding: 16px;
+  padding: 14px 16px;
 }
 
 .qr-box {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 .qr-mock {
-  width: 76px;
-  height: 76px;
+  width: 70px;
+  height: 70px;
   background: #fff;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #000;
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 900;
 }
 
 .qr-desc h4 {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 800;
   color: #38bdf8;
 }
 
 .qr-desc p {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: #94a3b8;
 }
 
@@ -311,19 +337,19 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 4px;
+  gap: 2px;
   border-left: 1px solid rgba(255, 255, 255, 0.1);
   padding-left: 16px;
 }
 
 .stats-number {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   font-weight: 900;
   color: #fbbf24;
 }
 
 .stats-label {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: #94a3b8;
   font-weight: 600;
 }

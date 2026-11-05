@@ -15,9 +15,8 @@ const byCategory = {
   stis: questionsData.filter(q => q.kategori_kode === 'stis')
 };
 
-// In-memory cache for TV Leaderboard snapshot
-let cachedLeaderboard = null;
-let cacheExpiresAt = 0;
+// In-memory cache for TV Leaderboard snapshots (per category and 'all')
+const cachedLeaderboards = new Map();
 const CACHE_TTL_MS = 2500; // 2.5 seconds cache
 
 function getRandomItems(array, count) {
@@ -25,14 +24,9 @@ function getRandomItems(array, count) {
   return shuffled.slice(0, count);
 }
 
-function generate10Questions() {
-  // 4 Logika (sebagai hook seru), 3 Data BPS, 3 Info STIS
-  const qLogika = getRandomItems(byCategory.logika, 4);
-  const qData = getRandomItems(byCategory.data, 3);
-  const qStis = getRandomItems(byCategory.stis, 3);
-
-  const combined = [...qLogika, ...qData, ...qStis];
-  return combined;
+function generate10QuestionsForCategory(categoryCode) {
+  const pool = byCategory[categoryCode] || byCategory['logika'];
+  return getRandomItems(pool, 10);
 }
 
 function calculateQuestionScore(isCorrect, timeSpentMs, maxTimeMs = 15000) {
@@ -44,7 +38,7 @@ function calculateQuestionScore(isCorrect, timeSpentMs, maxTimeMs = 15000) {
   return baseScore + speedBonus;
 }
 
-function determineBadge(totalScore, correctCount) {
+function determineBadge(totalScore, correctCount, categoryCode) {
   if (totalScore >= 11000 || correctCount >= 9) {
     return {
       title: 'Grand Master Statistika',
@@ -76,57 +70,121 @@ function determineBadge(totalScore, correctCount) {
   }
 }
 
-async function startSession({ nama, sekolah, wa }) {
-  const namaClean = sanitizeNickname(nama);
-  const sekolahClean = normalizeSchoolName(sekolah);
-  const waClean = (wa || '').trim();
-
-  // 1. Create participant
+async function getParticipantStatus(participantId) {
   const partRes = await db.query(
-    `INSERT INTO participants (nama, nama_clean, sekolah, sekolah_clean, wa)
-     VALUES ($1, $2, $3, $4, $5)
-     RETURNING id, nama_clean, sekolah_clean`,
-    [nama.trim(), namaClean, sekolah.trim(), sekolahClean, waClean]
+    `SELECT id, nama_clean, sekolah_clean FROM participants WHERE id = $1`,
+    [participantId]
   );
-  const participant = partRes.rows[0];
+  if (partRes.rows.length === 0) return null;
 
-  // 2. Select 10 questions
-  const selectedQuestions = generate10Questions();
+  const part = partRes.rows[0];
+  const sessRes = await db.query(
+    `SELECT s.kategori_kode, s.total_score, s.finished_at 
+     FROM quiz_sessions s 
+     WHERE s.participant_id = $1 AND s.finished_at IS NOT NULL`,
+    [participantId]
+  );
+
+  const completed = sessRes.rows.map(r => ({
+    kategori_kode: r.kategori_kode,
+    total_score: r.total_score,
+    finished_at: r.finished_at
+  }));
+
+  const allCategories = ['logika', 'data', 'stis'];
+  const completedCodes = new Set(completed.map(c => c.kategori_kode));
+  const available = allCategories.filter(c => !completedCodes.has(c));
+  const totalScore = completed.reduce((sum, item) => sum + item.total_score, 0);
+
+  return {
+    participant: {
+      id: part.id,
+      nama: part.nama_clean,
+      sekolah: part.sekolah_clean
+    },
+    completedCategories: completed,
+    availableCategories: available,
+    totalScore,
+    isAllCompleted: available.length === 0
+  };
+}
+
+async function startSession({ participantId, nama, sekolah, wa, kategoriKode }) {
+  const cat = ['logika', 'data', 'stis'].includes(kategoriKode) ? kategoriKode : 'logika';
+  let participant;
+
+  if (participantId) {
+    const partRes = await db.query(
+      `SELECT id, nama_clean, sekolah_clean FROM participants WHERE id = $1`,
+      [participantId]
+    );
+    if (partRes.rows.length > 0) {
+      participant = partRes.rows[0];
+    }
+  }
+
+  if (!participant) {
+    const namaClean = sanitizeNickname(nama);
+    const sekolahClean = normalizeSchoolName(sekolah);
+    const waClean = (wa || '').trim();
+
+    const partRes = await db.query(
+      `INSERT INTO participants (nama, nama_clean, sekolah, sekolah_clean, wa)
+       VALUES ($1, $2, $3, $4, $5)
+       RETURNING id, nama_clean, sekolah_clean`,
+      [nama.trim(), namaClean, sekolah.trim(), sekolahClean, waClean]
+    );
+    participant = partRes.rows[0];
+  }
+
+  // Check if participant already finished this category
+  const existingSess = await db.query(
+    `SELECT s.kategori_kode, s.total_score, s.finished_at 
+     FROM quiz_sessions s 
+     WHERE s.participant_id = $1 AND s.finished_at IS NOT NULL`,
+    [participant.id]
+  );
+
+  const completedCats = existingSess.rows.map(r => r.kategori_kode);
+  if (completedCats.includes(cat)) {
+    throw new Error(`Kategori ${cat.toUpperCase()} sudah pernah kamu kerjakan! Silakan pilih kategori lain.`);
+  }
+
+  // Generate 10 questions strictly for this category
+  const selectedQuestions = generate10QuestionsForCategory(cat);
   const questionIds = selectedQuestions.map(q => q.id);
   const sessionId = crypto.randomUUID();
 
-  // 3. Create session record
   await db.query(
-    `INSERT INTO quiz_sessions (id, participant_id, question_ids)
-     VALUES ($1, $2, $3)`,
-    [sessionId, participant.id, questionIds]
+    `INSERT INTO quiz_sessions (id, participant_id, kategori_kode, question_ids)
+     VALUES ($1, $2, $3, $4)`,
+    [sessionId, participant.id, cat, questionIds]
   );
 
-  // 4. Return questions WITHOUT the secret answer keys
   const safeQuestions = selectedQuestions.map(q => ({
     id: q.id,
     kategori_kode: q.kategori_kode,
     kategori_label: q.kategori_label,
     pertanyaan: q.pertanyaan,
-    opsi: q.opsi,
-    // Note: 'kunci' and 'penjelasan' are NOT sent to client during play to prevent inspecting
+    opsi: q.opsi
   }));
 
   return {
     sessionId,
+    participantId: participant.id,
     participant: {
       nama: participant.nama_clean,
       sekolah: participant.sekolah_clean
     },
+    kategoriKode: cat,
     totalQuestions: safeQuestions.length,
     questions: safeQuestions
   };
 }
 
 async function finishSession({ sessionId, answers = [] }) {
-  // 1. Fetch session
   const sessRes = await db.query(
-    `SELECT s.*, p.nama_clean, p.sekolah_clean 
+    `SELECT s.*, p.id as participant_id, p.nama_clean, p.sekolah_clean 
      FROM quiz_sessions s
      JOIN participants p ON p.id = s.participant_id
      WHERE s.id = $1`,
@@ -139,23 +197,20 @@ async function finishSession({ sessionId, answers = [] }) {
 
   const session = sessRes.rows[0];
   if (session.finished_at) {
-    // Sesi sudah pernah difinalisasi (idempotent response)
-    const badge = determineBadge(session.total_score, session.correct_count);
+    const status = await getParticipantStatus(session.participant_id);
+    const badge = determineBadge(session.total_score, session.correct_count, session.kategori_kode);
     return {
       sessionId,
-      finalScore: session.total_score,
+      participantId: session.participant_id,
+      categoryScore: session.total_score,
       correctCount: session.correct_count,
       totalQuestions: 10,
       totalTimeMs: session.total_time_ms,
       badge,
-      participant: {
-        nama: session.nama_clean,
-        sekolah: session.sekolah_clean
-      }
+      participantStatus: status
     };
   }
 
-  // 2. Evaluate answers
   let totalScore = 0;
   let totalTimeMs = 0;
   let correctCount = 0;
@@ -184,7 +239,6 @@ async function finishSession({ sessionId, answers = [] }) {
       penjelasan: q.penjelasan
     });
 
-    // Save individual answer record
     await db.query(
       `INSERT INTO quiz_answers (session_id, question_id, chosen_option, is_correct, time_spent_ms, score_awarded)
        VALUES ($1, $2, $3, $4, $5, $6)
@@ -193,9 +247,8 @@ async function finishSession({ sessionId, answers = [] }) {
     );
   }
 
-  const badge = determineBadge(totalScore, correctCount);
+  const badge = determineBadge(totalScore, correctCount, session.kategori_kode);
 
-  // 3. Update session
   await db.query(
     `UPDATE quiz_sessions 
      SET total_score = $1, total_time_ms = $2, correct_count = $3, badge_title = $4, finished_at = CURRENT_TIMESTAMP
@@ -203,55 +256,88 @@ async function finishSession({ sessionId, answers = [] }) {
     [totalScore, totalTimeMs, correctCount, badge.title, sessionId]
   );
 
-  // Invalidate leaderboard cache so TV updates immediately
-  cachedLeaderboard = null;
+  // Clear leaderboard caches
+  cachedLeaderboards.clear();
+
+  const status = await getParticipantStatus(session.participant_id);
 
   return {
     sessionId,
-    finalScore: totalScore,
+    participantId: session.participant_id,
+    kategoriKode: session.kategori_kode,
+    categoryScore: totalScore,
     correctCount,
     totalQuestions: 10,
     totalTimeMs,
     badge,
     feedback: feedbackList,
-    participant: {
-      nama: session.nama_clean,
-      sekolah: session.sekolah_clean
-    }
+    participantStatus: status
   };
 }
 
-async function getLeaderboardSnapshot() {
+async function getLeaderboardSnapshot(kategori = 'all') {
+  const cat = ['logika', 'data', 'stis'].includes(kategori) ? kategori : 'all';
   const now = Date.now();
-  if (cachedLeaderboard && now < cacheExpiresAt) {
-    return cachedLeaderboard;
+  const cached = cachedLeaderboards.get(cat);
+  if (cached && now < cached.expiresAt) {
+    return cached.data;
   }
 
-  // 1. Top 10 Participants
-  const topRes = await db.query(
-    `SELECT s.id as session_id, p.nama_clean as nama, p.sekolah_clean as sekolah, 
-            s.total_score, s.total_time_ms, s.correct_count, s.badge_title
-     FROM quiz_sessions s
-     JOIN participants p ON p.id = s.participant_id
-     WHERE s.finished_at IS NOT NULL
-     ORDER BY s.total_score DESC, s.total_time_ms ASC
-     LIMIT 10`
-  );
+  let topPlayers = [];
 
-  const topPlayers = topRes.rows.map((row, idx) => ({
-    rank: idx + 1,
-    nama: row.nama,
-    sekolah: row.sekolah,
-    totalScore: row.total_score,
-    totalTimeSeconds: (row.total_time_ms / 1000).toFixed(1),
-    correctCount: row.correct_count,
-    badgeTitle: row.badge_title
-  }));
+  if (cat === 'all') {
+    // Grand Leaderboard (Total Akumulasi Skor per Siswa)
+    const topRes = await db.query(
+      `SELECT p.id as participant_id, p.nama_clean as nama, p.sekolah_clean as sekolah,
+              SUM(s.total_score) as total_score,
+              SUM(s.total_time_ms) as total_time_ms,
+              SUM(s.correct_count) as correct_count,
+              COUNT(s.id) as categories_finished
+       FROM quiz_sessions s
+       JOIN participants p ON p.id = s.participant_id
+       WHERE s.finished_at IS NOT NULL
+       GROUP BY p.id, p.nama_clean, p.sekolah_clean
+       ORDER BY total_score DESC, total_time_ms ASC
+       LIMIT 10`
+    );
 
-  // 2. Top 5 Schools (Aggregated by highest score per unique participant to prevent spam)
+    topPlayers = topRes.rows.map((row, idx) => ({
+      rank: idx + 1,
+      nama: row.nama,
+      sekolah: row.sekolah,
+      totalScore: parseInt(row.total_score || 0, 10),
+      totalTimeSeconds: (parseInt(row.total_time_ms || 0, 10) / 1000).toFixed(1),
+      correctCount: parseInt(row.correct_count || 0, 10),
+      badgeTitle: `${row.categories_finished || 1}/3 Kategori Selesai`
+    }));
+  } else {
+    // Leaderboard Specific Category
+    const topRes = await db.query(
+      `SELECT s.id as session_id, p.nama_clean as nama, p.sekolah_clean as sekolah, 
+              s.total_score, s.total_time_ms, s.correct_count, s.badge_title
+       FROM quiz_sessions s
+       JOIN participants p ON p.id = s.participant_id
+       WHERE s.finished_at IS NOT NULL AND s.kategori_kode = $1
+       ORDER BY s.total_score DESC, s.total_time_ms ASC
+       LIMIT 10`,
+      [cat]
+    );
+
+    topPlayers = topRes.rows.map((row, idx) => ({
+      rank: idx + 1,
+      nama: row.nama,
+      sekolah: row.sekolah,
+      totalScore: row.total_score,
+      totalTimeSeconds: (row.total_time_ms / 1000).toFixed(1),
+      correctCount: row.correct_count,
+      badgeTitle: row.badge_title
+    }));
+  }
+
+  // Top 5 Schools
   const schoolRes = await db.query(
     `WITH best_student_scores AS (
-       SELECT p.id as participant_id, p.sekolah_clean, MAX(s.total_score) as best_score
+       SELECT p.id as participant_id, p.sekolah_clean, SUM(s.total_score) as best_score
        FROM quiz_sessions s
        JOIN participants p ON p.id = s.participant_id
        WHERE s.finished_at IS NOT NULL
@@ -275,17 +361,17 @@ async function getLeaderboardSnapshot() {
     avgScore: parseInt(row.avg_score || 0, 10)
   }));
 
-  // 3. Live Stats Counter
+  // Stats
   const statsRes = await db.query(
     `SELECT COUNT(DISTINCT p.id) as total_peserta,
             COUNT(s.id) FILTER (WHERE s.finished_at IS NOT NULL) as total_selesai
      FROM participants p
      LEFT JOIN quiz_sessions s ON s.participant_id = p.id`
   );
-
   const stats = statsRes.rows[0] || {};
 
-  cachedLeaderboard = {
+  const snapshot = {
+    currentCategory: cat,
     topPlayers,
     topSchools,
     liveStats: {
@@ -294,17 +380,22 @@ async function getLeaderboardSnapshot() {
     },
     updatedAt: new Date().toISOString()
   };
-  cacheExpiresAt = now + CACHE_TTL_MS;
 
-  return cachedLeaderboard;
+  cachedLeaderboards.set(cat, {
+    data: snapshot,
+    expiresAt: now + CACHE_TTL_MS
+  });
+
+  return snapshot;
 }
 
 module.exports = {
   startSession,
   finishSession,
+  getParticipantStatus,
   getLeaderboardSnapshot,
   calculateQuestionScore,
   determineBadge,
-  generate10Questions,
-  _resetCache: () => { cachedLeaderboard = null; cacheExpiresAt = 0; }
+  generate10QuestionsForCategory,
+  _resetCache: () => { cachedLeaderboards.clear(); }
 };

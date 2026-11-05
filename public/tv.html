@@ -27,14 +27,22 @@
     </div>
   </header>
 
+  <!-- CATEGORY TABS -->
+  <div class="tv-tabs-bar">
+    <button class="tv-tab active" data-cat="all">👑 JUARA UMUM (AKUMULASI)</button>
+    <button class="tv-tab" data-cat="logika">⚡ THE LOGIC MASTER</button>
+    <button class="tv-tab" data-cat="data">📊 DETEKTIF DATA BPS</button>
+    <button class="tv-tab" data-cat="stis">🎓 PEJUANG STIS</button>
+  </div>
+
   <!-- TV CONTENT GRID -->
   <main class="tv-grid">
 
     <!-- LEFT: TOP 10 PLAYERS -->
     <section class="tv-card">
       <div class="tv-card-header">
-        <h2>🏆 TOP 10 MASTER DATA & LOGIKA</h2>
-        <span style="font-size: 0.85rem; color: #94a3b8; font-weight: 600;">Skor Teratas & Kecepatan</span>
+        <h2 id="tv-board-title">🏆 TOP 10 JUARA UMUM</h2>
+        <span style="font-size: 0.85rem; color: #94a3b8; font-weight: 600;" id="tv-board-sub">Total Skor Akumulasi</span>
       </div>
 
       <div class="leaderboard-list" id="players-list">
@@ -67,8 +75,8 @@
           <div class="qr-box">
             <div class="qr-mock">📱</div>
             <div class="qr-desc">
-              <h4>Ayo Scan & Ikut!</h4>
-              <p>10 Soal Asah Otak</p>
+              <h4>Scan & Main di HP-mu!</h4>
+              <p>Selesaikan 3 Kategori</p>
               <p style="font-weight: 800; color: #fff; margin-top: 4px;" id="tv-domain-hint">Scan QR di Booth</p>
             </div>
           </div>

@@ -64,25 +64,25 @@ body {
 }
 
 h1 {
-  font-size: 1.6rem;
+  font-size: 1.55rem;
   font-weight: 800;
   line-height: 1.25;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   background: linear-gradient(90deg, #38bdf8, #818cf8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 p.subtitle {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   color: var(--text-muted);
   line-height: 1.45;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 /* Forms */
 .form-group {
-  margin-bottom: 16px;
+  margin-bottom: 15px;
   text-align: left;
 }
 
@@ -96,7 +96,7 @@ label {
 
 input[type="text"], input[type="tel"] {
   width: 100%;
-  padding: 14px 16px;
+  padding: 13px 15px;
   background: rgba(15, 23, 42, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 14px;
@@ -113,7 +113,7 @@ input:focus {
 }
 
 .hint {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   color: var(--text-muted);
   margin-top: 4px;
 }
@@ -121,7 +121,7 @@ input:focus {
 /* Buttons */
 .btn-primary {
   width: 100%;
-  padding: 16px;
+  padding: 15px;
   background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
   border: none;
   border-radius: 16px;
@@ -131,7 +131,7 @@ input:focus {
   cursor: pointer;
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .btn-primary:active {
@@ -149,6 +149,71 @@ input:focus {
   font-weight: 600;
   cursor: pointer;
   margin-top: 10px;
+}
+
+/* Category Selection Screen */
+.cat-cards-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.cat-card {
+  background: rgba(15, 23, 42, 0.65);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+}
+
+.cat-card:hover {
+  border-color: #38bdf8;
+  transform: translateY(-2px);
+}
+
+.cat-card.done {
+  border-color: rgba(16, 185, 129, 0.4);
+  background: rgba(6, 78, 59, 0.25);
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+
+.cat-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.cat-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.cat-desc {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.cat-status-badge {
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+}
+
+.cat-card.done .cat-status-badge {
+  background: rgba(16, 185, 129, 0.25);
+  color: #34d399;
 }
 
 /* Quiz Screen */
@@ -197,8 +262,8 @@ input:focus {
   background: rgba(15, 23, 42, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 18px;
-  padding: 20px 16px;
-  margin-bottom: 18px;
+  padding: 18px 14px;
+  margin-bottom: 16px;
   text-align: center;
   min-height: 110px;
   display: flex;
@@ -207,7 +272,7 @@ input:focus {
 }
 
 .question-text {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 700;
   line-height: 1.4;
   color: #ffffff;
@@ -222,10 +287,10 @@ input:focus {
 }
 
 .opt-btn {
-  padding: 18px 12px;
+  padding: 16px 10px;
   border-radius: 16px;
   border: none;
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: #fff;
   cursor: pointer;
@@ -234,7 +299,7 @@ input:focus {
   align-items: center;
   justify-content: center;
   gap: 4px;
-  min-height: 90px;
+  min-height: 85px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
   transition: transform 0.1s ease, filter 0.2s ease;
   text-align: center;
@@ -251,7 +316,7 @@ input:focus {
 .opt-btn.btn-d { background: var(--opt-d); }
 
 .opt-badge {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   margin-bottom: 2px;
 }
 
@@ -288,18 +353,18 @@ input:focus {
 }
 
 .feedback-status {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 800;
 }
 
 .feedback-score {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 800;
   color: #fbbf24;
 }
 
 .feedback-explanation {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   color: #cbd5e1;
   line-height: 1.45;
   margin-bottom: 16px;
@@ -308,31 +373,31 @@ input:focus {
 /* Result Card */
 .result-header {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .trophy-icon {
-  font-size: 3.8rem;
-  margin-bottom: 8px;
+  font-size: 3.5rem;
+  margin-bottom: 6px;
   animation: bounce 1s infinite alternate;
 }
 
 @keyframes bounce {
   from { transform: translateY(0); }
-  to { transform: translateY(-8px); }
+  to { transform: translateY(-6px); }
 }
 
 .badge-card {
   background: linear-gradient(135deg, rgba(2, 132, 199, 0.25) 0%, rgba(99, 102, 241, 0.25) 100%);
   border: 1px solid rgba(56, 189, 248, 0.4);
-  border-radius: 20px;
-  padding: 18px;
+  border-radius: 18px;
+  padding: 16px;
   text-align: center;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .badge-title {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 800;
   color: #38bdf8;
   margin-bottom: 4px;
@@ -346,26 +411,26 @@ input:focus {
 .stats-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 20px;
+  gap: 10px;
+  margin-bottom: 16px;
 }
 
 .stat-box {
   background: rgba(15, 23, 42, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
-  padding: 12px;
+  padding: 10px;
   text-align: center;
 }
 
 .stat-val {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 800;
   color: #fff;
 }
 
 .stat-lbl {
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
 }
 

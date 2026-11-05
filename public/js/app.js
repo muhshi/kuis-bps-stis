@@ -1,18 +1,26 @@
-// State Management
+// Client State
 const state = {
+  participantId: localStorage.getItem('bps_participant_id') || null,
+  participant: JSON.parse(localStorage.getItem('bps_participant_info') || 'null'),
+  participantStatus: null,
+  currentCategory: null,
   sessionId: null,
-  participant: null,
   questions: [],
   currentIndex: 0,
-  answers: [], // { questionId, chosenOption, timeSpentMs }
+  answers: [],
   timerInterval: null,
   questionStartTime: null,
   maxTimeMs: 15000,
   answeredCurrent: false
 };
 
+// Check URL query parameters (e.g. ?kategori=logika from specific QR Code)
+const urlParams = new URLSearchParams(window.location.search);
+const preselectedCategory = urlParams.get('kategori');
+
 // DOM Elements
 const screenReg = document.getElementById('screen-reg');
+const screenCategory = document.getElementById('screen-category');
 const screenQuiz = document.getElementById('screen-quiz');
 const screenResult = document.getElementById('screen-result');
 
@@ -22,6 +30,18 @@ const inputSekolah = document.getElementById('input-sekolah');
 const inputWa = document.getElementById('input-wa');
 const btnStart = document.getElementById('btn-start');
 
+// Category Screen DOM
+const catWelcomeTitle = document.getElementById('cat-welcome-title');
+const catWelcomeSub = document.getElementById('cat-welcome-sub');
+const bannerGrandScore = document.getElementById('banner-grand-score');
+const bannerProgress = document.getElementById('banner-progress');
+const catCards = document.querySelectorAll('.cat-card');
+const badgeCatLogika = document.getElementById('badge-cat-logika');
+const badgeCatData = document.getElementById('badge-cat-data');
+const badgeCatStis = document.getElementById('badge-cat-stis');
+const btnLogout = document.getElementById('btn-logout');
+
+// Quiz Screen DOM
 const catPill = document.getElementById('cat-pill');
 const timerText = document.getElementById('timer-text');
 const timerBar = document.getElementById('timer-bar');
@@ -39,21 +59,31 @@ const fbScore = document.getElementById('fb-score');
 const fbExplanation = document.getElementById('fb-explanation');
 const btnNextQuestion = document.getElementById('btn-next-question');
 
+// Result Screen DOM
 const resTrophy = document.getElementById('res-trophy');
+const resCatLabel = document.getElementById('res-cat-label');
 const resScore = document.getElementById('res-score');
 const resNameSchool = document.getElementById('res-name-school');
 const badgeTitle = document.getElementById('badge-title');
 const badgeSub = document.getElementById('badge-sub');
 const resCorrect = document.getElementById('res-correct');
-const resTime = document.getElementById('res-time');
-const btnPlayAgain = document.getElementById('btn-play-again');
+const resCumulative = document.getElementById('res-cumulative');
 const offlineRetryBox = document.getElementById('offline-retry-box');
 const btnRetrySubmit = document.getElementById('btn-retry-submit');
+const btnNextCategory = document.getElementById('btn-next-category');
+const btnBackToMenu = document.getElementById('btn-back-to-menu');
+
+// Initialize app on load
+window.addEventListener('DOMContentLoaded', () => {
+  if (state.participantId && state.participant) {
+    showCategoryScreen();
+  }
+});
 
 // 1. REGISTRATION HANDLER
 formRegister.addEventListener('submit', async (e) => {
   e.preventDefault();
-  window.soundFX.unlock(); // Unlock Web Audio API on first user gesture
+  window.soundFX.unlock();
 
   const nama = inputNama.value.trim();
   const sekolah = inputSekolah.value.trim();
@@ -62,38 +92,158 @@ formRegister.addEventListener('submit', async (e) => {
   if (!nama || !sekolah) return;
 
   btnStart.disabled = true;
-  btnStart.textContent = 'Menyiapkan 10 Soal...';
+  btnStart.textContent = 'Memproses...';
 
   try {
+    const targetCat = preselectedCategory || 'logika';
     const res = await fetch('/api/quiz/start', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ nama, sekolah, wa })
+      body: JSON.stringify({ nama, sekolah, wa, kategoriKode: targetCat })
     });
 
     const json = await res.json();
-    if (!json.success) throw new Error(json.error || 'Gagal memulai kuis');
+    if (!json.success) throw new Error(json.error || 'Gagal registrasi');
 
-    state.sessionId = json.data.sessionId;
+    state.participantId = json.data.participantId;
     state.participant = json.data.participant;
-    state.questions = json.data.questions;
-    state.currentIndex = 0;
-    state.answers = [];
 
-    // Switch to Quiz Screen
-    screenReg.classList.add('hidden');
-    screenQuiz.classList.remove('hidden');
+    localStorage.setItem('bps_participant_id', state.participantId);
+    localStorage.setItem('bps_participant_info', JSON.stringify(state.participant));
 
-    startCurrentQuestion();
+    if (preselectedCategory) {
+      // Direct jump to preselected category from QR Code
+      startQuizWithData(json.data);
+    } else {
+      // Show Category Screen
+      await refreshParticipantStatus();
+      screenReg.classList.add('hidden');
+      screenCategory.classList.remove('hidden');
+    }
   } catch (err) {
     alert('Koneksi terganggu: ' + err.message);
   } finally {
     btnStart.disabled = false;
-    btnStart.textContent = '🚀 Mulai Kuis Sekarang (10 Soal)';
+    btnStart.textContent = 'Masuk ke Menu Kategori ➔';
   }
 });
 
-// 2. QUESTION RENDER & TIMER LOOP
+// 2. CATEGORY SCREEN LOGIC
+async function showCategoryScreen() {
+  screenReg.classList.add('hidden');
+  screenQuiz.classList.add('hidden');
+  screenResult.classList.add('hidden');
+  screenCategory.classList.remove('hidden');
+
+  await refreshParticipantStatus();
+}
+
+async function refreshParticipantStatus() {
+  if (!state.participantId) return;
+
+  try {
+    const res = await fetch(`/api/participant/${state.participantId}`);
+    const json = await res.json();
+    if (json.success) {
+      state.participantStatus = json.data;
+      renderCategoryScreen(json.data);
+    }
+  } catch (err) {
+    console.warn('Gagal memuat status peserta:', err.message);
+  }
+}
+
+function renderCategoryScreen(status) {
+  catWelcomeTitle.textContent = `Halo, ${status.participant.nama}!`;
+  catWelcomeSub.textContent = `Asal: ${status.participant.sekolah} • Pilih kategori yang ingin kamu kerjakan:`;
+
+  bannerGrandScore.textContent = `${status.totalScore.toLocaleString('id-ID')} Poin`;
+  bannerProgress.textContent = `${status.completedCategories.length}/3 Selesai`;
+
+  const completedMap = new Map();
+  status.completedCategories.forEach(c => completedMap.set(c.kategori_kode, c.total_score));
+
+  // Update card 1 (Logika)
+  updateCatCard('logika', completedMap.get('logika'), badgeCatLogika);
+  // Update card 2 (Data)
+  updateCatCard('data', completedMap.get('data'), badgeCatData);
+  // Update card 3 (STIS)
+  updateCatCard('stis', completedMap.get('stis'), badgeCatStis);
+}
+
+function updateCatCard(catCode, score, badgeEl) {
+  const card = document.getElementById(`card-cat-${catCode}`);
+  if (score !== undefined) {
+    card.classList.add('done');
+    badgeEl.textContent = `✅ SELESAI (${score.toLocaleString('id-ID')} Poin)`;
+  } else {
+    card.classList.remove('done');
+    if (catCode === 'logika') badgeEl.textContent = '10 Soal • Asah Nalar';
+    if (catCode === 'data') badgeEl.textContent = '10 Soal • Fakta BPS';
+    if (catCode === 'stis') badgeEl.textContent = '10 Soal • Kedinasan';
+  }
+}
+
+// Click on category cards
+catCards.forEach(card => {
+  card.addEventListener('click', async () => {
+    window.soundFX.unlock();
+    const cat = card.getAttribute('data-cat');
+
+    if (card.classList.contains('done')) {
+      alert(`Kategori ini sudah selesai kamu kerjakan! Silakan pilih kategori yang lain untuk menambah total skormu.`);
+      return;
+    }
+
+    try {
+      const res = await fetch('/api/quiz/start', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          participantId: state.participantId,
+          kategoriKode: cat
+        })
+      });
+
+      const json = await res.json();
+      if (!json.success) throw new Error(json.error || 'Gagal memulai kategori');
+
+      startQuizWithData(json.data);
+    } catch (err) {
+      alert(err.message);
+    }
+  });
+});
+
+btnLogout.addEventListener('click', () => {
+  if (confirm('Yakin ingin ganti peserta? (Data skormu tetap aman tersimpan di leaderboard)')) {
+    localStorage.removeItem('bps_participant_id');
+    localStorage.removeItem('bps_participant_info');
+    state.participantId = null;
+    state.participant = null;
+    state.participantStatus = null;
+
+    screenCategory.classList.add('hidden');
+    screenReg.classList.remove('hidden');
+  }
+});
+
+// 3. QUIZ GAMEPLAY
+function startQuizWithData(data) {
+  state.sessionId = data.sessionId;
+  state.currentCategory = data.kategoriKode;
+  state.questions = data.questions;
+  state.currentIndex = 0;
+  state.answers = [];
+
+  screenReg.classList.add('hidden');
+  screenCategory.classList.add('hidden');
+  screenResult.classList.add('hidden');
+  screenQuiz.classList.remove('hidden');
+
+  startCurrentQuestion();
+}
+
 function startCurrentQuestion() {
   if (state.currentIndex >= state.questions.length) {
     finishQuizGame();
@@ -104,8 +254,7 @@ function startCurrentQuestion() {
   state.answeredCurrent = false;
   state.questionStartTime = Date.now();
 
-  // Update UI texts
-  catPill.textContent = getCategoryBadge(q.kategori_kode);
+  catPill.textContent = getCategoryBadge(state.currentCategory);
   qCounter.textContent = `Soal ${state.currentIndex + 1} dari ${state.questions.length}`;
   qText.textContent = q.pertanyaan;
 
@@ -122,7 +271,6 @@ function startCurrentQuestion() {
 
   feedbackSheet.classList.remove('open');
 
-  // Reset & start 15s timer
   clearInterval(state.timerInterval);
   renderTimer(state.maxTimeMs);
 
@@ -137,7 +285,7 @@ function startCurrentQuestion() {
 
     if (remaining <= 0) {
       clearInterval(state.timerInterval);
-      handleOptionSelected(null); // Timeout (unanswered)
+      handleOptionSelected(null);
     }
   }, 100);
 }
@@ -150,11 +298,11 @@ function renderTimer(remainingMs) {
   timerBar.style.width = `${percent}%`;
 
   if (percent > 45) {
-    timerBar.style.backgroundColor = '#38bdf8'; // Blue
+    timerBar.style.backgroundColor = '#38bdf8';
   } else if (percent > 20) {
-    timerBar.style.backgroundColor = '#f59e0b'; // Yellow
+    timerBar.style.backgroundColor = '#f59e0b';
   } else {
-    timerBar.style.backgroundColor = '#ef4444'; // Red
+    timerBar.style.backgroundColor = '#ef4444';
   }
 }
 
@@ -165,7 +313,6 @@ function getCategoryBadge(catCode) {
   return '❓ Kuis BPS';
 }
 
-// 3. OPTION CLICK HANDLER
 optButtons.forEach(btn => {
   btn.addEventListener('click', () => {
     if (state.answeredCurrent) return;
@@ -194,17 +341,15 @@ function handleOptionSelected(chosenOpt, chosenBtn = null) {
     chosenBtn.style.filter = 'brightness(1.25)';
   }
 
-  // Play sound
   if (chosenOpt) {
     window.soundFX.playCorrect();
   } else {
     window.soundFX.playWrong();
   }
 
-  // Show Quick Feedback Bottom Sheet
   fbStatus.textContent = chosenOpt ? `Jawabanmu [${chosenOpt}] Tercatat!` : `⏰ Waktu Habis!`;
   fbScore.textContent = `${(timeSpentMs / 1000).toFixed(1)}s`;
-  fbExplanation.textContent = `Jawaban sedang dienkripsi. Pembahasan lengkap & skor akhir akan muncul di layar hasil!`;
+  fbExplanation.textContent = `Jawaban terenkripsi. Pembahasan lengkap & skor akhir akan muncul di layar hasil!`;
 
   feedbackSheet.classList.add('open');
 }
@@ -214,7 +359,7 @@ btnNextQuestion.addEventListener('click', () => {
   startCurrentQuestion();
 });
 
-// 4. FINISH GAME & SUBMISSION (WITH RETRY QUEUE)
+// 4. FINISH CATEGORY & SUBMIT
 async function finishQuizGame() {
   screenQuiz.classList.add('hidden');
   screenResult.classList.remove('hidden');
@@ -242,24 +387,35 @@ async function submitFinalResult() {
     if (!json.success) throw new Error(json.error || 'Gagal mengirim hasil');
 
     const result = json.data;
+    state.participantStatus = result.participantStatus;
 
-    // Render Victory UI
     window.soundFX.playVictory();
     resTrophy.textContent = result.badge.icon || '🏆';
-    resScore.textContent = result.finalScore.toLocaleString('id-ID');
-    resNameSchool.textContent = `${result.participant.nama} • ${result.participant.sekolah}`;
+    resCatLabel.textContent = `HASIL KATEGORI ${getCategoryBadge(result.kategoriKode).toUpperCase()}`;
+    resScore.textContent = `+${result.categoryScore.toLocaleString('id-ID')}`;
+    resNameSchool.textContent = `${state.participant.nama} • ${state.participant.sekolah}`;
     badgeTitle.textContent = result.badge.title;
     badgeSub.textContent = result.badge.subtitle;
     resCorrect.textContent = `${result.correctCount} / ${result.totalQuestions}`;
-    resTime.textContent = `${(result.totalTimeMs / 1000).toFixed(1)}s`;
+    resCumulative.textContent = `${(result.participantStatus.totalScore || result.categoryScore).toLocaleString('id-ID')} Poin`;
+
+    // Check remaining categories
+    const remainingCount = result.participantStatus.availableCategories.length;
+    if (remainingCount > 0) {
+      btnNextCategory.textContent = `🔥 Tantang Kategori Lain (${remainingCount} Tersisa)`;
+      btnNextCategory.classList.remove('hidden');
+    } else {
+      btnNextCategory.textContent = `🎉 Semua 3 Kategori Tuntas! Kamu Juara Sejati!`;
+      btnNextCategory.classList.add('hidden');
+    }
 
   } catch (err) {
-    console.warn('Gagal submit ke server (koneksi offline?):', err.message);
+    console.warn('Gagal submit ke server:', err.message);
     offlineRetryBox.classList.remove('hidden');
     resScore.textContent = 'Tersimpan Offline';
     resTrophy.textContent = '📡';
     badgeTitle.textContent = 'Menunggu Koneksi...';
-    badgeSub.textContent = 'Klik tombol merah di bawah untuk mengirim ulang ke papan TV!';
+    badgeSub.textContent = 'Klik tombol merah untuk mengirim ulang hasil kuis!';
   }
 }
 
@@ -267,16 +423,10 @@ btnRetrySubmit.addEventListener('click', () => {
   submitFinalResult();
 });
 
-btnPlayAgain.addEventListener('click', () => {
-  // Reset state
-  state.sessionId = null;
-  state.answers = [];
-  state.currentIndex = 0;
+btnNextCategory.addEventListener('click', () => {
+  showCategoryScreen();
+});
 
-  // Clear form
-  inputNama.value = '';
-  inputWa.value = '';
-
-  screenResult.classList.add('hidden');
-  screenReg.classList.remove('hidden');
+btnBackToMenu.addEventListener('click', () => {
+  showCategoryScreen();
 });

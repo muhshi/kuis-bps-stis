@@ -1,26 +1,38 @@
 # Web Kuis Interaktif Sosialisasi STIS & BPS (Expo Booth Edition)
 
-Aplikasi web kuis interaktif ultra-ringan berbasis scan QR Code ala Kahoot yang dirancang khusus untuk pameran sosialisasi **Politeknik Statistika STIS** dan **Badan Pusat Statistik (BPS)** bagi siswa SMA/SMK/MA.
+Aplikasi web kuis interaktif ultra-ringan berbasis scan QR Code ala Kahoot yang dimainkan langsung di **smartphone masing-masing peserta** secara mandiri (tanpa perlu mengantre di perangkat booth). Dirancang khusus untuk pameran sosialisasi **Politeknik Statistika STIS** dan **Badan Pusat Statistik (BPS)** bagi siswa SMA/SMK/MA.
 
 ---
 
-## 🌟 Fitur Utama
+## 🌟 Alur Kuis di Smartphone Peserta
 
-1. **Alur Kuis 10 Soal Seimbang (All-in-One):**
-   - **4 Soal The Logic Master:** Teka-teki logika, pola angka, dan jebakan nalar santai (*hook* pembuka agar siswa tertarik).
-   - **3 Soal Detektif Data Indonesia:** Fakta unik sensus penduduk, demografi Gen Z, dan fenomena statistik BPS.
-   - **3 Soal Pejuang STIS:** Kuliah ikatan dinas tanpa biaya, program studi (Statistika & Komputasi Statistik), serta pematahan mitos keliru.
-2. **Offline-Tolerant Game Loop:** 10 soal diunduh sekaligus di awal sesi sehingga kuis tetap lancar meski sinyal seluler di dalam venue pameran padat/lemah.
-3. **Sistem Poin Kahoot:** Nilai dihitung dari ketepatan jawaban + bonus sisa waktu (mencegah skor kembar di leaderboard).
-4. **Sistem Gelar / Badge:** Siswa mendapatkan titel hasil kuis (*Grand Master Statistika*, *Detektif Data Handal*, dll.) yang siap di-screenshot untuk IG Story.
-5. **Klasemen Sekolah (School Battle):** Menampilkan Top 5 Sekolah Teraktif di booth untuk memicu persaingan gengsi positif antar-sekolah.
-6. **Layar TV Dashboard (Booth Display):** 
-   - Tampilan 16:9 fullscreen dengan auto-update polling (3 detik) via in-memory cache server (zero DB overload).
-   - Dilengkapi **Screen Wake Lock API** agar layar TV monitor tidak sleep/mati sendiri saat acara berlangsung.
-7. **Pembersihan & Keamanan Data:**
-   - Normalisasi otomatis variasi nama sekolah (`SMAN 1`, `SMA N 1`, `SMA Negeri 1`).
-   - Sensor kata kasar (*profanity filter*) pada nama panggilan siswa agar aman tampil di monitor TV.
-   - Ekspor data CSV terproteksi token admin untuk rekapitulasi data pengunjung booth.
+1. **Registrasi Cepat (1 Kali Saja):**
+   - Siswa scan QR code dengan HP masing-masing ➔ Isi Nama, Asal Sekolah, dan No. WA.
+2. **Menu Pemilihan Kategori Kuis:**
+   - Siswa bebas memilih salah satu dari 3 kategori tantangan:
+     * ⚡ **The Logic Master:** 10 soal teka-teki logika cepat, pola angka, dan asah nalar.
+     * 📊 **Detektif Data Indonesia:** 10 soal fakta unik sensus, demografi Gen Z, dan data BPS.
+     * 🎓 **Pejuang STIS:** 10 soal seputar kuliah ikatan dinas gratis, prodi D-III/D-IV, dan SPMB.
+3. **Penyelesaian Bertahap (Non-Stop):**
+   - Setelah menyelesaikan 10 soal di satu kategori, siswa melihat skor kategori tersebut dan total akumulasi poinnya.
+   - Kategori yang sudah selesai akan diberi tanda **✅ SELESAI** dan dikunci (tidak bisa diulang).
+   - Siswa bisa langsung menekan tombol **"🔥 Tantang Kategori Lainnya"** untuk melanjutkan ke kategori yang belum dikerjakan.
+   - Jika ketiga kategori telah selesai, siswa dinyatakan tuntas dan skormu tercatat di **Grand Leaderboard**.
+4. **Offline-Tolerant:** 10 soal diunduh langsung di memori HP sehingga kuis berjalan lancar tanpa terpengaruh sinyal pameran yang padat.
+
+---
+
+## 📺 Layar TV Dashboard (Booth Display)
+
+* **Multi-Tab Leaderboard:**
+  - 👑 **Juara Umum (Akumulasi):** Peringkat siswa berdasarkan total poin dari seluruh kategori yang diselesaikan.
+  - ⚡ **The Logic Master:** Peringkat khusus kategori Logika.
+  - 📊 **Detektif Data BPS:** Peringkat khusus kategori Fakta Data.
+  - 🎓 **Pejuang STIS:** Peringkat khusus kategori Politeknik Statistika STIS.
+* **Auto-Cycle Tab:** Layar TV otomatis berganti kategori setiap 10 detik agar suasana booth terus dinamis dan hidup.
+* **School Battle:** Klasemen Top 5 Sekolah Teraktif di pameran.
+* **Screen Wake Lock API:** Layar TV tidak akan sleep/mati otomatis.
+* **In-Memory Cache (2,5s):** Polling TV tidak membebani database PostgreSQL.
 
 ---
 
@@ -40,26 +52,20 @@ Aplikasi web kuis interaktif ultra-ringan berbasis scan QR Code ala Kahoot yang 
    ```
    *Sesuaikan host, user, dan password PostgreSQL yang sudah aktif di server Anda.*
 
-3. **Inisialisasi Database (Hanya jika menggunakan PostgreSQL):**
-   Jalankan file `src/db/schema.sql` di database Anda:
+3. **Inisialisasi Database (Opsional untuk PostgreSQL host):**
    ```bash
    psql -h localhost -U postgres -d kuis_stis -f src/db/schema.sql
    ```
-   *(Aplikasi juga memiliki mode in-memory otomatis jika database PostgreSQL belum dikonfigurasi).*
+   *(Aplikasi memiliki mode in-memory otomatis jika database belum terhubung).*
 
 4. **Jalankan Container Docker:**
    ```bash
    docker compose up -d --build
    ```
 
-5. **Cek Log Container:**
-   ```bash
-   docker compose logs -f kuis-app
-   ```
-
 ---
 
-### B. Menjalankan Lokal (Development / Demo Tanpa Docker)
+### B. Menjalankan Lokal (Development)
 
 ```bash
 npm install
@@ -69,10 +75,14 @@ npm start   # Menjalankan server di port 3000
 
 ---
 
-## 📺 Akses & URL untuk Operator Booth
+## 📱 Akses & URL untuk Operator Booth
 
-* **Web Kuis Siswa (Target QR Code Banner):**  
+* **Web Kuis Siswa (Untuk QR Code Umum):**  
   `http://<IP-SERVER-ATAU-DOMAIN>/`
+* **QR Code Langsung Kategori Tertentu (Opsional jika booth punya 3 banner terpisah):**  
+  * Logika: `http://<IP-SERVER-ATAU-DOMAIN>/?kategori=logika`  
+  * Data: `http://<IP-SERVER-ATAU-DOMAIN>/?kategori=data`  
+  * STIS: `http://<IP-SERVER-ATAU-DOMAIN>/?kategori=stis`  
 * **Layar TV Monitor Booth (Fullscreen F11):**  
   `http://<IP-SERVER-ATAU-DOMAIN>/tv.html`
 * **Ekspor Data Peserta (CSV Laporan Akhir):**  
@@ -83,11 +93,9 @@ npm start   # Menjalankan server di port 3000
 ## 📝 Changelog
 
 ### [2026-11-05]
-- **Inisialisasi Proyek**: Setup arsitektur monolith Node.js + Express ultra-ringan (<75MB Docker Alpine).
-- **Bank Soal Terpadu**: Penggabungan dan kurasi 90 butir bank soal (30 Logika, 30 Data BPS, 30 Info STIS).
-- **Service & Game Logic**: Generator 10 soal acak seimbang (4 Logika, 3 Data, 3 STIS), perhitungan skor berbasis waktu, penentuan badge persona, dan in-memory cache snapshot.
-- **Resilience & Sanitasi**: Implementasi `schoolNormalizer.js` untuk mengatasi fragmentasi nama sekolah dan `profanity.js` untuk sensor kata kotor di TV.
-- **Mobile First Web Player**: Halaman kuis responsif, Web Audio synthesizer (zero MP3 download), dan fallback retry saat koneksi terputus.
-- **TV Display Dashboard**: Layar live leaderboard 1080p, klasemen Top 5 Sekolah, live counter BPS, dan Screen Wake Lock API.
-- **Deployment Ready**: Pembuatan `Dockerfile` multi-stage, `docker-compose.yml`, serta skema PostgreSQL optimal.
-- **Automated Testing**: 7 skenario test lulus 100% (validasi soal, utilitas, service layer, dan API REST).
+- **Fitur Multi-Kategori per Siswa**: Siswa mengisi data 1 kali di HP sendiri, lalu dapat menyelesaikan 3 kategori kuis (Logika, Data, STIS) secara berurutan tanpa antre.
+- **Kunci Kategori Selesai**: Kategori yang sudah selesai dikerjakan otomatis dikunci dan menampilkan centang ✅ SELESAI serta skor yang didapat.
+- **Akumulasi Skor Grand Leaderboard**: Sistem menghitung total akumulasi skor dari semua kategori yang diselesaikan untuk menentukan Juara Umum pameran.
+- **TV Display Multi-Tab & Auto-Cycle**: Layar TV booth dilengkapi tab kategori serta otomatis berganti tampilan setiap 10 detik.
+- **Deep Linking QR Code**: Mendukung query parameter `?kategori=logika|data|stis` jika panitia ingin mencetak 3 QR Code banner terpisah.
+- **Automated Tests Updated**: Semua test unit dan integrasi API lulus 100% (7 test suites).

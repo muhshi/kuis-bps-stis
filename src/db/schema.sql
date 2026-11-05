@@ -1,5 +1,5 @@
 -- Skema Database Kuis Sosialisasi STIS & BPS (PostgreSQL)
--- Safe schema: CREATE TABLE IF NOT EXISTS
+-- Safe schema: CREATE TABLE IF NOT EXISTS & ALTER TABLE
 
 CREATE TABLE IF NOT EXISTS participants (
     id SERIAL PRIMARY KEY,
@@ -14,13 +14,15 @@ CREATE TABLE IF NOT EXISTS participants (
 CREATE TABLE IF NOT EXISTS quiz_sessions (
     id VARCHAR(64) PRIMARY KEY,
     participant_id INT REFERENCES participants(id) ON DELETE CASCADE,
+    kategori_kode VARCHAR(30) NOT NULL DEFAULT 'logika',
     question_ids INT[] NOT NULL,
     total_score INT DEFAULT 0,
     total_time_ms INT DEFAULT 0,
     correct_count INT DEFAULT 0,
     badge_title VARCHAR(100),
     started_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    finished_at TIMESTAMP WITH TIME ZONE
+    finished_at TIMESTAMP WITH TIME ZONE,
+    CONSTRAINT unique_participant_category UNIQUE(participant_id, kategori_kode)
 );
 
 CREATE TABLE IF NOT EXISTS quiz_answers (
@@ -36,8 +38,8 @@ CREATE TABLE IF NOT EXISTS quiz_answers (
 );
 
 -- Indeks Teroptimasi untuk Live Leaderboard TV & Agregasi Cepat
-CREATE INDEX IF NOT EXISTS idx_sessions_leaderboard 
-ON quiz_sessions(total_score DESC, total_time_ms ASC) 
+CREATE INDEX IF NOT EXISTS idx_sessions_cat_leaderboard 
+ON quiz_sessions(kategori_kode, total_score DESC, total_time_ms ASC) 
 WHERE finished_at IS NOT NULL;
 
 CREATE INDEX IF NOT EXISTS idx_participants_school 

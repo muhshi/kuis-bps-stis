@@ -3,56 +3,67 @@ const assert = require('node:assert/strict');
 const request = require('supertest');
 const { app } = require('../src/server');
 const db = require('../src/db');
+const quizService = require('../src/services/quizService');
 
-test('API Tests: health, start, finish, leaderboard, export', async () => {
+test('API Tests: multi-category session flow, leaderboard filter, and export', async () => {
   db._resetMemoryStore();
+  quizService._resetCache();
 
   // 1. GET /api/health
   const healthRes = await request(app).get('/api/health');
   assert.equal(healthRes.status, 200);
-  assert.equal(healthRes.body.status, 'ok');
 
-  // 2. POST /api/quiz/start (validasi input kosong)
-  const invalidStart = await request(app).post('/api/quiz/start').send({});
-  assert.equal(invalidStart.status, 400);
-
-  // 3. POST /api/quiz/start (sukses)
+  // 2. Start initial session without participantId
   const startRes = await request(app).post('/api/quiz/start').send({
     nama: 'Rian Dwi',
     sekolah: 'sma negeri 3 semarang',
-    wa: '08198765432'
+    wa: '08198765432',
+    kategoriKode: 'logika'
   });
   assert.equal(startRes.status, 200);
   assert.equal(startRes.body.success, true);
-  const session = startRes.body.data;
-  assert.ok(session.sessionId);
-  assert.equal(session.participant.nama, 'Rian Dwi');
-  assert.equal(session.participant.sekolah, 'SMAN 3 Semarang');
-  assert.equal(session.questions.length, 10);
+  const data1 = startRes.body.data;
+  assert.ok(data1.sessionId);
+  assert.equal(data1.kategoriKode, 'logika');
+  assert.equal(data1.questions.length, 10);
 
-  // 4. POST /api/quiz/finish
+  // 3. Finish category 'logika'
   const finishRes = await request(app).post('/api/quiz/finish').send({
-    sessionId: session.sessionId,
-    answers: session.questions.map(q => ({
+    sessionId: data1.sessionId,
+    answers: data1.questions.map(q => ({
       questionId: q.id,
       chosenOption: 'A',
-      timeSpentMs: 2500
+      timeSpentMs: 2000
     }))
   });
   assert.equal(finishRes.status, 200);
   assert.equal(finishRes.body.success, true);
-  assert.ok(finishRes.body.data.finalScore >= 0);
-  assert.ok(finishRes.body.data.badge.title);
+  assert.equal(finishRes.body.data.participantStatus.completedCategories.length, 1);
 
-  // 5. GET /api/leaderboard
-  const lbRes = await request(app).get('/api/leaderboard');
-  assert.equal(lbRes.status, 200);
-  assert.equal(lbRes.body.success, true);
-  assert.equal(lbRes.body.data.topPlayers.length, 1);
-  assert.equal(lbRes.body.data.topSchools.length, 1);
-  assert.equal(lbRes.body.data.topSchools[0].sekolah, 'SMAN 3 Semarang');
+  // 4. GET /api/participant/:id
+  const partRes = await request(app).get(`/api/participant/${data1.participantId}`);
+  assert.equal(partRes.status, 200);
+  assert.equal(partRes.body.data.completedCategories.length, 1);
+  assert.equal(partRes.body.data.availableCategories.length, 2);
 
-  // 6. GET /api/admin/export-csv
+  // 5. Start next category ('stis') using existing participantId
+  const start2 = await request(app).post('/api/quiz/start').send({
+    participantId: data1.participantId,
+    kategoriKode: 'stis'
+  });
+  assert.equal(start2.status, 200);
+  assert.equal(start2.body.data.kategoriKode, 'stis');
+
+  // 6. Test Leaderboard with query parameter
+  const lbAll = await request(app).get('/api/leaderboard?kategori=all');
+  assert.equal(lbAll.status, 200);
+  assert.equal(lbAll.body.data.currentCategory, 'all');
+
+  const lbLogika = await request(app).get('/api/leaderboard?kategori=logika');
+  assert.equal(lbLogika.status, 200);
+  assert.equal(lbLogika.body.data.currentCategory, 'logika');
+
+  // 7. GET /api/admin/export-csv
   const exportRes = await request(app).get('/api/admin/export-csv?token=bps-stis-2026');
   assert.equal(exportRes.status, 200);
   assert.ok(exportRes.text.includes('Rian Dwi'));

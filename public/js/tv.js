@@ -5,8 +5,14 @@ const liveIndicator = document.getElementById('live-indicator');
 const liveText = document.getElementById('live-text');
 const tvClock = document.getElementById('tv-clock');
 const tvDomainHint = document.getElementById('tv-domain-hint');
+const tvBoardTitle = document.getElementById('tv-board-title');
+const tvBoardSub = document.getElementById('tv-board-sub');
+const tvTabs = document.querySelectorAll('.tv-tab');
 
-// Set domain hint from current origin
+let currentCategory = 'all';
+const categoryOrder = ['all', 'logika', 'data', 'stis'];
+let cycleIndex = 0;
+
 if (window.location.host) {
   tvDomainHint.textContent = window.location.host;
 }
@@ -14,54 +20,88 @@ if (window.location.host) {
 // 1. Live Clock
 function updateClock() {
   const now = new Date();
-  const timeStr = now.toLocaleTimeString('id-ID', {
+  tvClock.textContent = now.toLocaleTimeString('id-ID', {
     hour12: false,
     hour: '2-digit',
     minute: '2-digit',
     second: '2-digit'
   });
-  tvClock.textContent = timeStr;
 }
 setInterval(updateClock, 1000);
 updateClock();
 
-// 2. Screen Wake Lock API (mencegah TV monitor tidur/sleep)
+// 2. Screen Wake Lock
 async function requestWakeLock() {
   try {
     if ('wakeLock' in navigator) {
-      const lock = await navigator.wakeLock.request('screen');
-      console.log('TV Display Screen Wake Lock active.');
+      await navigator.wakeLock.request('screen');
       document.addEventListener('visibilitychange', async () => {
         if (document.visibilityState === 'visible') {
           await navigator.wakeLock.request('screen');
         }
       });
     }
-  } catch (err) {
-    console.warn('Wake Lock request warning:', err.message);
-  }
+  } catch (err) {}
 }
 requestWakeLock();
 
-// 3. Leaderboard Polling Loop
-let lastData = null;
+// 3. Tab Switching
+tvTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    currentCategory = tab.getAttribute('data-cat');
+    cycleIndex = categoryOrder.indexOf(currentCategory);
+    updateActiveTabUI();
+    fetchLeaderboard();
+  });
+});
 
+function updateActiveTabUI() {
+  tvTabs.forEach(t => {
+    if (t.getAttribute('data-cat') === currentCategory) {
+      t.classList.add('active');
+    } else {
+      t.classList.remove('active');
+    }
+  });
+
+  if (currentCategory === 'all') {
+    tvBoardTitle.textContent = '🏆 TOP 10 JUARA UMUM';
+    tvBoardSub.textContent = 'Akumulasi Skor Semua Kategori';
+  } else if (currentCategory === 'logika') {
+    tvBoardTitle.textContent = '⚡ TOP 10 THE LOGIC MASTER';
+    tvBoardSub.textContent = 'Skor Kategori Teka-Teki Logika';
+  } else if (currentCategory === 'data') {
+    tvBoardTitle.textContent = '📊 TOP 10 DETEKTIF DATA';
+    tvBoardSub.textContent = 'Skor Kategori Fakta Data BPS';
+  } else if (currentCategory === 'stis') {
+    tvBoardTitle.textContent = '🎓 TOP 10 PEJUANG STIS';
+    tvBoardSub.textContent = 'Skor Kategori Politeknik Statistika STIS';
+  }
+}
+
+// 4. Auto-Cycle Categories every 10 seconds
+setInterval(() => {
+  cycleIndex = (cycleIndex + 1) % categoryOrder.length;
+  currentCategory = categoryOrder[cycleIndex];
+  updateActiveTabUI();
+  fetchLeaderboard();
+}, 10000);
+
+// 5. Polling Loop
 async function fetchLeaderboard() {
   try {
-    const res = await fetch('/api/leaderboard?t=' + Date.now());
+    const res = await fetch(`/api/leaderboard?kategori=${currentCategory}&t=${Date.now()}`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
     const json = await res.json();
     if (!json.success) throw new Error(json.error);
 
-    lastData = json.data;
     renderData(json.data);
 
-    // Indicator online
     liveIndicator.classList.remove('reconnecting');
     liveText.textContent = 'LIVE UPDATE';
   } catch (err) {
-    console.warn('TV Polling hiccup (retaining last data):', err.message);
+    console.warn('TV Polling hiccup:', err.message);
     liveIndicator.classList.add('reconnecting');
     liveText.textContent = 'MENYAMBUNGKAN...';
   }
@@ -73,8 +113,8 @@ function renderData(data) {
   if (players.length === 0) {
     playersList.innerHTML = `
       <div style="text-align: center; padding: 40px; color: #64748b;">
-        Belum ada peserta yang menyelesaikan kuis.<br>
-        <strong style="color: #38bdf8;">Jadilah orang pertama di papan peringkat!</strong>
+        Belum ada peserta di kategori ini.<br>
+        <strong style="color: #38bdf8;">Jadilah yang pertama di papan peringkat!</strong>
       </div>
     `;
   } else {
@@ -114,7 +154,7 @@ function renderData(data) {
     `).join('');
   }
 
-  // Render Stats
+  // Render Live Stats
   if (data.liveStats) {
     statsTotalPeserta.textContent = (data.liveStats.totalPeserta || 0).toLocaleString('id-ID');
   }
@@ -131,6 +171,6 @@ function escapeHtml(str) {
   }[m]));
 }
 
-// Initial fetch and start interval
+// Initial fetch & short poll (every 3 seconds for current category)
 fetchLeaderboard();
 setInterval(fetchLeaderboard, 3000);

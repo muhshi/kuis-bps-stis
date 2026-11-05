@@ -15,7 +15,7 @@
         <span>🏛️ BPS & Politeknik Statistika STIS</span>
       </div>
       <h1>Tantangan Kuis Data & Logika</h1>
-      <p class="subtitle">Asah logika, temukan fakta data unik Indonesia, dan kenali kuliah kedinasan ikatan dinas STIS!</p>
+      <p class="subtitle">Mainkan di HP-mu! Selesaikan 3 kategori seru, kumpulkan skor maksimal, dan rebut posisi puncak di layar booth!</p>
 
       <form id="form-register">
         <div class="form-group">
@@ -36,16 +36,67 @@
         </div>
 
         <button type="submit" id="btn-start" class="btn-primary">
-          🚀 Mulai Kuis Sekarang (10 Soal)
+          Masuk ke Menu Kategori ➔
         </button>
       </form>
-
-      <div style="margin-top: 24px; text-align: center;">
-        <span style="font-size: 0.82rem; color: #64748b;">⚡ 15 Detik/Soal • Cepat Jawab = Skor Makin Tinggi</span>
-      </div>
     </div>
 
-    <!-- SCREEN 2: QUIZ ARENA -->
+    <!-- SCREEN 2: CHOOSE CATEGORY -->
+    <div id="screen-category" class="screen hidden">
+      <div class="header-badge">
+        <span>🎯 Pilih Kategori Kuis</span>
+      </div>
+      <h1 id="cat-welcome-title">Halo, Peserta!</h1>
+      <p class="subtitle" id="cat-welcome-sub">Pilih salah satu kategori. Kamu bisa kerjakan ketiganya secara bergantian!</p>
+
+      <!-- Cumulative Score Banner -->
+      <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 14px; padding: 12px 14px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <div style="font-size: 0.76rem; color: #94a3b8; font-weight: 700;">TOTAL AKUMULASI SKOR</div>
+          <div style="font-size: 1.35rem; font-weight: 900; color: #fbbf24;" id="banner-grand-score">0 Poin</div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-size: 0.76rem; color: #94a3b8; font-weight: 700;">PROGRES</div>
+          <div style="font-size: 1rem; font-weight: 800; color: #38bdf8;" id="banner-progress">0/3 Selesai</div>
+        </div>
+      </div>
+
+      <!-- Category Cards -->
+      <div class="cat-cards-wrap">
+        <!-- 1. Logika -->
+        <div class="cat-card" id="card-cat-logika" data-cat="logika">
+          <div class="cat-card-top">
+            <div class="cat-title">⚡ The Logic Master</div>
+            <div class="cat-status-badge" id="badge-cat-logika">10 Soal • Asah Nalar</div>
+          </div>
+          <div class="cat-desc">Teka-teki logika, pola angka cepat, dan jebakan berpikir santai.</div>
+        </div>
+
+        <!-- 2. Data -->
+        <div class="cat-card" id="card-cat-data" data-cat="data">
+          <div class="cat-card-top">
+            <div class="cat-title">📊 Detektif Data Indonesia</div>
+            <div class="cat-status-badge" id="badge-cat-data">10 Soal • Fakta BPS</div>
+          </div>
+          <div class="cat-desc">Fakta mengejutkan sensus, demografi Gen Z, dan data unik nusantara.</div>
+        </div>
+
+        <!-- 3. STIS -->
+        <div class="cat-card" id="card-cat-stis" data-cat="stis">
+          <div class="cat-card-top">
+            <div class="cat-title">🎓 Pejuang STIS</div>
+            <div class="cat-status-badge" id="badge-cat-stis">10 Soal • Kedinasan</div>
+          </div>
+          <div class="cat-desc">Kuliah ikatan dinas gratis, prodi Statistika/Komputasi, dan SPMB.</div>
+        </div>
+      </div>
+
+      <button id="btn-logout" class="btn-secondary" style="margin-top: 8px;">
+        Ganti Nama / Peserta Lain
+      </button>
+    </div>
+
+    <!-- SCREEN 3: QUIZ ARENA -->
     <div id="screen-quiz" class="screen hidden">
       <div class="quiz-top-bar">
         <div class="cat-pill" id="cat-pill">⚡ The Logic Master</div>
@@ -103,11 +154,11 @@
       </div>
     </div>
 
-    <!-- SCREEN 3: RESULT -->
+    <!-- SCREEN 4: RESULT -->
     <div id="screen-result" class="screen hidden">
       <div class="result-header">
         <div class="trophy-icon" id="res-trophy">🏆</div>
-        <div style="font-size: 0.9rem; color: #94a3b8; font-weight: 700;">HASIL AKHIR KUIS</div>
+        <div style="font-size: 0.88rem; color: #94a3b8; font-weight: 700;" id="res-cat-label">HASIL KATEGORI LOGIKA</div>
         <h2 style="font-size: 2.2rem; font-weight: 900; color: #fff; margin: 4px 0;" id="res-score">12,500</h2>
         <div style="font-size: 0.85rem; color: #38bdf8;" id="res-name-school">Rian Dwi • SMAN 1 Semarang</div>
       </div>
@@ -120,11 +171,11 @@
       <div class="stats-grid">
         <div class="stat-box">
           <div class="stat-val" id="res-correct">9 / 10</div>
-          <div class="stat-lbl">Jawaban Benar</div>
+          <div class="stat-lbl">Benar di Kategori Ini</div>
         </div>
         <div class="stat-box">
-          <div class="stat-val" id="res-time">38.4s</div>
-          <div class="stat-lbl">Total Waktu</div>
+          <div class="stat-val" id="res-cumulative">24,500</div>
+          <div class="stat-lbl">Total Skor Kumulatif</div>
         </div>
       </div>
 
@@ -134,13 +185,18 @@
         </button>
       </div>
 
-      <div style="background: rgba(2, 132, 199, 0.15); border: 1px dashed rgba(56, 189, 248, 0.35); border-radius: 14px; padding: 12px; margin-bottom: 16px; text-align: center;">
+      <!-- Action Button: Next Category or All Finished -->
+      <button id="btn-next-category" class="btn-primary" style="margin-bottom: 8px;">
+        🔥 Tantang Kategori Lainnya (Tambah Skor!)
+      </button>
+
+      <div style="background: rgba(2, 132, 199, 0.15); border: 1px dashed rgba(56, 189, 248, 0.35); border-radius: 14px; padding: 12px; margin-bottom: 12px; text-align: center;">
         <div style="font-size: 0.85rem; color: #38bdf8; font-weight: 700;">📺 Cek Namamu di Layar TV Booth!</div>
-        <div style="font-size: 0.78rem; color: #cbd5e1; margin-top: 2px;">Skormu sudah masuk ke papan leaderboard live booth pameran.</div>
+        <div style="font-size: 0.78rem; color: #cbd5e1; margin-top: 2px;">Skormu terupdate secara realtime di papan leaderboard pameran.</div>
       </div>
 
-      <button id="btn-play-again" class="btn-secondary">
-        🔄 Main Lagi / Ganti Peserta
+      <button id="btn-back-to-menu" class="btn-secondary">
+        📋 Kembali ke Menu Kategori
       </button>
     </div>
 

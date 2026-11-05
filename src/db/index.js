@@ -40,12 +40,10 @@ async function query(text, params) {
       return await pool.query(text, params);
     } catch (err) {
       console.warn('[DB] PostgreSQL query failed, using in-memory store:', err.message);
-      // Fallback to in-memory if connection fails
       useInMemory = true;
     }
   }
 
-  // Fallback simulator for basic queries
   return executeInMemory(text, params);
 }
 
@@ -61,12 +59,32 @@ function executeInMemory(text, params = []) {
     return { rows: [record] };
   }
 
+  // SELECT participant by id
+  if (sql.includes('FROM participants') && sql.includes('WHERE id = $1')) {
+    const p = memStore.participants.find(item => item.id === parseInt(params[0], 10));
+    return { rows: p ? [p] : [] };
+  }
+
+  // SELECT participant completed categories
+  if (sql.includes('SELECT s.kategori_kode, s.total_score, s.finished_at') && sql.includes('WHERE s.participant_id = $1')) {
+    const partId = parseInt(params[0], 10);
+    const sessions = memStore.quizSessions
+      .filter(s => s.participant_id === partId && s.finished_at !== null)
+      .map(s => ({
+        kategori_kode: s.kategori_kode,
+        total_score: s.total_score,
+        finished_at: s.finished_at
+      }));
+    return { rows: sessions };
+  }
+
   // INSERT INTO quiz_sessions
   if (sql.startsWith('INSERT INTO quiz_sessions')) {
-    const [id, participant_id, question_ids] = params;
+    const [id, participant_id, kategori_kode, question_ids] = params;
     const record = {
       id,
       participant_id,
+      kategori_kode,
       question_ids,
       total_score: 0,
       total_time_ms: 0,
@@ -111,7 +129,7 @@ function executeInMemory(text, params = []) {
     return { rows: [record] };
   }
 
-  // SELECT session by ID (handles both 'WHERE s.id = $1' and 'WHERE id = $1')
+  // SELECT session by ID
   if (sql.includes('FROM quiz_sessions') && (sql.includes('WHERE s.id = $1') || sql.includes('WHERE id = $1'))) {
     const id = params[0];
     const session = memStore.quizSessions.find(s => s.id === id);
@@ -126,16 +144,18 @@ function executeInMemory(text, params = []) {
     };
   }
 
-  // TOP PARTICIPANTS LEADERBOARD
-  if (sql.includes('FROM quiz_sessions s') && sql.includes('ORDER BY') && sql.includes('total_score DESC')) {
-    const finished = memStore.quizSessions
-      .filter(s => s.finished_at !== null)
+  // LEADERBOARD: SPECIFIC CATEGORY
+  if (sql.includes('WHERE s.finished_at IS NOT NULL AND s.kategori_kode = $1')) {
+    const cat = params[0];
+    const rows = memStore.quizSessions
+      .filter(s => s.finished_at !== null && s.kategori_kode === cat)
       .map(s => {
         const p = memStore.participants.find(part => part.id === s.participant_id) || {};
         return {
           session_id: s.id,
           nama: p.nama_clean || 'Peserta',
           sekolah: p.sekolah_clean || 'Sekolah Lainnya',
+          kategori_kode: s.kategori_kode,
           total_score: s.total_score,
           total_time_ms: s.total_time_ms,
           correct_count: s.correct_count,
@@ -144,7 +164,37 @@ function executeInMemory(text, params = []) {
       })
       .sort((a, b) => b.total_score - a.total_score || a.total_time_ms - b.total_time_ms)
       .slice(0, 10);
-    return { rows: finished };
+    return { rows };
+  }
+
+  // LEADERBOARD: GRAND LEADERBOARD (AKUMULASI SEMUA KATEGORI PER PESERTA)
+  if (sql.includes('SUM(s.total_score) as total_score') && sql.includes('GROUP BY p.id')) {
+    const participantAgg = {};
+    for (const s of memStore.quizSessions.filter(item => item.finished_at !== null)) {
+      const p = memStore.participants.find(part => part.id === s.participant_id);
+      if (!p) continue;
+      if (!participantAgg[p.id]) {
+        participantAgg[p.id] = {
+          session_id: s.id,
+          nama: p.nama_clean,
+          sekolah: p.sekolah_clean,
+          total_score: 0,
+          total_time_ms: 0,
+          correct_count: 0,
+          categories_finished: 0,
+          badge_title: 'Grand Master'
+        };
+      }
+      participantAgg[p.id].total_score += s.total_score;
+      participantAgg[p.id].total_time_ms += s.total_time_ms;
+      participantAgg[p.id].correct_count += s.correct_count;
+      participantAgg[p.id].categories_finished += 1;
+    }
+
+    const rows = Object.values(participantAgg)
+      .sort((a, b) => b.total_score - a.total_score || a.total_time_ms - b.total_time_ms)
+      .slice(0, 10);
+    return { rows };
   }
 
   // TOP SCHOOLS
@@ -158,9 +208,8 @@ function executeInMemory(text, params = []) {
         schoolMap[school] = { sekolah: school, students: new Map() };
       }
       const existingBest = schoolMap[school].students.get(p.id) || 0;
-      if (s.total_score > existingBest) {
-        schoolMap[school].students.set(p.id, s.total_score);
-      }
+      // Akumulasikan atau simpan skor terbaik
+      schoolMap[school].students.set(p.id, existingBest + s.total_score);
     }
 
     const schoolRankings = Object.values(schoolMap).map(sc => {
@@ -181,24 +230,46 @@ function executeInMemory(text, params = []) {
 
   // CSV EXPORT QUERY
   if (sql.includes('ORDER BY s.total_score DESC NULLS LAST')) {
-    const list = memStore.participants.map(p => {
-      const s = memStore.quizSessions.find(sess => sess.participant_id === p.id) || {};
-      return {
-        id: p.id,
-        nama: p.nama,
-        nama_clean: p.nama_clean,
-        sekolah: p.sekolah,
-        sekolah_clean: p.sekolah_clean,
-        wa: p.wa,
-        total_score: s.total_score || 0,
-        correct_count: s.correct_count || 0,
-        total_time_ms: s.total_time_ms || 0,
-        badge_title: s.badge_title || '',
-        started_at: s.started_at || p.created_at,
-        finished_at: s.finished_at || null
-      };
-    }).sort((a, b) => b.total_score - a.total_score);
-    return { rows: list };
+    const list = [];
+    for (const p of memStore.participants) {
+      const pSessions = memStore.quizSessions.filter(sess => sess.participant_id === p.id);
+      if (pSessions.length === 0) {
+        list.push({
+          id: p.id,
+          nama: p.nama,
+          nama_clean: p.nama_clean,
+          sekolah: p.sekolah,
+          sekolah_clean: p.sekolah_clean,
+          wa: p.wa,
+          kategori_kode: '-',
+          total_score: 0,
+          correct_count: 0,
+          total_time_ms: 0,
+          badge_title: '-',
+          started_at: p.created_at,
+          finished_at: null
+        });
+      } else {
+        pSessions.forEach(s => {
+          list.push({
+            id: p.id,
+            nama: p.nama,
+            nama_clean: p.nama_clean,
+            sekolah: p.sekolah,
+            sekolah_clean: p.sekolah_clean,
+            wa: p.wa,
+            kategori_kode: s.kategori_kode,
+            total_score: s.total_score,
+            correct_count: s.correct_count,
+            total_time_ms: s.total_time_ms,
+            badge_title: s.badge_title,
+            started_at: s.started_at,
+            finished_at: s.finished_at
+          });
+        });
+      }
+    }
+    return { rows: list.sort((a, b) => b.total_score - a.total_score) };
   }
 
   // STATS
