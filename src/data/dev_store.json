@@ -1,0 +1,165 @@
+{
+  "participants": [
+    {
+      "id": 1,
+      "nama": "Rian Dwi",
+      "nama_clean": "Rian Dwi",
+      "sekolah": "sma negeri 3 semarang",
+      "sekolah_clean": "SMAN 3 Semarang",
+      "wa": "08198765432",
+      "created_at": "2026-11-05T04:44:53.068Z"
+    }
+  ],
+  "quizSessions": [
+    {
+      "id": "55d369c3-055d-4d6e-bef7-acedf3115e41",
+      "participant_id": 1,
+      "kategori_kode": "logika",
+      "question_ids": [
+        5,
+        16,
+        26,
+        3,
+        14,
+        19,
+        11,
+        10,
+        2,
+        6
+      ],
+      "total_score": 0,
+      "total_time_ms": 20000,
+      "correct_count": 0,
+      "badge_title": "Sahabat Muda BPS",
+      "started_at": "2026-11-05T04:44:53.069Z",
+      "finished_at": "2026-11-05T04:44:53.121Z"
+    },
+    {
+      "id": "fb3d7233-165a-4aee-b984-e768768fea4d",
+      "participant_id": 1,
+      "kategori_kode": "stis",
+      "question_ids": [
+        69,
+        90,
+        67,
+        74,
+        72,
+        62,
+        68,
+        89,
+        61,
+        64
+      ],
+      "total_score": 0,
+      "total_time_ms": 0,
+      "correct_count": 0,
+      "badge_title": null,
+      "started_at": "2026-11-05T04:44:53.139Z",
+      "finished_at": null
+    }
+  ],
+  "quizAnswers": [
+    {
+      "id": 1,
+      "session_id": "55d369c3-055d-4d6e-bef7-acedf3115e41",
+      "question_id": 5,
+      "chosen_option": "A",
+      "is_correct": false,
+      "time_spent_ms": 2000,
+      "score_awarded": 0,
+      "created_at": "2026-11-05T04:44:53.093Z"
+    },
+    {
+      "id": 2,
+      "session_id": "55d369c3-055d-4d6e-bef7-acedf3115e41",
+      "question_id": 16,
+      "chosen_option": "A",
+      "is_correct": false,
+      "time_spent_ms": 2000,
+      "score_awarded": 0,
+      "created_at": "2026-11-05T04:44:53.093Z"
+    },
+    {
+      "id": 3,
+      "session_id": "55d369c3-055d-4d6e-bef7-acedf3115e41",
+      "question_id": 26,
+      "chosen_option": "A",
+      "is_correct": false,
+      "time_spent_ms": 2000,
+      "score_awarded": 0,
+      "created_at": "2026-11-05T04:44:53.093Z"
+    },
+    {
+      "id": 4,
+      "session_id": "55d369c3-055d-4d6e-bef7-acedf3115e41",
+      "question_id": 3,
+      "chosen_option": "A",
+      "is_correct": false,
+      "time_spent_ms": 2000,
+      "score_awarded": 0,
+      "created_at": "2026-11-05T04:44:53.105Z"
+    },
+    {
+      "id": 5,
+      "session_id": "55d369c3-055d-4d6e-bef7-acedf3115e41",
+      "question_id": 14,
+      "chosen_option": "A",
+      "is_correct": false,
+      "time_spent_ms": 2000,
+      "score_awarded": 0,
+      "created_at": "2026-11-05T04:44:53.106Z"
+    },
+    {
+      "id": 6,
+      "session_id": "55d369c3-055d-4d6e-bef7-acedf3115e41",
+      "question_id": 19,
+      "chosen_option": "A",
+      "is_correct": false,
+      "time_spent_ms": 2000,
+      "score_awarded": 0,
+      "created_at": "2026-11-05T04:44:53.106Z"
+    },
+    {
+      "id": 7,
+      "session_id": "55d369c3-055d-4d6e-bef7-acedf3115e41",
+      "question_id": 11,
+      "chosen_option": "A",
+      "is_correct": false,
+      "time_spent_ms": 2000,
+      "score_awarded": 0,
+      "created_at": "2026-11-05T04:44:53.106Z"
+    },
+    {
+      "id": 8,
+      "session_id": "55d369c3-055d-4d6e-bef7-acedf3115e41",
+      "question_id": 10,
+      "chosen_option": "A",
+      "is_correct": false,
+      "time_spent_ms": 2000,
+      "score_awarded": 0,
+      "created_at": "2026-11-05T04:44:53.106Z"
+    },
+    {
+      "id": 9,
+      "session_id": "55d369c3-055d-4d6e-bef7-acedf3115e41",
+      "question_id": 2,
+      "chosen_option": "A",
+      "is_correct": false,
+      "time_spent_ms": 2000,
+      "score_awarded": 0,
+      "created_at": "2026-11-05T04:44:53.115Z"
+    },
+    {
+      "id": 10,
+      "session_id": "55d369c3-055d-4d6e-bef7-acedf3115e41",
+      "question_id": 6,
+      "chosen_option": "A",
+      "is_correct": false,
+      "time_spent_ms": 2000,
+      "score_awarded": 0,
+      "created_at": "2026-11-05T04:44:53.115Z"
+    }
+  ],
+  "nextParticipantId": 2,
+  "nextAnswerId": 11
+}

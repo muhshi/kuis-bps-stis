@@ -1,17 +1,44 @@
 const { Pool } = require('pg');
+const fs = require('fs');
+const path = require('path');
 require('dotenv').config();
 
 let pool = null;
 let useInMemory = false;
 
-// In-Memory store fallback for standalone local preview / mock tests
-const memStore = {
-  participants: [],
-  quizSessions: [],
-  quizAnswers: [],
-  nextParticipantId: 1,
-  nextAnswerId: 1
-};
+// File persistence path for zero-setup mode (so server restarts don't lose sessions!)
+const DEV_STORE_PATH = path.join(__dirname, '../data/dev_store.json');
+
+function loadDevStore() {
+  try {
+    if (fs.existsSync(DEV_STORE_PATH)) {
+      const content = fs.readFileSync(DEV_STORE_PATH, 'utf8');
+      return JSON.parse(content);
+    }
+  } catch (e) {
+    console.warn('[DB] Could not load dev_store.json, creating new store:', e.message);
+  }
+  return {
+    participants: [],
+    quizSessions: [],
+    quizAnswers: [],
+    nextParticipantId: 1,
+    nextAnswerId: 1
+  };
+}
+
+const memStore = loadDevStore();
+
+function saveDevStore() {
+  if (useInMemory) {
+    try {
+      fs.mkdirSync(path.dirname(DEV_STORE_PATH), { recursive: true });
+      fs.writeFileSync(DEV_STORE_PATH, JSON.stringify(memStore, null, 2), 'utf8');
+    } catch (e) {
+      console.warn('[DB] Could not save dev_store.json:', e.message);
+    }
+  }
+}
 
 if (process.env.DATABASE_URL || process.env.PGHOST) {
   pool = new Pool({
@@ -31,7 +58,7 @@ if (process.env.DATABASE_URL || process.env.PGHOST) {
   });
 } else {
   useInMemory = true;
-  console.log('[DB] Running in In-Memory fallback mode (Zero-setup local mode). Set PGHOST/DATABASE_URL to use PostgreSQL.');
+  console.log('[DB] Running in Persistent Local File Mode (Zero-setup local mode). Set PGHOST/DATABASE_URL to use PostgreSQL.');
 }
 
 async function query(text, params) {
@@ -39,12 +66,14 @@ async function query(text, params) {
     try {
       return await pool.query(text, params);
     } catch (err) {
-      console.warn('[DB] PostgreSQL query failed, using in-memory store:', err.message);
+      console.warn('[DB] PostgreSQL query failed, using persistent local store:', err.message);
       useInMemory = true;
     }
   }
 
-  return executeInMemory(text, params);
+  const result = executeInMemory(text, params);
+  saveDevStore();
+  return result;
 }
 
 function executeInMemory(text, params = []) {
@@ -54,7 +83,7 @@ function executeInMemory(text, params = []) {
   if (sql.startsWith('INSERT INTO participants')) {
     const id = memStore.nextParticipantId++;
     const [nama, nama_clean, sekolah, sekolah_clean, wa] = params;
-    const record = { id, nama, nama_clean, sekolah, sekolah_clean, wa, created_at: new Date() };
+    const record = { id, nama, nama_clean, sekolah, sekolah_clean, wa, created_at: new Date().toISOString() };
     memStore.participants.push(record);
     return { rows: [record] };
   }
@@ -66,7 +95,7 @@ function executeInMemory(text, params = []) {
   }
 
   // SELECT participant completed categories
-  if (sql.includes('SELECT s.kategori_kode, s.total_score, s.finished_at') && sql.includes('WHERE s.participant_id = $1')) {
+  if (sql.includes('WHERE s.participant_id = $1 AND s.finished_at IS NOT NULL')) {
     const partId = parseInt(params[0], 10);
     const sessions = memStore.quizSessions
       .filter(s => s.participant_id === partId && s.finished_at !== null)
@@ -90,7 +119,7 @@ function executeInMemory(text, params = []) {
       total_time_ms: 0,
       correct_count: 0,
       badge_title: null,
-      started_at: new Date(),
+      started_at: new Date().toISOString(),
       finished_at: null
     };
     memStore.quizSessions.push(record);
@@ -106,7 +135,7 @@ function executeInMemory(text, params = []) {
       session.total_time_ms = total_time_ms;
       session.correct_count = correct_count;
       session.badge_title = badge_title;
-      session.finished_at = new Date();
+      session.finished_at = new Date().toISOString();
       return { rows: [session] };
     }
     return { rows: [] };
@@ -123,7 +152,7 @@ function executeInMemory(text, params = []) {
       is_correct,
       time_spent_ms,
       score_awarded,
-      created_at: new Date()
+      created_at: new Date().toISOString()
     };
     memStore.quizAnswers.push(record);
     return { rows: [record] };
@@ -208,7 +237,6 @@ function executeInMemory(text, params = []) {
         schoolMap[school] = { sekolah: school, students: new Map() };
       }
       const existingBest = schoolMap[school].students.get(p.id) || 0;
-      // Akumulasikan atau simpan skor terbaik
       schoolMap[school].students.set(p.id, existingBest + s.total_score);
     }
 
@@ -284,8 +312,6 @@ function executeInMemory(text, params = []) {
 
 async function initDb() {
   if (pool && !useInMemory) {
-    const fs = require('fs');
-    const path = require('path');
     const schemaSql = fs.readFileSync(path.join(__dirname, 'schema.sql'), 'utf8');
     await pool.query(schemaSql);
     console.log('[DB] PostgreSQL schema initialized successfully.');
@@ -302,5 +328,6 @@ module.exports = {
     memStore.quizAnswers = [];
     memStore.nextParticipantId = 1;
     memStore.nextAnswerId = 1;
+    saveDevStore();
   }
 };

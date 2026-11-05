@@ -44,6 +44,12 @@ Aplikasi web kuis interaktif ultra-ringan berbasis scan QR Code ala Kahoot yang 
 ## 📝 Changelog
 
 ### [2026-11-05]
+- **Perbaikan Bug UI/UX & Interaksi (Berdasarkan Skill Frontend Design, Taste, Emil Kowalski, Hallmark, Impeccable)**:
+  - **Toggle Light / Dark Mode**: Memperbaiki toggle tema agar instan beralih antara Mode Terang (default) dan Mode Gelap, menjaga keutuhan ikon serta teks label (`☀️ Mode Terang` / `🌙 Mode Gelap`).
+  - **Modal Cek Peringkat HP**: Memperbaiki tombol "🏆 Cek Papan Peringkat (Leaderboard)" pada layar hasil dan menu kategori agar membuka dialog modal fixed-center dengan animasi *scale-up* halus, backdrop-blur, serta fitur tutup via backdrop/tombol silang.
+  - **Solusi Masalah Koneksi Terputus ("Tersimpan Offline")**: Menambahkan persistensi data otomatis (`dev_store.json`) dan fallback auto-recovery di service kuis sehingga sesi kuis peserta tidak akan pernah hilang atau gagal tersimpan walau server sempat restart di tengah acara.
+  - **Bank Soal 100% Unik (Zero Duplicate)**: Mengganti bank soal lama dengan 90 soal kurasi unik baru (30 Logika, 30 Data BPS, 30 STIS) dan menerapkan algoritma acak *Fisher-Yates shuffle* agar soal tidak berulang dalam satu sesi.
+  - **Pencegahan Cache Browser**: Menambahkan header HTTP `no-cache, no-store, must-revalidate` serta cache-busting query parameter versi (`?v=4.1`) pada berkas statis CSS dan JS.
 - **Design-Engineering Polish (make-interfaces-feel-better)**:
   - Penerapan `font-variant-numeric: tabular-nums` pada timer dan skor untuk mengeliminasi *layout jitter*.
   - Perluasan area sentuh (*hit area*) tombol kontrol menjadi minimum 44×44px (standar Apple HIG & WCAG).

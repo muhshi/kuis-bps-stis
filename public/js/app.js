@@ -89,10 +89,8 @@ let currentModalCat = 'all';
 // ==========================================
 function initTheme() {
   const savedTheme = localStorage.getItem('bps_theme');
-  const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-  // Default light mode unless user saved dark or system prefers dark
-  if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+  // Default is LIGHT MODE
+  if (savedTheme === 'dark') {
     applyTheme('dark');
   } else {
     applyTheme('light');
@@ -100,22 +98,35 @@ function initTheme() {
 }
 
 function applyTheme(theme) {
-  if (theme === 'dark') {
+  const isDark = (theme === 'dark');
+  if (isDark) {
     document.body.classList.add('dark-mode');
-    btnThemeToggle.textContent = '☀️';
-    btnThemeToggle.title = 'Beralih ke Mode Terang';
   } else {
     document.body.classList.remove('dark-mode');
-    btnThemeToggle.textContent = '🌙';
-    btnThemeToggle.title = 'Beralih ke Mode Gelap';
+  }
+
+  const themeIcon = document.getElementById('theme-icon');
+  const themeLabel = document.getElementById('theme-label');
+
+  if (themeIcon && themeLabel) {
+    themeIcon.textContent = isDark ? '🌙' : '☀️';
+    themeLabel.textContent = isDark ? 'Mode Gelap' : 'Mode Terang';
+  } else if (btnThemeToggle) {
+    btnThemeToggle.textContent = isDark ? '🌙 Gelap' : '☀️ Terang';
+  }
+
+  if (btnThemeToggle) {
+    btnThemeToggle.title = isDark ? 'Beralih ke Mode Terang' : 'Beralih ke Mode Gelap';
   }
   localStorage.setItem('bps_theme', theme);
 }
 
-btnThemeToggle.addEventListener('click', () => {
-  const isDark = document.body.classList.contains('dark-mode');
-  applyTheme(isDark ? 'light' : 'dark');
-});
+if (btnThemeToggle) {
+  btnThemeToggle.addEventListener('click', () => {
+    const isDark = document.body.classList.contains('dark-mode');
+    applyTheme(isDark ? 'light' : 'dark');
+  });
+}
 
 // Initialize on load
 initTheme();
@@ -426,6 +437,8 @@ async function submitFinalResult() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         sessionId: state.sessionId,
+        participantId: state.participantId,
+        kategoriKode: state.currentCategory,
         answers: state.answers
       })
     });
@@ -480,11 +493,26 @@ btnBackToMenu.addEventListener('click', () => {
 // ==========================================
 // 6. MOBILE LEADERBOARD MODAL
 // ==========================================
-btnViewLbFromCat.addEventListener('click', () => openLeaderboardModal('all'));
-btnViewLbFromRes.addEventListener('click', () => openLeaderboardModal('all'));
-btnCloseModalLb.addEventListener('click', () => {
-  modalLeaderboard.classList.add('hidden');
-});
+if (btnViewLbFromCat) {
+  btnViewLbFromCat.addEventListener('click', () => openLeaderboardModal('all'));
+}
+if (btnViewLbFromRes) {
+  btnViewLbFromRes.addEventListener('click', () => openLeaderboardModal('all'));
+}
+if (btnCloseModalLb) {
+  btnCloseModalLb.addEventListener('click', () => {
+    modalLeaderboard.classList.add('hidden');
+  });
+}
+
+// Close when clicking modal backdrop
+if (modalLeaderboard) {
+  modalLeaderboard.addEventListener('click', (e) => {
+    if (e.target === modalLeaderboard) {
+      modalLeaderboard.classList.add('hidden');
+    }
+  });
+}
 
 mobileCatPills.forEach(pill => {
   pill.addEventListener('click', () => {

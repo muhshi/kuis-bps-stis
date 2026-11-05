@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Kuis Sosialisasi STIS & BPS</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css?v=4.1">
 </head>
 <body>
   <div id="app-container">
@@ -14,8 +14,9 @@
       <div class="header-badge">
         <span>🏛️ BPS × STIS</span>
       </div>
-      <button id="btn-theme-toggle" class="theme-toggle-btn" title="Ganti Mode Terang/Gelap">
-        🌙
+      <button id="btn-theme-toggle" class="theme-toggle-pill" type="button" title="Ganti Mode Terang / Gelap">
+        <span id="theme-icon">☀️</span>
+        <span id="theme-label">Mode Terang</span>
       </button>
     </div>
 
@@ -56,28 +57,28 @@
       <!-- Cumulative Score Banner -->
       <div style="background: var(--inner-card); border: 1.5px solid var(--inner-border); border-radius: 14px; padding: 12px 14px; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center;">
         <div>
-          <div style="font-size: 0.74rem; color: var(--text-muted); font-weight: 700;">TOTAL AKUMULASI SKOR</div>
-          <div style="font-size: 1.35rem; font-weight: 900; color: #d97706;" id="banner-grand-score">0 Poin</div>
+          <div style="font-size: 0.74rem; color: var(--text-muted); font-weight: 800;">TOTAL AKUMULASI SKOR</div>
+          <div style="font-size: 1.35rem; font-weight: 900; color: var(--accent-gold);" id="banner-grand-score">0 Poin</div>
         </div>
         <div style="text-align: right;">
-          <div style="font-size: 0.74rem; color: var(--text-muted); font-weight: 700;">PROGRES</div>
-          <div style="font-size: 0.95rem; font-weight: 800; color: #0284c7;" id="banner-progress">0/3 Selesai</div>
+          <div style="font-size: 0.74rem; color: var(--text-muted); font-weight: 800;">PROGRES</div>
+          <div style="font-size: 1rem; font-weight: 900; color: #0284c7;" id="banner-progress">0/3 Selesai</div>
         </div>
       </div>
 
       <!-- Category Cards -->
       <div class="cat-cards-wrap">
         <!-- 1. Logika -->
-        <div class="cat-card" id="card-cat-logika" data-cat="logika">
+        <div class="cat-card cat-logika" id="card-cat-logika" data-cat="logika">
           <div class="cat-card-top">
             <div class="cat-title">⚡ The Logic Master</div>
             <div class="cat-status-badge" id="badge-cat-logika">10 Soal • Asah Nalar</div>
           </div>
-          <div class="cat-desc">Teka-teki logika, pola angka cepat, dan jebakan berpikir santai.</div>
+          <div class="cat-desc">Teka-teki logika cepat, pola angka, dan jebakan berpikir santai.</div>
         </div>
 
         <!-- 2. Data -->
-        <div class="cat-card" id="card-cat-data" data-cat="data">
+        <div class="cat-card cat-data" id="card-cat-data" data-cat="data">
           <div class="cat-card-top">
             <div class="cat-title">📊 Detektif Data Indonesia</div>
             <div class="cat-status-badge" id="badge-cat-data">10 Soal • Fakta BPS</div>
@@ -86,7 +87,7 @@
         </div>
 
         <!-- 3. STIS -->
-        <div class="cat-card" id="card-cat-stis" data-cat="stis">
+        <div class="cat-card cat-stis" id="card-cat-stis" data-cat="stis">
           <div class="cat-card-top">
             <div class="cat-title">🎓 Pejuang STIS</div>
             <div class="cat-status-badge" id="badge-cat-stis">10 Soal • Kedinasan</div>
@@ -95,12 +96,12 @@
         </div>
       </div>
 
-      <!-- Leaderboard Button -->
-      <button id="btn-view-lb-from-cat" class="btn-outline-gold">
+      <!-- Leaderboard Button on Category Screen -->
+      <button id="btn-view-lb-from-cat" class="btn-leaderboard" type="button">
         🏆 Cek Papan Peringkat (Leaderboard)
       </button>
 
-      <button id="btn-logout" class="btn-secondary" style="margin-top: 8px;">
+      <button id="btn-logout" class="btn-secondary" type="button" style="margin-top: 6px;">
         Ganti Nama / Peserta Lain
       </button>
     </div>
@@ -119,7 +120,7 @@
         <div class="timer-bar-fill" id="timer-bar"></div>
       </div>
 
-      <div style="font-size: 0.82rem; color: var(--text-muted); font-weight: 700; margin-bottom: 6px;" id="q-counter">
+      <div style="font-size: 0.82rem; color: var(--text-muted); font-weight: 800; margin-bottom: 6px;" id="q-counter">
         Soal 1 dari 10
       </div>
 
@@ -130,19 +131,19 @@
       </div>
 
       <div class="options-grid" id="options-container">
-        <button class="opt-btn btn-a" data-opt="A">
+        <button class="opt-btn btn-a" data-opt="A" type="button">
           <span class="opt-badge">▲</span>
           <span class="opt-text" id="opt-text-a">Opsi A</span>
         </button>
-        <button class="opt-btn btn-b" data-opt="B">
+        <button class="opt-btn btn-b" data-opt="B" type="button">
           <span class="opt-badge">◆</span>
           <span class="opt-text" id="opt-text-b">Opsi B</span>
         </button>
-        <button class="opt-btn btn-c" data-opt="C">
+        <button class="opt-btn btn-c" data-opt="C" type="button">
           <span class="opt-badge">●</span>
           <span class="opt-text" id="opt-text-c">Opsi C</span>
         </button>
-        <button class="opt-btn btn-d" data-opt="D">
+        <button class="opt-btn btn-d" data-opt="D" type="button">
           <span class="opt-badge">■</span>
           <span class="opt-text" id="opt-text-d">Opsi D</span>
         </button>
@@ -157,7 +158,7 @@
         <div class="feedback-explanation" id="fb-explanation">
           Penjelasan jawaban akan muncul di sini.
         </div>
-        <button id="btn-next-question" class="btn-primary" style="padding: 12px; margin-top: 4px;">
+        <button id="btn-next-question" class="btn-primary" type="button" style="padding: 12px; margin-top: 4px;">
           Lanjut ke Soal Berikutnya ➔
         </button>
       </div>
@@ -167,9 +168,9 @@
     <div id="screen-result" class="screen hidden">
       <div class="result-header">
         <div class="trophy-icon" id="res-trophy">🏆</div>
-        <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 700;" id="res-cat-label">HASIL KATEGORI LOGIKA</div>
-        <h2 style="font-size: 2.2rem; font-weight: 900; margin: 4px 0;" id="res-score">12,500</h2>
-        <div style="font-size: 0.85rem; color: #0284c7; font-weight: 600;" id="res-name-school">Rian Dwi • SMAN 1 Semarang</div>
+        <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 800;" id="res-cat-label">HASIL KATEGORI LOGIKA</div>
+        <h2 style="font-size: 2.2rem; font-weight: 900; margin: 4px 0;" id="res-score">0</h2>
+        <div style="font-size: 0.85rem; color: #0284c7; font-weight: 700;" id="res-name-school">Peserta • Sekolah</div>
       </div>
 
       <div class="badge-card">
@@ -179,70 +180,72 @@
 
       <div class="stats-grid">
         <div class="stat-box">
-          <div class="stat-val" id="res-correct">9 / 10</div>
+          <div class="stat-val" id="res-correct">0 / 10</div>
           <div class="stat-lbl">Benar di Kategori Ini</div>
         </div>
         <div class="stat-box">
-          <div class="stat-val" id="res-cumulative">24,500</div>
+          <div class="stat-val" id="res-cumulative">0 Poin</div>
           <div class="stat-lbl">Total Skor Kumulatif</div>
         </div>
       </div>
 
       <div id="offline-retry-box" class="hidden" style="margin-bottom: 12px;">
-        <button id="btn-retry-submit" class="btn-primary" style="background: #e11d48;">
+        <button id="btn-retry-submit" class="btn-primary" type="button" style="background: #e11d48;">
           ⚠️ Kirim Ulang Hasil (Koneksi Terputus)
         </button>
       </div>
 
       <!-- Action Button: Next Category or All Finished -->
-      <button id="btn-next-category" class="btn-primary" style="margin-bottom: 6px;">
+      <button id="btn-next-category" class="btn-primary" type="button" style="margin-bottom: 6px;">
         🔥 Tantang Kategori Lain (Tambah Skor!)
       </button>
 
-      <!-- Leaderboard Button on Result Screen -->
-      <button id="btn-view-lb-from-res" class="btn-outline-gold">
-        🏆 Cek Posisi Peringkatmu (Leaderboard)
+      <!-- Prominent Leaderboard Button on Result Screen -->
+      <button id="btn-view-lb-from-res" class="btn-leaderboard" type="button">
+        🏆 Cek Papan Peringkat (Leaderboard)
       </button>
 
-      <button id="btn-back-to-menu" class="btn-secondary">
+      <button id="btn-back-to-menu" class="btn-secondary" type="button">
         📋 Kembali ke Menu Kategori
       </button>
     </div>
 
-    <!-- MODAL / OVERLAY: MOBILE LEADERBOARD -->
-    <div id="modal-leaderboard" class="modal-overlay hidden">
+  </div> <!-- End #app-container -->
+
+  <!-- MODAL / OVERLAY: MOBILE LEADERBOARD -->
+  <div id="modal-leaderboard" class="modal-overlay hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
       <div class="modal-header">
         <div>
-          <h2 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main);">🏆 Live Leaderboard</h2>
-          <div style="font-size: 0.78rem; color: var(--text-muted);">Papan Juara Pameran BPS & STIS</div>
+          <h2 style="font-size: 1.15rem; font-weight: 900; color: var(--text-main); margin: 0;">🏆 Live Leaderboard</h2>
+          <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 2px;">Papan Peringkat Booth BPS & STIS</div>
         </div>
-        <button id="btn-close-modal-lb" class="modal-close-btn">&times;</button>
+        <button id="btn-close-modal-lb" class="modal-close-btn" type="button" title="Tutup">&times;</button>
       </div>
 
       <!-- Leaderboard Category Filter in Modal -->
-      <div style="display: flex; gap: 6px; margin-bottom: 12px; overflow-x: auto; padding-bottom: 4px;">
-        <button class="mobile-cat-pill active" data-cat="all" style="padding: 5px 10px; border-radius: 8px; border: 1px solid var(--inner-border); background: #0284c7; color: #fff; font-size: 0.78rem; font-weight: 700; cursor: pointer; white-space: nowrap;">👑 Juara Umum</button>
-        <button class="mobile-cat-pill" data-cat="logika" style="padding: 5px 10px; border-radius: 8px; border: 1px solid var(--inner-border); background: var(--inner-card); color: var(--text-main); font-size: 0.78rem; font-weight: 700; cursor: pointer; white-space: nowrap;">⚡ Logika</button>
-        <button class="mobile-cat-pill" data-cat="data" style="padding: 5px 10px; border-radius: 8px; border: 1px solid var(--inner-border); background: var(--inner-card); color: var(--text-main); font-size: 0.78rem; font-weight: 700; cursor: pointer; white-space: nowrap;">📊 Data</button>
-        <button class="mobile-cat-pill" data-cat="stis" style="padding: 5px 10px; border-radius: 8px; border: 1px solid var(--inner-border); background: var(--inner-card); color: var(--text-main); font-size: 0.78rem; font-weight: 700; cursor: pointer; white-space: nowrap;">🎓 STIS</button>
+      <div class="modal-pills-row">
+        <button class="mobile-cat-pill active" data-cat="all" type="button">👑 Juara Umum</button>
+        <button class="mobile-cat-pill" data-cat="logika" type="button">⚡ Logika</button>
+        <button class="mobile-cat-pill" data-cat="data" type="button">📊 Data BPS</button>
+        <button class="mobile-cat-pill" data-cat="stis" type="button">🎓 STIS</button>
       </div>
 
       <!-- List Container -->
-      <div id="mobile-lb-list" style="flex: 1; overflow-y: auto; margin-bottom: 12px;">
+      <div id="mobile-lb-list" class="modal-list-scroll">
         <div style="text-align: center; padding: 24px; color: var(--text-muted);">Memuat peringkat...</div>
       </div>
 
       <!-- Link to Fullscreen TV -->
-      <div style="text-align: center; border-top: 1px solid var(--inner-border); padding-top: 10px;">
-        <a href="/tv.html" target="_blank" style="font-size: 0.82rem; color: #0284c7; font-weight: 700; text-decoration: none;">
-          📺 Buka Tampilan Layar Penuh TV (tv.html) ➔
+      <div class="modal-footer-tv">
+        <a href="/tv.html" target="_blank">
+          📺 Buka Layar Penuh TV Booth (tv.html) ➔
         </a>
       </div>
     </div>
-
   </div>
 
-  <script src="/js/audio.js"></script>
-  <script src="/js/app.js"></script>
+  <script src="/js/audio.js?v=4.1"></script>
+  <script src="/js/app.js?v=4.1"></script>
 </body>
 </html>

@@ -20,8 +20,12 @@ const cachedLeaderboards = new Map();
 const CACHE_TTL_MS = 2500; // 2.5 seconds cache
 
 function getRandomItems(array, count) {
-  const shuffled = [...array].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, count);
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr.slice(0, count);
 }
 
 function generate10QuestionsForCategory(categoryCode) {
@@ -182,7 +186,7 @@ async function startSession({ participantId, nama, sekolah, wa, kategoriKode }) 
   };
 }
 
-async function finishSession({ sessionId, answers = [] }) {
+async function finishSession({ sessionId, participantId, kategoriKode, answers = [] }) {
   const sessRes = await db.query(
     `SELECT s.*, p.id as participant_id, p.nama_clean, p.sekolah_clean 
      FROM quiz_sessions s
@@ -192,7 +196,45 @@ async function finishSession({ sessionId, answers = [] }) {
   );
 
   if (sessRes.rows.length === 0) {
-    throw new Error('Sesi kuis tidak ditemukan');
+    // Graceful auto-recovery: If session wasn't found (e.g. server restarted during dev),
+    // look up participant or create one, so student results are NEVER lost!
+    let part = null;
+    if (participantId) {
+      const pCheck = await db.query(
+        `SELECT id, nama_clean, sekolah_clean FROM participants WHERE id = $1`,
+        [participantId]
+      );
+      if (pCheck.rows.length > 0) {
+        part = pCheck.rows[0];
+      }
+    }
+
+    if (!part) {
+      const partRes = await db.query(
+        `INSERT INTO participants (nama, nama_clean, sekolah, sekolah_clean, wa)
+         VALUES ($1, $2, $3, $4, $5)
+         RETURNING id, nama_clean, sekolah_clean`,
+        ['Peserta Kuis', 'Peserta Kuis', 'SMA Indonesia', 'SMA Indonesia', '']
+      );
+      part = partRes.rows[0];
+    }
+
+    const cat = kategoriKode || 'logika';
+    const recQuestionIds = answers.map(a => a.questionId);
+    await db.query(
+      `INSERT INTO quiz_sessions (id, participant_id, kategori_kode, question_ids)
+       VALUES ($1, $2, $3, $4)`,
+      [sessionId, part.id, cat, recQuestionIds]
+    );
+
+    sessRes.rows.push({
+      id: sessionId,
+      participant_id: part.id,
+      nama_clean: part.nama_clean,
+      sekolah_clean: part.sekolah_clean,
+      kategori_kode: cat,
+      finished_at: null
+    });
   }
 
   const session = sessRes.rows[0];

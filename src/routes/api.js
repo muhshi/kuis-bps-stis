@@ -55,7 +55,7 @@ router.post('/quiz/start', async (req, res) => {
 // Finish session & calculate scores
 router.post('/quiz/finish', async (req, res) => {
   try {
-    const { sessionId, answers } = req.body || {};
+    const { sessionId, participantId, kategoriKode, answers } = req.body || {};
 
     if (!sessionId) {
       return res.status(400).json({ success: false, error: 'Session ID diperlukan' });
@@ -63,6 +63,8 @@ router.post('/quiz/finish', async (req, res) => {
 
     const result = await quizService.finishSession({
       sessionId,
+      participantId: participantId ? parseInt(participantId, 10) : null,
+      kategoriKode,
       answers: Array.isArray(answers) ? answers : []
     });
 

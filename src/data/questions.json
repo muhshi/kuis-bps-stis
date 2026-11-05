@@ -3,7 +3,7 @@
     "id": 1,
     "kategori_kode": "logika",
     "kategori_label": "The Logic Master",
-    "pertanyaan": "Lanjutkan pola ini: 2, 6, 12, 20, 30, ... ?",
+    "pertanyaan": "Lanjutkan pola angka ini: 2, 6, 12, 20, 30, ... ?",
     "opsi": {
       "A": "40",
       "B": "42",
@@ -11,13 +11,13 @@
       "D": "36"
     },
     "kunci": "B",
-    "penjelasan": "Selisihnya naik terus: +4, +6, +8, +10, lalu +12. Jadi 30 + 12 = 42. Pola ini juga sama dengan n × (n+1)!"
+    "penjelasan": "Jawabannya 42! Polanya bertambah secara teratur: +4, +6, +8, +10, lalu +12 (30 + 12 = 42). Pola ini juga setara dengan n × (n+1)!"
   },
   {
     "id": 2,
     "kategori_kode": "logika",
     "kategori_label": "The Logic Master",
-    "pertanyaan": "Deret ini terkenal banget: 1, 1, 2, 3, 5, 8, ... ?",
+    "pertanyaan": "Deret legendaris alam: 1, 1, 2, 3, 5, 8, ... Berapa angka berikutnya?",
     "opsi": {
       "A": "11",
       "B": "12",
@@ -25,13 +25,13 @@
       "D": "14"
     },
     "kunci": "C",
-    "penjelasan": "Ini deret Fibonacci: tiap angka adalah jumlah dua angka sebelumnya (5 + 8 = 13). Pola ini muncul di bunga matahari sampai cangkang kerang!"
+    "penjelasan": "Ini deret Fibonacci! Setiap angka adalah penjumlahan dua angka sebelumnya (5 + 8 = 13). Pola ini muncul pada bunga matahari hingga cangkang kerang!"
   },
   {
     "id": 3,
     "kategori_kode": "logika",
     "kategori_label": "The Logic Master",
-    "pertanyaan": "Ayah Budi punya 5 anak: Nana, Nini, Nunu, Nene, dan anak kelima bernama ... ?",
+    "pertanyaan": "Ayah Budi punya 5 anak: Nana, Nini, Nunu, Nene, dan anak kelima bernama siapa?",
     "opsi": {
       "A": "Nono",
       "B": "Nunung",
@@ -39,7 +39,7 @@
       "D": "Budi"
     },
     "kunci": "D",
-    "penjelasan": "Baca lagi soalnya: itu 'Ayah Budi', jadi Budi adalah anaknya juga. Jangan keburu ikut pola nama ya, detektif!"
+    "penjelasan": "Budi! Perhatikan awal kalimatnya: 'Ayah Budi'. Jadi anak kelimanya adalah Budi sendiri. Jangan terkecoh pola nama ya!"
   },
   {
     "id": 4,
@@ -53,13 +53,13 @@
       "D": "33 menit"
     },
     "kunci": "B",
-    "penjelasan": "Tiap kucing butuh 3 menit untuk 1 tikus. Mau 100 kucing atau 3 kucing, waktunya tetap 3 menit karena kerjanya paralel."
+    "penjelasan": "Tetap 3 menit! Masing-masing kucing butuh 3 menit untuk menangkap 1 tikus. Karena bekerja bersamaan, waktunya tetap sama."
   },
   {
     "id": 5,
     "kategori_kode": "logika",
     "kategori_label": "The Logic Master",
-    "pertanyaan": "Cari angka berikutnya: 3, 6, 11, 18, 27, ... ?",
+    "pertanyaan": "Tebak angka berikutnya: 3, 6, 11, 18, 27, ... ?",
     "opsi": {
       "A": "36",
       "B": "37",
@@ -67,13 +67,13 @@
       "D": "40"
     },
     "kunci": "C",
-    "penjelasan": "Selisihnya +3, +5, +7, +9, jadi berikutnya +11. Hasilnya 27 + 11 = 38."
+    "penjelasan": "Jawabannya 38! Selisih angkanya adalah deret bilangan ganjil: +3, +5, +7, +9, lalu +11. Jadi 27 + 11 = 38."
   },
   {
     "id": 6,
     "kategori_kode": "logika",
     "kategori_label": "The Logic Master",
-    "pertanyaan": "Teratai di kolam jumlahnya dua kali lipat tiap hari. Butuh 30 hari sampai kolam penuh. Hari ke berapa kolam baru terisi setengah?",
+    "pertanyaan": "Teratai di kolam jumlahnya berlipat ganda tiap hari. Butuh 30 hari hingga kolam penuh. Pada hari ke berapa kolam terisi setengahnya?",
     "opsi": {
       "A": "Hari ke-15",
       "B": "Hari ke-20",
@@ -81,27 +81,27 @@
       "D": "Hari ke-29"
     },
     "kunci": "D",
-    "penjelasan": "Karena menggandakan diri tiap hari, kolam setengah penuh sehari sebelum penuh, yaitu hari ke-29. Begitulah dahsyatnya pertumbuhan eksponensial!"
+    "penjelasan": "Hari ke-29! Karena menggandakan diri setiap hari, sehari sebelum penuh (hari ke-30) kolam tersebut tepat terisi setengahnya. Inilah keajaiban pertumbuhan eksponensial!"
   },
   {
     "id": 7,
     "kategori_kode": "logika",
     "kategori_label": "The Logic Master",
-    "pertanyaan": "Es teh + boba harganya Rp15.000. Boba lebih mahal Rp10.000 daripada es teh. Berapa harga es tehnya?",
+    "pertanyaan": "Es teh + boba harganya Rp15.000. Boba lebih mahal Rp10.000 dari es teh. Berapa harga es tehnya?",
     "opsi": {
       "A": "Rp5.000",
       "B": "Rp2.500",
       "C": "Rp7.500",
-      "D": "Rp10.000"
+      "D": "Rp1.000"
     },
     "kunci": "B",
-    "penjelasan": "Es teh Rp2.500 dan boba Rp12.500: selisihnya Rp10.000 dan totalnya Rp15.000. Jawaban Rp5.000 itu jebakan yang paling sering kepilih!"
+    "penjelasan": "Rp2.500! Jika es teh Rp2.500, maka boba Rp12.500 (selisih pas Rp10.000 dan total Rp15.000). Jawaban Rp5.000 adalah jebakan refleks yang paling sering salah!"
   },
   {
     "id": 8,
     "kategori_kode": "logika",
     "kategori_label": "The Logic Master",
-    "pertanyaan": "Lanjutkan: 2, 3, 5, 7, 11, 13, ... ?",
+    "pertanyaan": "Lanjutkan deret ini: 2, 3, 5, 7, 11, 13, ... Angka berikutnya berapa?",
     "opsi": {
       "A": "15",
       "B": "16",
@@ -109,13 +109,13 @@
       "D": "19"
     },
     "kunci": "C",
-    "penjelasan": "Ini deret bilangan prima, yang cuma habis dibagi 1 dan dirinya sendiri. Setelah 13 datang 17, karena 15 dan 16 bukan prima."
+    "penjelasan": "17! Ini adalah deret bilangan prima (hanya habis dibagi 1 dan dirinya sendiri). 15 dan 16 bukan bilangan prima."
   },
   {
     "id": 9,
     "kategori_kode": "logika",
     "kategori_label": "The Logic Master",
-    "pertanyaan": "Kamu ikut lomba lari dan berhasil menyalip pelari di posisi kedua. Sekarang kamu ada di posisi berapa?",
+    "pertanyaan": "Kamu ikut lomba lari dan berhasil menyalip pelari di posisi kedua. Sekarang kamu berada di posisi berapa?",
     "opsi": {
       "A": "Pertama",
       "B": "Kedua",
@@ -123,307 +123,27 @@
       "D": "Terakhir"
     },
     "kunci": "B",
-    "penjelasan": "Menyalip orang di posisi kedua artinya kamu menggantikan posisinya, jadi kamu jadi nomor dua, bukan nomor satu. Kena prank, kan?"
+    "penjelasan": "Posisi kedua! Saat menyalip orang di posisi kedua, kamu mengambil alih tempatnya. Pelari di posisi pertama masih memimpin di depanmu!"
   },
   {
     "id": 10,
     "kategori_kode": "logika",
     "kategori_label": "The Logic Master",
-    "pertanyaan": "Jam dinding berdentang 3 kali dan selesai dalam 4 detik. Kalau berdentang 6 kali, butuh berapa detik?",
+    "pertanyaan": "Jam dinding berdentang 3 kali dalam 4 detik. Berapa detik waktu yang dibutuhkan untuk berdentang 6 kali?",
     "opsi": {
-      "A": "12",
-      "B": "8",
-      "C": "14",
-      "D": "10"
+      "A": "12 detik",
+      "B": "8 detik",
+      "C": "14 detik",
+      "D": "10 detik"
     },
     "kunci": "D",
-    "penjelasan": "Yang dihitung adalah jeda antar dentang: 3 dentang punya 2 jeda (masing-masing 2 detik). 6 dentang punya 5 jeda, jadi 5 × 2 = 10 detik."
+    "penjelasan": "10 detik! 3 dentang memiliki 2 jeda (4 detik ÷ 2 = 2 detik per jeda). 6 dentang memiliki 5 jeda, jadi 5 × 2 detik = 10 detik."
   },
   {
     "id": 11,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Berdasarkan Sensus Penduduk 2020, generasi mana yang jumlahnya paling banyak di Indonesia?",
-    "opsi": {
-      "A": "Baby Boomer",
-      "B": "Gen X",
-      "C": "Milenial",
-      "D": "Gen Z"
-    },
-    "kunci": "D",
-    "penjelasan": "Gen Z (lahir 1997-2012) mencakup sekitar 27,94% penduduk Indonesia, paling besar dibanding generasi lain. Artinya kamu bagian dari kelompok terbesar!"
-  },
-  {
-    "id": 12,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Sensus Penduduk di Indonesia rutin dilakukan setiap berapa tahun sekali?",
-    "opsi": {
-      "A": "10 tahun",
-      "B": "5 tahun",
-      "C": "20 tahun",
-      "D": "Setiap tahun"
-    },
-    "kunci": "A",
-    "penjelasan": "Sensus Penduduk dilakukan tiap 10 tahun, di tahun berakhiran 0. Yang terakhir adalah SP2020, jadi sensus berikutnya tahun 2030."
-  },
-  {
-    "id": 13,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Provinsi mana yang penduduknya paling banyak menurut Sensus Penduduk 2020?",
-    "opsi": {
-      "A": "Jawa Timur",
-      "B": "Jawa Barat",
-      "C": "DKI Jakarta",
-      "D": "Jawa Tengah"
-    },
-    "kunci": "B",
-    "penjelasan": "Jawa Barat jadi juaranya dengan sekitar 48 juta jiwa lebih. Jumlahnya lebih banyak dari penduduk banyak negara di dunia!"
-  },
-  {
-    "id": 14,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Harga jajan, bensin, dan kuota naik semua? Angka inflasi biasanya dihitung dari indeks apa?",
-    "opsi": {
-      "A": "IPM",
-      "B": "PDB",
-      "C": "IHK",
-      "D": "Rasio Gini"
-    },
-    "kunci": "C",
-    "penjelasan": "Inflasi dihitung dari IHK (Indeks Harga Konsumen), yang memantau perubahan harga barang dan jasa yang dibeli masyarakat. Dan datanya dirilis BPS!"
-  },
-  {
-    "id": 15,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Jumlah penduduk Indonesia terbesar ke berapa di dunia?",
-    "opsi": {
-      "A": "Ke-4",
-      "B": "Ke-3",
-      "C": "Ke-5",
-      "D": "Ke-6"
-    },
-    "kunci": "A",
-    "penjelasan": "Indonesia di peringkat 4 dunia setelah India, Tiongkok, dan Amerika Serikat. Dengan 270 juta lebih penduduk, kita punya pasar dan talenta digital yang raksasa."
-  },
-  {
-    "id": 16,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Indeks Pembangunan Manusia (IPM) diukur dari tiga dimensi. Mana yang BUKAN bagian dari IPM?",
-    "opsi": {
-      "A": "Umur panjang dan hidup sehat",
-      "B": "Pengetahuan",
-      "C": "Standar hidup layak",
-      "D": "Jumlah followers media sosial"
-    },
-    "kunci": "D",
-    "penjelasan": "IPM terdiri dari kesehatan, pendidikan, dan standar hidup layak. Sayangnya followers belum masuk hitungan, hehe."
-  },
-  {
-    "id": 17,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Tanggal berapa Hari Statistik Nasional diperingati?",
-    "opsi": {
-      "A": "26 September",
-      "B": "17 Agustus",
-      "C": "28 Oktober",
-      "D": "2 Mei"
-    },
-    "kunci": "A",
-    "penjelasan": "Hari Statistik Nasional jatuh pada 26 September, mengacu pada lahirnya Undang-Undang tentang Statistik tahun 1960 yang menjadi cikal bakal BPS."
-  },
-  {
-    "id": 18,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Data pengangguran (TPT) dan jumlah angkatan kerja berasal dari survei BPS yang bernama...",
-    "opsi": {
-      "A": "Susenas",
-      "B": "Sakernas",
-      "C": "Survei Harga Konsumen",
-      "D": "Sensus Pertanian"
-    },
-    "kunci": "B",
-    "penjelasan": "Sakernas adalah Survei Angkatan Kerja Nasional. Dari sinilah kita tahu berapa banyak orang yang bekerja dan mencari kerja di Indonesia."
-  },
-  {
-    "id": 19,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Indonesia punya berapa zona waktu?",
-    "opsi": {
-      "A": "2",
-      "B": "4",
-      "C": "3",
-      "D": "5"
-    },
-    "kunci": "C",
-    "penjelasan": "Ada 3 zona waktu: WIB, WITA, dan WIT. Rentang wilayah segini luas bikin pengumpulan data BPS jadi tantangan seru!"
-  },
-  {
-    "id": 20,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Pulau Jawa luasnya kecil, tapi dihuni sekitar berapa persen penduduk Indonesia?",
-    "opsi": {
-      "A": "26%",
-      "B": "41%",
-      "C": "71%",
-      "D": "56%"
-    },
-    "kunci": "D",
-    "penjelasan": "Menurut SP2020, sekitar 56% penduduk Indonesia tinggal di Pulau Jawa. Lebih dari separuh orang Indonesia berbagi satu pulau!"
-  },
-  {
-    "id": 21,
-    "kategori_kode": "stis",
-    "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Fakta soal biaya kuliah di Politeknik Statistika STIS yang benar adalah...",
-    "opsi": {
-      "A": "UKT belasan juta per semester",
-      "B": "Mahasiswa tidak dipungut biaya kuliah karena ikatan dinas",
-      "C": "Bayar dulu, nanti diganti setelah lulus",
-      "D": "Harus cari beasiswa sendiri"
-    },
-    "kunci": "B",
-    "penjelasan": "STIS adalah perguruan tinggi kedinasan, jadi mahasiswa tidak membayar biaya kuliah. Kamu tinggal fokus belajar dan pamit ke orang tua dengan bangga."
-  },
-  {
-    "id": 22,
-    "kategori_kode": "stis",
-    "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Setelah lulus dari STIS dan memenuhi persyaratan, statusmu adalah...",
-    "opsi": {
-      "A": "Freelancer",
-      "B": "Karyawan bank swasta",
-      "C": "Diangkat jadi CPNS di BPS",
-      "D": "Pengangguran terdidik"
-    },
-    "kunci": "C",
-    "penjelasan": "Lulusan STIS diangkat sebagai CPNS di BPS. Itulah yang dimaksud ikatan dinas: kuliah gratis, lulus langsung punya jalur karier."
-  },
-  {
-    "id": 23,
-    "kategori_kode": "stis",
-    "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Program studi apa saja yang ada di Politeknik Statistika STIS?",
-    "opsi": {
-      "A": "Statistika dan Komputasi Statistik",
-      "B": "Akuntansi dan Manajemen",
-      "C": "Kedokteran dan Farmasi",
-      "D": "Teknik Sipil dan Arsitektur"
-    },
-    "kunci": "A",
-    "penjelasan": "STIS punya dua prodi: Statistika dan Komputasi Statistik. Yang satu fokus pada analisis data, yang satu menggabungkan statistik dengan pemrograman."
-  },
-  {
-    "id": 24,
-    "kategori_kode": "stis",
-    "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Kampus Politeknik Statistika STIS berlokasi di kota...",
-    "opsi": {
-      "A": "Bandung",
-      "B": "Yogyakarta",
-      "C": "Surabaya",
-      "D": "Jakarta"
-    },
-    "kunci": "D",
-    "penjelasan": "Kampus STIS ada di Jakarta Timur. Kuliah di ibu kota, sambil belajar di lembaga statistik resmi negara!"
-  },
-  {
-    "id": 25,
-    "kategori_kode": "stis",
-    "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Mitos atau fakta? Mana yang MITOS soal STIS?",
-    "opsi": {
-      "A": "Mahasiswa bebas biaya kuliah",
-      "B": "Lulusan diangkat CPNS di BPS",
-      "C": "Hanya juara olimpiade matematika yang bisa masuk STIS",
-      "D": "Mahasiswa belajar statistik dan pengolahan data"
-    },
-    "kunci": "C",
-    "penjelasan": "Kamu tidak harus juara olimpiade! Yang penting kemauan belajar, logika yang baik, dan nyaman dengan angka dan data."
-  },
-  {
-    "id": 26,
-    "kategori_kode": "stis",
-    "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Program pendidikan utama di STIS adalah jenjang...",
-    "opsi": {
-      "A": "D-IV (setara sarjana terapan)",
-      "B": "S2",
-      "C": "D-I",
-      "D": "SMK"
-    },
-    "kunci": "A",
-    "penjelasan": "STIS menyelenggarakan pendidikan Diploma IV, yaitu sarjana terapan yang menekankan keterampilan praktik, bukan cuma teori."
-  },
-  {
-    "id": 27,
-    "kategori_kode": "stis",
-    "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Lulusan STIS yang jadi ASN BPS bisa ditempatkan di mana?",
-    "opsi": {
-      "A": "Hanya di Jakarta",
-      "B": "Di seluruh Indonesia",
-      "C": "Hanya di Pulau Jawa",
-      "D": "Hanya di luar negeri"
-    },
-    "kunci": "B",
-    "penjelasan": "BPS punya kantor di pusat, provinsi, dan kabupaten/kota, jadi penempatannya bisa dari ujung barat sampai ujung timur Indonesia. Siap petualangan?"
-  },
-  {
-    "id": 28,
-    "kategori_kode": "stis",
-    "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Prodi Komputasi Statistik di STIS memadukan statistika dengan...",
-    "opsi": {
-      "A": "Hukum pidana",
-      "B": "Seni rupa",
-      "C": "Kimia organik",
-      "D": "Pemrograman dan data science"
-    },
-    "kunci": "D",
-    "penjelasan": "Komputasi Statistik belajar mengolah data pakai coding dan teknologi. Cocok buat yang suka ngoding dan penasaran dengan data."
-  },
-  {
-    "id": 29,
-    "kategori_kode": "stis",
-    "kategori_label": "Pejuang STIS",
-    "pertanyaan": "BPS adalah lembaga pemerintah non-kementerian yang bertanggung jawab langsung kepada...",
-    "opsi": {
-      "A": "Presiden",
-      "B": "Menteri Keuangan",
-      "C": "Gubernur",
-      "D": "DPR"
-    },
-    "kunci": "A",
-    "penjelasan": "BPS bertanggung jawab langsung kepada Presiden. Data yang kamu hasilkan nanti jadi dasar kebijakan negara."
-  },
-  {
-    "id": 30,
-    "kategori_kode": "stis",
-    "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Sebagai statistisi BPS, kamu bisa ikut terlibat menghasilkan data apa?",
-    "opsi": {
-      "A": "Ramalan cuaca harian",
-      "B": "Skor pertandingan liga bola",
-      "C": "Angka inflasi dan pertumbuhan ekonomi",
-      "D": "Harga saham real-time"
-    },
-    "kunci": "C",
-    "penjelasan": "Inflasi, pertumbuhan ekonomi, kemiskinan, sampai pengangguran, semuanya data resmi yang dihasilkan BPS. (Ramalan cuaca itu tugas BMKG, ya!)"
-  },
-  {
-    "id": 31,
     "kategori_kode": "logika",
     "kategori_label": "The Logic Master",
-    "pertanyaan": "Kamu masuk ke ruangan gelap yang isinya lilin, lampu minyak, dan kompor gas. Kamu cuma bawa 1 korek api. Mana yang harus dinyalakan PERTAMA?",
+    "pertanyaan": "Kamu masuk ruangan gelap berisi lilin, lampu minyak, dan kompor gas dengan 1 korek api. Apa yang harus dinyalakan pertama kali?",
     "opsi": {
       "A": "Lilin",
       "B": "Lampu minyak",
@@ -431,13 +151,13 @@
       "D": "Korek apinya"
     },
     "kunci": "D",
-    "penjelasan": "Ya iyalah, korek api harus dinyalakan dulu sebelum yang lain bisa nyala! Soal kayak gini ngetes apakah kamu baca pelan-pelan atau langsung ngegas."
+    "penjelasan": "Korek apinya dulu dong! Tanpa menyalakan korek api terlebih dahulu, benda lainnya tidak akan bisa menyala."
   },
   {
-    "id": 32,
+    "id": 12,
     "kategori_kode": "logika",
     "kategori_label": "The Logic Master",
-    "pertanyaan": "Ada berapa bulan dalam setahun yang punya 28 hari?",
+    "pertanyaan": "Ada berapa bulan dalam satu tahun masehi yang memiliki 28 hari?",
     "opsi": {
       "A": "1 bulan",
       "B": "2 bulan",
@@ -445,13 +165,13 @@
       "D": "6 bulan"
     },
     "kunci": "C",
-    "penjelasan": "Semua bulan punya setidaknya 28 hari, cuma Februari yang pas segitu. Kata kuncinya 'punya', bukan 'cuma punya'!"
+    "penjelasan": "Semua 12 bulan! Setiap bulan memiliki setidaknya 28 hari, hanya saja Februari berhenti di hari ke-28 atau 29."
   },
   {
-    "id": 33,
+    "id": 13,
     "kategori_kode": "logika",
     "kategori_label": "The Logic Master",
-    "pertanyaan": "Makin banyak kamu ambil dari aku, makin besar aku jadinya. Aku apa?",
+    "pertanyaan": "Makin banyak kamu mengambil dariku, makin besar jadinya aku. Benda apakah aku?",
     "opsi": {
       "A": "Utang",
       "B": "Lubang",
@@ -459,13 +179,13 @@
       "D": "Timbangan"
     },
     "kunci": "B",
-    "penjelasan": "Lubang! Tanah yang diambil dari lubang makin banyak, ya lubangnya makin gede."
+    "penjelasan": "Lubang! Semakin banyak tanah yang kamu ambil dan gali, maka lubang tersebut akan menjadi semakin besar."
   },
   {
-    "id": 34,
+    "id": 14,
     "kategori_kode": "logika",
     "kategori_label": "The Logic Master",
-    "pertanyaan": "Dokter kasih kamu 3 pil dan bilang minum 1 pil tiap setengah jam. Pil pertama langsung kamu minum. Berapa lama sampai semua pil habis?",
+    "pertanyaan": "Dokter memberimu 3 butir pil dan berpesan minum 1 pil tiap 30 menit. Pil pertama langsung diminum. Kapan seluruh pil habis?",
     "opsi": {
       "A": "1,5 jam",
       "B": "1 jam",
@@ -473,13 +193,13 @@
       "D": "30 menit"
     },
     "kunci": "B",
-    "penjelasan": "Pil pertama diminum di menit ke-0, kedua menit ke-30, ketiga menit ke-60. Jadi 1 jam, bukan 1,5 jam. Hati-hati jebakan hitungan!"
+    "penjelasan": "1 jam! Pil pertama diminum di menit ke-0, pil kedua menit ke-30, dan pil ketiga di menit ke-60 (1 jam)."
   },
   {
-    "id": 35,
+    "id": 15,
     "kategori_kode": "logika",
     "kategori_label": "The Logic Master",
-    "pertanyaan": "Apa yang bisa kamu patahkan tanpa pernah kamu sentuh sama sekali?",
+    "pertanyaan": "Apa yang bisa kamu patahkan dengan mudah tanpa perlu pernah menyentuhnya sama sekali?",
     "opsi": {
       "A": "Janji",
       "B": "Kaca",
@@ -487,419 +207,83 @@
       "D": "Ranting"
     },
     "kunci": "A",
-    "penjelasan": "Janji! Kamu bisa mematahkannya tanpa menyentuh apa pun. Kaca, tulang, dan ranting harus disentuh dulu."
+    "penjelasan": "Janji! Kamu bisa mematahkan atau mengingkari janji tanpa sentuhan fisik. Jagalah selalu komitmenmu ya!"
   },
   {
-    "id": 36,
+    "id": 16,
     "kategori_kode": "logika",
     "kategori_label": "The Logic Master",
-    "pertanyaan": "Sebuah pesawat jatuh tepat di perbatasan dua negara. Di mana para penumpang yang SELAMAT harus dimakamkan?",
+    "pertanyaan": "Sebuah pesawat jatuh tepat di garis perbatasan dua negara. Di manakah para penumpang yang SELAMAT dimakamkan?",
     "opsi": {
-      "A": "Di negara pertama",
-      "B": "Di negara kedua",
+      "A": "Di negara asal",
+      "B": "Di negara tujuan",
       "C": "Tepat di perbatasan",
       "D": "Tidak dimakamkan"
     },
     "kunci": "D",
-    "penjelasan": "Mereka yang selamat kan masih hidup, ngapain dimakamkan? Jebakan klasik buat yang baca soal setengah-setengah."
+    "penjelasan": "Tidak dimakamkan! Penumpang yang selamat kan masih hidup, masa mau dimakamkan? Baca soalnya dengan teliti ya!"
   },
   {
-    "id": 37,
+    "id": 17,
     "kategori_kode": "logika",
     "kategori_label": "The Logic Master",
-    "pertanyaan": "Aku punya banyak kunci, tapi tidak bisa membuka satu pintu pun. Aku apa?",
+    "pertanyaan": "Benda ini memiliki puluhan kunci (keys), namun tidak bisa digunakan untuk membuka satu pintu pun. Apakah itu?",
     "opsi": {
       "A": "Keyboard",
       "B": "Gembok",
       "C": "Brankas",
-      "D": "Pagar"
+      "D": "Koper"
     },
     "kunci": "A",
-    "penjelasan": "Keyboard (atau piano) punya banyak tuts atau 'key', tapi tidak bisa dipakai buka pintu. Bahasa Inggrisnya 'key' juga berarti kunci."
+    "penjelasan": "Keyboard komputer atau piano! Keduanya memiliki tombol tuts yang dalam bahasa Inggris disebut 'keys'."
   },
   {
-    "id": 38,
+    "id": 18,
     "kategori_kode": "logika",
     "kategori_label": "The Logic Master",
-    "pertanyaan": "Seekor ayam jantan bertelur di atas genting yang tepat di perbatasan rumah A dan rumah B. Telurnya jatuh ke rumah siapa?",
+    "pertanyaan": "Seekor ayam jantan bertelur tepat di puncak atap rumah perbatasan. Ke arah mana telur tersebut akan menggelinding?",
     "opsi": {
-      "A": "Rumah A",
-      "B": "Rumah B",
-      "C": "Tidak jatuh ke mana-mana",
-      "D": "Menggelinding ke jalan"
+      "A": "Ke sisi kiri",
+      "B": "Ke sisi kanan",
+      "C": "Tidak menggelinding",
+      "D": "Ayam jantan tidak bertelur"
     },
-    "kunci": "C",
-    "penjelasan": "Ayam jantan kan tidak bisa bertelur! Kadang jawaban paling benar bukan soal arah angin, tapi soal logika dasar."
+    "kunci": "D",
+    "penjelasan": "Ayam jantan tidak pernah bertelur! Yang bertelur adalah ayam betina. Jangan terjebak fisika kemiringan atap ya!"
   },
   {
-    "id": 39,
+    "id": 19,
     "kategori_kode": "logika",
     "kategori_label": "The Logic Master",
-    "pertanyaan": "Mana yang lebih berat: 1 kg kapas atau 1 kg besi?",
+    "pertanyaan": "Mana yang lebih berat: 1 kilogram kapas atau 1 kilogram lempengan besi?",
     "opsi": {
       "A": "Besi",
       "B": "Kapas",
       "C": "Sama berat",
-      "D": "Tergantung ukurannya"
+      "D": "Tergantung gravitasi"
     },
     "kunci": "C",
-    "penjelasan": "Sama-sama 1 kg, ya sama berat. Yang beda cuma volumenya: kapas jauh lebih 'bongsor' daripada besi."
+    "penjelasan": "Sama berat! Keduanya sama-sama memiliki massa 1 kilogram. Besi hanya memiliki kerapatan volume yang jauh lebih padat."
   },
   {
-    "id": 40,
+    "id": 20,
     "kategori_kode": "logika",
     "kategori_label": "The Logic Master",
-    "pertanyaan": "Apa yang selalu akan datang, tapi tidak pernah benar-benar tiba?",
+    "pertanyaan": "Sesuatu yang selalu dijanjikan akan datang, namun kenyataannya tidak pernah benar-benar tiba. Apakah itu?",
     "opsi": {
       "A": "Kemarin",
       "B": "Besok",
       "C": "Lusa",
-      "D": "Hari ini"
+      "D": "Masa lalu"
     },
     "kunci": "B",
-    "penjelasan": "Besok! Begitu 'besok' tiba, namanya sudah berubah jadi 'hari ini'. Makanya ngerjain tugas jangan nunggu besok, ya!"
+    "penjelasan": "Besok! Karena begitu saatnya tiba, namanya sudah berganti menjadi 'hari ini'. Jangan menunda impianmu sampai besok!"
   },
   {
-    "id": 41,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Menurut Sensus Penduduk 2020, jumlah penduduk Indonesia sekitar berapa?",
-    "opsi": {
-      "A": "150 juta jiwa",
-      "B": "210 juta jiwa",
-      "C": "270 juta jiwa",
-      "D": "350 juta jiwa"
-    },
-    "kunci": "C",
-    "penjelasan": "Hasil SP2020 mencatat sekitar 270 juta jiwa. Itu menempatkan Indonesia di jajaran negara berpenduduk terbanyak di dunia!"
-  },
-  {
-    "id": 42,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Setelah pemekaran wilayah di Papua, Indonesia sekarang punya berapa provinsi?",
-    "opsi": {
-      "A": "34",
-      "B": "36",
-      "C": "37",
-      "D": "38"
-    },
-    "kunci": "D",
-    "penjelasan": "Indonesia kini punya 38 provinsi, jadi data BPS pun harus mengikuti peta administrasi yang terus diperbarui."
-  },
-  {
-    "id": 43,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Menurut klasifikasi BPS, Gen Z itu mereka yang lahir pada tahun...",
-    "opsi": {
-      "A": "1965-1980",
-      "B": "1981-1996",
-      "C": "1997-2012",
-      "D": "2013 ke atas"
-    },
-    "kunci": "C",
-    "penjelasan": "Gen Z lahir 1997-2012. Milenial 1981-1996, dan yang lahir 2013 ke atas masuk Gen Alpha. Kamu pasti ada di antaranya!"
-  },
-  {
-    "id": 44,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Apa yang baru dan beda dari Sensus Penduduk 2020 dibanding sensus-sensus sebelumnya?",
-    "opsi": {
-      "A": "Hanya untuk usia di atas 30 tahun",
-      "B": "Warga bisa mengisi data sendiri secara online",
-      "C": "Cuma dilakukan di kota besar",
-      "D": "Dilakukan lewat telepon saja"
-    },
-    "kunci": "B",
-    "penjelasan": "SP2020 pertama kalinya menyediakan sensus online, jadi warga bisa isi data sendiri lewat internet, baru sisanya didatangi petugas."
-  },
-  {
-    "id": 45,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "'Bonus demografi' itu kondisi ketika...",
-    "opsi": {
-      "A": "Penduduk usia produktif (15-64 tahun) jumlahnya jauh lebih banyak",
-      "B": "Jumlah penduduk turun drastis",
-      "C": "Semua penduduk dapat bonus uang",
-      "D": "Jumlah anak-anak paling banyak"
-    },
-    "kunci": "A",
-    "penjelasan": "Bonus demografi muncul saat penduduk usia produktif lebih banyak dibanding yang belum atau tidak produktif. Itu peluang emas, asal disiapkan dengan baik."
-  },
-  {
-    "id": 46,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Bill Gates masuk ke warung kopi berisi 10 orang biasa. Ukuran mana yang HAMPIR tidak berubah, padahal kekayaan rata-ratanya melonjak?",
-    "opsi": {
-      "A": "Rata-rata (mean) kekayaan",
-      "B": "Median kekayaan",
-      "C": "Total kekayaan",
-      "D": "Kekayaan tertinggi"
-    },
-    "kunci": "B",
-    "penjelasan": "Median adalah nilai tengah, jadi tidak terpengaruh satu orang super kaya. Itu sebabnya statistisi tidak cuma mengandalkan rata-rata!"
-  },
-  {
-    "id": 47,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Di survei ketenagakerjaan BPS, seseorang tetap dihitung 'bekerja' kalau kerja paling sedikit berapa lama dalam seminggu demi penghasilan?",
-    "opsi": {
-      "A": "1 jam",
-      "B": "10 jam",
-      "C": "20 jam",
-      "D": "35 jam"
-    },
-    "kunci": "A",
-    "penjelasan": "Standar internasional (ILO) yang dipakai BPS: minimal 1 jam seminggu dengan tujuan mendapat penghasilan. Jadi ojol, freelancer, dan content creator ikut terhitung."
-  },
-  {
-    "id": 48,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "BPS menghitung angka kemiskinan berdasarkan kemampuan memenuhi kebutuhan dasar. Yang dilihat adalah...",
-    "opsi": {
-      "A": "Jumlah followers media sosial",
-      "B": "Jumlah rumah yang dimiliki",
-      "C": "Gaji bulanan saja",
-      "D": "Rata-rata pengeluaran per orang per bulan"
-    },
-    "kunci": "D",
-    "penjelasan": "Kemiskinan diukur dari sisi pengeluaran, apakah cukup untuk kebutuhan makanan dan non-makanan. Datanya dikumpulkan lewat survei rumah tangga."
-  },
-  {
-    "id": 49,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Provinsi mana yang paling padat penduduk (jiwa per km²) di Indonesia?",
-    "opsi": {
-      "A": "DKI Jakarta",
-      "B": "Jawa Barat",
-      "C": "Papua",
-      "D": "Kalimantan Timur"
-    },
-    "kunci": "A",
-    "penjelasan": "DKI Jakarta paling padat, jauh di atas provinsi lain. Beda dengan 'paling banyak penduduk', ya. Padat itu dihitung per kilometer persegi."
-  },
-  {
-    "id": 50,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Data pengeluaran rumah tangga, termasuk jajan, kuota, sampai ongkos sekolah, dikumpulkan BPS lewat survei bernama...",
-    "opsi": {
-      "A": "Sakernas",
-      "B": "Susenas",
-      "C": "Sensus Pertanian",
-      "D": "Survei Harga Konsumen"
-    },
-    "kunci": "B",
-    "penjelasan": "Susenas adalah Survei Sosial Ekonomi Nasional. Dari sini lahir data kemiskinan, pendidikan, kesehatan, sampai pola konsumsi."
-  },
-  {
-    "id": 51,
-    "kategori_kode": "stis",
-    "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Mana prodi yang ada di Politeknik Statistika STIS?",
-    "opsi": {
-      "A": "Teknik Informatika",
-      "B": "Komputasi Statistik",
-      "C": "Ilmu Komunikasi",
-      "D": "Manajemen Bisnis"
-    },
-    "kunci": "B",
-    "penjelasan": "Komputasi Statistik memadukan statistika dengan pemrograman dan teknologi data. Cocok buat yang suka ngoding sekaligus penasaran sama angka."
-  },
-  {
-    "id": 52,
-    "kategori_kode": "stis",
-    "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Mana yang MITOS soal kuliah di STIS?",
-    "opsi": {
-      "A": "Kuliah di STIS tanpa biaya kuliah karena ikatan dinas",
-      "B": "Daftar lewat SSCASN lalu lanjut ke portal SPMB STIS",
-      "C": "Harus bayar UKT jutaan rupiah tiap semester",
-      "D": "Setelah lulus ada ikatan dinas dengan BPS"
-    },
-    "kunci": "C",
-    "penjelasan": "STIS adalah sekolah kedinasan, jadi mahasiswanya tidak membayar biaya kuliah. Tentu tetap ada syarat dan komitmen ikatan dinas yang harus ditepati."
-  },
-  {
-    "id": 53,
-    "kategori_kode": "stis",
-    "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Daftar STIS itu lewat jalur mana, sih?",
-    "opsi": {
-      "A": "DM Instagram kampus",
-      "B": "Datang langsung ke kampus",
-      "C": "Portal SSCASN, lalu lanjut ke portal SPMB STIS",
-      "D": "Lewat SNBT saja"
-    },
-    "kunci": "C",
-    "penjelasan": "Pendaftaran dimulai dari portal SSCASN BKN, lalu dilanjutkan di portal SPMB STIS. Hati-hati, jangan sampai salah masuk situs palsu!"
-  },
-  {
-    "id": 54,
-    "kategori_kode": "stis",
-    "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Salah satu tahap seleksi STIS adalah SKD. Kepanjangannya?",
-    "opsi": {
-      "A": "Seleksi Kompetensi Dasar",
-      "B": "Sistem Kebut Dadakan",
-      "C": "Seleksi Kuliah Daring",
-      "D": "Skor Kemampuan Dunia"
-    },
-    "kunci": "A",
-    "penjelasan": "SKD adalah Seleksi Kompetensi Dasar, yaitu tes yang jadi bagian dari proses sekolah kedinasan nasional. Persiapkan dari sekarang!"
-  },
-  {
-    "id": 55,
-    "kategori_kode": "stis",
-    "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Mana yang BUKAN nama jalur penerimaan di SPMB STIS beberapa tahun terakhir?",
-    "opsi": {
-      "A": "Jalur Reguler",
-      "B": "Jalur Afirmasi",
-      "C": "Jalur Pembibitan",
-      "D": "Jalur Titip Salam"
-    },
-    "kunci": "D",
-    "penjelasan": "Jalur yang pernah dibuka adalah Reguler, Afirmasi, dan Pembibitan. Jalur Titip Salam jelas tidak ada, tapi salam tetap boleh sampai ke teman!"
-  },
-  {
-    "id": 56,
-    "kategori_kode": "stis",
-    "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Mana yang termasuk syarat ikut SPMB STIS?",
-    "opsi": {
-      "A": "Punya sertifikat IELTS 7",
-      "B": "Bersedia ikatan dinas dan menandatangani SPID",
-      "C": "Pernah juara olimpiade nasional",
-      "D": "Sudah punya pengalaman kerja"
-    },
-    "kunci": "B",
-    "penjelasan": "SPID adalah Surat Perjanjian Ikatan Dinas. Tidak perlu IELTS atau medali olimpiade, yang penting memenuhi syarat dan siap berkomitmen."
-  },
-  {
-    "id": 57,
-    "kategori_kode": "stis",
-    "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Kantor BPS ada sampai tingkat apa?",
-    "opsi": {
-      "A": "Pusat, provinsi, dan kabupaten/kota",
-      "B": "Hanya pusat",
-      "C": "Pusat dan provinsi",
-      "D": "Hanya kota besar"
-    },
-    "kunci": "A",
-    "penjelasan": "BPS punya kantor di pusat, provinsi, sampai kabupaten/kota. Makanya lulusan STIS bisa ditempatkan di berbagai penjuru Indonesia."
-  },
-  {
-    "id": 58,
-    "kategori_kode": "stis",
-    "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Ikatan dinas itu artinya setelah lulus kamu...",
-    "opsi": {
-      "A": "Bebas memilih kerja di perusahaan mana pun",
-      "B": "Wajib balik modal ke kampus",
-      "C": "Cuma magang tanpa gaji",
-      "D": "Bekerja di BPS selama masa yang diperjanjikan"
-    },
-    "kunci": "D",
-    "penjelasan": "Ikatan dinas berarti kuliah dibiayai negara, lalu kamu mengabdi di BPS sesuai perjanjian. Pastikan baca detail aturannya di sumber resmi sebelum mendaftar."
-  },
-  {
-    "id": 59,
-    "kategori_kode": "stis",
-    "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Mana yang MITOS soal karier di BPS?",
-    "opsi": {
-      "A": "Bisa jadi statistisi dan analis data",
-      "B": "Ada tugas lapangan dan analisis di kantor",
-      "C": "Kerjanya cuma ngitung angka pakai kalkulator seharian",
-      "D": "Data buatan BPS jadi rujukan kebijakan negara"
-    },
-    "kunci": "C",
-    "penjelasan": "Kerja di BPS itu variatif: ada survei lapangan, olah data, analisis, sampai bikin sistem. Hasilnya dipakai untuk keputusan negara, bukan cuma kalkulator!"
-  },
-  {
-    "id": 60,
-    "kategori_kode": "stis",
-    "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Sebelum jadi Politeknik, STIS itu singkatan dari...",
-    "opsi": {
-      "A": "Sekolah Teknik Informasi Statistik",
-      "B": "Sekolah Tinggi Ilmu Statistik",
-      "C": "Sekolah Tinggi Intelijen Sosial",
-      "D": "Sekolah Tinggi Industri dan Survei"
-    },
-    "kunci": "B",
-    "penjelasan": "STIS dulu adalah Sekolah Tinggi Ilmu Statistik. Sekarang namanya Politeknik Statistika STIS, tapi singkatan lamanya masih dipakai."
-  },
-  {
-    "id": 61,
+    "id": 21,
     "kategori_kode": "logika",
     "kategori_label": "The Logic Master",
-    "pertanyaan": "Coba pecahkan pola angka ini! 2, 6, 12, 20, 30, ... Angka berikutnya berapa?",
-    "opsi": {
-      "A": "42",
-      "B": "40",
-      "C": "44",
-      "D": "38"
-    },
-    "kunci": "A",
-    "penjelasan": "Jawabannya 42! Selisih angkanya berturut-turut +4, +6, +8, +10, lalu +12. Jadi 30 + 12 = 42. Polanya makin naik!"
-  },
-  {
-    "id": 62,
-    "kategori_kode": "logika",
-    "kategori_label": "The Logic Master",
-    "pertanyaan": "Ada 5 printer identik yang bekerja bersamaan. Mereka bisa mencetak 5 poster dalam 5 menit. Kalau ada 100 printer, berapa menit untuk mencetak 100 poster?",
-    "opsi": {
-      "A": "100 menit",
-      "B": "20 menit",
-      "C": "5 menit",
-      "D": "50 menit"
-    },
-    "kunci": "C",
-    "penjelasan": "Jawabannya 5 menit! Satu printer menghasilkan satu poster dalam 5 menit. Jadi 100 printer bisa menghasilkan 100 poster secara bersamaan dalam waktu yang sama. Kerja cerdas, bukan kerja lebih lama!"
-  },
-  {
-    "id": 63,
-    "kategori_kode": "logika",
-    "kategori_label": "The Logic Master",
-    "pertanyaan": "Harga satu bat dan satu bola totalnya Rp110.000. Harga bat Rp100.000 lebih mahal daripada bola. Berapa harga bolanya?",
-    "opsi": {
-      "A": "Rp10.000",
-      "B": "Rp5.000",
-      "C": "Rp15.000",
-      "D": "Rp1.000"
-    },
-    "kunci": "B",
-    "penjelasan": "Jawabannya Rp5.000! Kalau bola Rp5.000, bat-nya Rp105.000. Totalnya tepat Rp110.000. Hati-hati, jawaban Rp10.000 sering menjebak karena kita terlalu cepat menghitung!"
-  },
-  {
-    "id": 64,
-    "kategori_kode": "logika",
-    "kategori_label": "The Logic Master",
-    "pertanyaan": "Kamu sedang ikut lomba lari. Tiba-tiba kamu berhasil menyalip pelari yang ada di posisi kedua. Sekarang kamu ada di posisi berapa?",
-    "opsi": {
-      "A": "Pertama",
-      "B": "Ketiga",
-      "C": "Terakhir",
-      "D": "Kedua"
-    },
-    "kunci": "D",
-    "penjelasan": "Jawabannya posisi kedua! Saat menyalip orang yang berada di posisi kedua, kamu mengambil posisinya, bukan langsung menjadi juara pertama. Jangan sampai terkecoh!"
-  },
-  {
-    "id": 65,
-    "kategori_kode": "logika",
-    "kategori_label": "The Logic Master",
-    "pertanyaan": "Seorang peternak punya 17 ekor kambing. Semua kambingnya kabur kecuali 9 ekor. Berapa kambing yang masih tersisa?",
+    "pertanyaan": "Peternak memiliki 17 ekor kambing. Semuanya kabur melarikan diri KECUALI 9 ekor. Berapa ekor kambing yang masih tersisa?",
     "opsi": {
       "A": "9 ekor",
       "B": "8 ekor",
@@ -907,41 +291,27 @@
       "D": "0 ekor"
     },
     "kunci": "A",
-    "penjelasan": "Jawabannya 9 ekor! Perhatikan kata kecuali. Artinya, semua kambing pergi selain 9 ekor yang masih tinggal. Kadang yang bikin salah bukan hitungannya, tapi cara membaca soal!"
+    "penjelasan": "9 ekor! Kata kuncinya adalah 'kecuali 9 ekor', artinya sembilan ekor itulah yang tidak kabur dan masih tinggal di kandang."
   },
   {
-    "id": 66,
+    "id": 22,
     "kategori_kode": "logika",
     "kategori_label": "The Logic Master",
-    "pertanyaan": "Dua ayah dan dua anak pergi memancing. Masing-masing berhasil mendapatkan satu ikan. Anehnya, mereka hanya membutuhkan 3 ikan. Kok bisa?",
+    "pertanyaan": "Dua ayah dan dua anak pergi memancing bersama. Masing-masing menangkap 1 ikan, dan totalnya terkumpul 3 ekor ikan. Bagaimana mungkin?",
     "opsi": {
-      "A": "Satu ikan dimakan bersama",
-      "B": "Salah satu tidak mendapatkan ikan",
-      "C": "Mereka sebenarnya hanya tiga orang",
-      "D": "Mereka membawa ikan dari rumah"
+      "A": "Satu ikan terlepas",
+      "B": "Satu ikan dimakan",
+      "C": "Mereka terdiri dari kakek, ayah, dan anak",
+      "D": "Ada yang berbohong"
     },
     "kunci": "C",
-    "penjelasan": "Benar! Mereka adalah kakek, ayah, dan anak. Kakek dan ayah adalah dua ayah, sedangkan ayah dan anak adalah dua anak. Jadi hanya ada tiga orang!"
+    "penjelasan": "Mereka terdiri dari Kakek, Ayah, dan Anak! Kakek & Ayah adalah 2 ayah, sedangkan Ayah & Anak adalah 2 anak (total hanya 3 orang)."
   },
   {
-    "id": 67,
+    "id": 23,
     "kategori_kode": "logika",
     "kategori_label": "The Logic Master",
-    "pertanyaan": "Lanjutkan deret angka berikut: 3, 6, 11, 18, 27, ... Berapa angka selanjutnya?",
-    "opsi": {
-      "A": "36",
-      "B": "38",
-      "C": "40",
-      "D": "37"
-    },
-    "kunci": "B",
-    "penjelasan": "Jawabannya 38! Selisih setiap angka adalah +3, +5, +7, +9, dan berikutnya +11. Jadi 27 + 11 = 38. Selisihnya membentuk deret bilangan ganjil!"
-  },
-  {
-    "id": 68,
-    "kategori_kode": "logika",
-    "kategori_label": "The Logic Master",
-    "pertanyaan": "Ada sebuah bilangan dua digit. Jumlah kedua digitnya adalah 9. Digit puluhannya tiga kali digit satuannya. Berapakah bilangannya?",
+    "pertanyaan": "Sebuah bilangan dua digit. Jumlah digitnya adalah 9. Digit puluhan besarnya 3 kali digit satuan. Berapakah bilangan itu?",
     "opsi": {
       "A": "36",
       "B": "72",
@@ -949,13 +319,13 @@
       "D": "63"
     },
     "kunci": "D",
-    "penjelasan": "Jawabannya 63! Digit 6 adalah tiga kali digit 3, dan 6 + 3 = 9. Dua petunjuk sederhana bisa langsung menghasilkan satu jawaban!"
+    "penjelasan": "63! Angka puluhannya (6) adalah 3 kali angka satuannya (3), dan 6 + 3 = 9. Soal aljabar cepat yang memuaskan!"
   },
   {
-    "id": 69,
+    "id": 24,
     "kategori_kode": "logika",
     "kategori_label": "The Logic Master",
-    "pertanyaan": "Hari ini hari Rabu. Kalau 100 hari lagi, hari apa?",
+    "pertanyaan": "Hari ini adalah hari Rabu. Hari apakah tepat 100 hari terhitung mulai hari ini?",
     "opsi": {
       "A": "Kamis",
       "B": "Minggu",
@@ -963,13 +333,13 @@
       "D": "Sabtu"
     },
     "kunci": "C",
-    "penjelasan": "Jawabannya Jumat! Satu minggu terdiri dari 7 hari. Setelah 98 hari, kita kembali ke Rabu. Tambah 2 hari lagi berarti Jumat. Tidak perlu menghitung kalender satu per satu!"
+    "penjelasan": "Jumat! Satu minggu ada 7 hari. 100 dibagi 7 bersisa 2 hari (98 habis dibagi 7). Jadi maju 2 hari dari Rabu adalah Jumat."
   },
   {
-    "id": 70,
+    "id": 25,
     "kategori_kode": "logika",
     "kategori_label": "The Logic Master",
-    "pertanyaan": "Pola angka ini punya rahasia: 1, 4, 9, 16, 25, ... Berapa angka berikutnya?",
+    "pertanyaan": "Pola kuadrat sempurna berurutan: 1, 4, 9, 16, 25, ... Berapakah angka berikutnya?",
     "opsi": {
       "A": "36",
       "B": "30",
@@ -977,286 +347,916 @@
       "D": "32"
     },
     "kunci": "A",
-    "penjelasan": "Jawabannya 36! Semua angka adalah hasil kuadrat bilangan berurutan: 1², 2², 3², 4², 5². Selanjutnya 6² = 36. Matematika ternyata penuh pola tersembunyi!"
+    "penjelasan": "36! Pola ini adalah bilangan kuadrat berurutan: 1², 2², 3², 4², 5², dan berikutnya adalah 6² = 36."
   },
   {
-    "id": 71,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Coba tebak! Berdasarkan Sensus Penduduk 2020, berapa jumlah penduduk Indonesia saat itu?",
+    "id": 26,
+    "kategori_kode": "logika",
+    "kategori_label": "The Logic Master",
+    "pertanyaan": "Pola bilangan pangkat tiga (kubik): 1, 8, 27, 64, ... Berapakah angka selanjutnya?",
     "opsi": {
-      "A": "170,5 juta jiwa",
-      "B": "320,2 juta jiwa",
-      "C": "270,2 juta jiwa",
-      "D": "200,1 juta jiwa"
-    },
-    "kunci": "C",
-    "penjelasan": "Betul! Hasil Sensus Penduduk 2020 mencatat sekitar 270,20 juta penduduk Indonesia. Bayangkan, lebih dari 270 juta cerita kehidupan yang bisa dipelajari melalui data!"
-  },
-  {
-    "id": 72,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Gen Z ternyata menjadi generasi dengan proporsi terbesar dalam Sensus Penduduk 2020. Kira-kira berapa persentasenya dari total penduduk Indonesia?",
-    "opsi": {
-      "A": "27,94%",
-      "B": "15,20%",
-      "C": "35,50%",
-      "D": "12,75%"
-    },
-    "kunci": "A",
-    "penjelasan": "Yes! Gen Z menyumbang 27,94% dari penduduk Indonesia berdasarkan SP2020. Generasi yang lahir pada 1997–2012 ini bahkan menjadi kelompok generasi terbesar saat itu. Gen Z literally mendominasi data!"
-  },
-  {
-    "id": 73,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Ternyata penduduk Indonesia tidak tersebar merata di semua pulau. Berdasarkan SP2020, berapa persen penduduk Indonesia tinggal di Pulau Jawa?",
-    "opsi": {
-      "A": "35,10%",
-      "B": "56,10%",
-      "C": "42,50%",
-      "D": "70,20%"
+      "A": "100",
+      "B": "125",
+      "C": "81",
+      "D": "121"
     },
     "kunci": "B",
-    "penjelasan": "Jawabannya 56,10%! Sekitar 151,59 juta penduduk Indonesia tinggal di Pulau Jawa berdasarkan SP2020. Lebih dari separuh penduduk Indonesia terkonsentrasi di satu pulau saja!"
+    "penjelasan": "125! Pola ini adalah kubik berurutan: 1³, 2³, 3³, 4³, dan selanjutnya adalah 5³ = 125."
   },
   {
-    "id": 74,
+    "id": 27,
+    "kategori_kode": "logika",
+    "kategori_label": "The Logic Master",
+    "pertanyaan": "Tebak huruf berikutnya pada urutan unik ini: S, S, R, K, J, S, ... ?",
+    "opsi": {
+      "A": "S",
+      "B": "M",
+      "C": "A",
+      "D": "P"
+    },
+    "kunci": "B",
+    "penjelasan": "M (Minggu)! Ini adalah huruf depan nama-nama hari: Senin, Selasa, Rabu, Kamis, Jumat, Sabtu, dan Minggu!"
+  },
+  {
+    "id": 28,
+    "kategori_kode": "logika",
+    "kategori_label": "The Logic Master",
+    "pertanyaan": "Jika 'kemarin' adalah lusa dari hari Selasa, maka hari apakah sekarang?",
+    "opsi": {
+      "A": "Kamis",
+      "B": "Jumat",
+      "C": "Sabtu",
+      "D": "Rabu"
+    },
+    "kunci": "B",
+    "penjelasan": "Jumat! Lusa dari Selasa adalah Kamis. Jika kemarin adalah hari Kamis, maka hari ini pastilah hari Jumat."
+  },
+  {
+    "id": 29,
+    "kategori_kode": "logika",
+    "kategori_label": "The Logic Master",
+    "pertanyaan": "Budi punya saudara laki-laki sama banyak dengan saudara perempuannya. Tapi saudarinya punya saudara laki-laki 2 kali lebih banyak dari saudari perempuannya. Berapa total anak dalam keluarga itu?",
+    "opsi": {
+      "A": "5 anak",
+      "B": "7 anak",
+      "C": "6 anak",
+      "D": "8 anak"
+    },
+    "kunci": "B",
+    "penjelasan": "7 anak (4 laki-laki dan 3 perempuan)! Budi punya 3 saudara laki-laki dan 3 saudari perempuan. Bagi saudarinya, saudara laki-lakinya ada 4 dan saudari perempuannya ada 2 (2x lipat)."
+  },
+  {
+    "id": 30,
+    "kategori_kode": "logika",
+    "kategori_label": "The Logic Master",
+    "pertanyaan": "Dalam durasi 12 jam putaran waktu, berapa kali jarum panjang dan pendek membentuk sudut tepat 90 derajat?",
+    "opsi": {
+      "A": "24 kali",
+      "B": "22 kali",
+      "C": "12 kali",
+      "D": "48 kali"
+    },
+    "kunci": "B",
+    "penjelasan": "22 kali! Meskipun dalam 1 jam terbentuk sekitar 2 kali sudut siku-siku, karena jarum jam juga terus bergerak, sudut 90 derajat hanya terjadi 22 kali dalam 12 jam."
+  },
+  {
+    "id": 31,
     "kategori_kode": "data",
     "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Indonesia dikenal sebagai negara kepulauan. Berdasarkan data jumlah pulau yang dirujuk BPS dari Kemendagri, berapa jumlah pulau Indonesia?",
+    "pertanyaan": "Hasil resmi Sensus Penduduk 2020 (SP2020) mencatat jumlah penduduk Indonesia sekitar berapa?",
     "opsi": {
-      "A": "8.500 pulau",
-      "B": "12.500 pulau",
-      "C": "25.000 pulau",
-      "D": "17.001 pulau"
+      "A": "170,5 juta jiwa",
+      "B": "210,3 juta jiwa",
+      "C": "270,2 juta jiwa",
+      "D": "320,1 juta jiwa"
+    },
+    "kunci": "C",
+    "penjelasan": "270,2 juta jiwa! Sensus Penduduk 2020 membuktikan bahwa Indonesia memiliki kekayaan sumber daya manusia yang luar biasa besar."
+  },
+  {
+    "id": 32,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Kelompok generasi manakah yang memiliki proporsi penduduk terbanyak di Indonesia menurut SP2020?",
+    "opsi": {
+      "A": "Gen Z (27,94%)",
+      "B": "Milenial (25,87%)",
+      "C": "Gen X (21,88%)",
+      "D": "Baby Boomer (11,56%)"
+    },
+    "kunci": "A",
+    "penjelasan": "Gen Z mendominasi data kependudukan Indonesia dengan persentase 27,94%! Kalian adalah pilar kekuatan digital masa depan bangsa."
+  },
+  {
+    "id": 33,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Provinsi manakah yang memiliki jumlah penduduk terbanyak di Indonesia (mencapai lebih dari 48 juta jiwa)?",
+    "opsi": {
+      "A": "DKI Jakarta",
+      "B": "Jawa Timur",
+      "C": "Jawa Barat",
+      "D": "Jawa Tengah"
+    },
+    "kunci": "C",
+    "penjelasan": "Jawa Barat! Populasinya melebihi 48 juta jiwa, bahkan lebih banyak daripada total penduduk negara Spanyol atau Kanada!"
+  },
+  {
+    "id": 34,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Ketika harga barang, kuota internet, dan jajan naik, BPS mengukur angka inflasi melalui indeks apa?",
+    "opsi": {
+      "A": "Indeks Pembangunan Manusia",
+      "B": "Indeks Harga Konsumen (IHK)",
+      "C": "Produk Domestik Bruto",
+      "D": "Rasio Gini"
+    },
+    "kunci": "B",
+    "penjelasan": "IHK (Indeks Harga Konsumen)! BPS memantau ribuan harga komoditas setiap bulan di berbagai kota untuk menghitung inflasi."
+  },
+  {
+    "id": 35,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Secara global, Indonesia menempati urutan ke berapa negara dengan jumlah penduduk terbanyak di dunia?",
+    "opsi": {
+      "A": "Urutan ke-2",
+      "B": "Urutan ke-3",
+      "C": "Urutan ke-4",
+      "D": "Urutan ke-6"
+    },
+    "kunci": "C",
+    "penjelasan": "Urutan ke-4 di dunia, tepat berada di belakang India, Tiongkok, dan Amerika Serikat!"
+  },
+  {
+    "id": 36,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Indeks Pembangunan Manusia (IPM) dirilis BPS dari 3 dimensi utama. Mana yang BUKAN bagian dari IPM?",
+    "opsi": {
+      "A": "Umur panjang & hidup sehat",
+      "B": "Pengetahuan/Pendidikan",
+      "C": "Standar hidup layak",
+      "D": "Jumlah followers media sosial"
     },
     "kunci": "D",
-    "penjelasan": "Benar! Angka yang digunakan BPS berdasarkan Keputusan Mendagri Tahun 2022 adalah 17.001 pulau. Jumlah ini menggambarkan betapa luas dan beragamnya wilayah Indonesia!"
+    "penjelasan": "Followers medsos belum masuk hitungan! IPM mengukur kualitas hidup manusia dari kesehatan, pendidikan, dan daya beli pengeluaran riil."
   },
   {
-    "id": 75,
+    "id": 37,
     "kategori_kode": "data",
     "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Sensus Penduduk yang dilakukan BPS itu bukan setiap tahun, lho. Idealnya, kegiatan besar ini dilakukan berapa tahun sekali?",
+    "pertanyaan": "Setiap tanggal berapakah 'Hari Statistik Nasional' diperingati di Indonesia?",
+    "opsi": {
+      "A": "17 Agustus",
+      "B": "26 September",
+      "C": "28 Oktober",
+      "D": "2 Mei"
+    },
+    "kunci": "B",
+    "penjelasan": "26 September! Memperingati diundangkannya UU No. 7 Tahun 1960 tentang Statistik yang menjadi tonggak kemerdekaan statistik nasional."
+  },
+  {
+    "id": 38,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Survei berkala BPS yang khusus mendata angkatan kerja, pengangguran, dan dunia ketenagakerjaan bernama...",
+    "opsi": {
+      "A": "Susenas",
+      "B": "Sakernas",
+      "C": "Sensus Pertanian",
+      "D": "Survei Biaya Hidup"
+    },
+    "kunci": "B",
+    "penjelasan": "Sakernas (Survei Angkatan Kerja Nasional)! Dari survei inilah pemerintah mengetahui tingkat pengangguran terbuka (TPT)."
+  },
+  {
+    "id": 39,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Membentang dari Sabang sampai Merauke, wilayah Indonesia terbagi ke dalam berapa zona waktu?",
+    "opsi": {
+      "A": "2 Zona",
+      "B": "3 Zona (WIB, WITA, WIT)",
+      "C": "4 Zona",
+      "D": "5 Zona"
+    },
+    "kunci": "B",
+    "penjelasan": "3 Zona Waktu: WIB, WITA, dan WIT. Luasnya bentangan geografis ini menjadi kebanggaan sekaligus tantangan sensus lapangan BPS!"
+  },
+  {
+    "id": 40,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Meski luas daratannya hanya sekitar 7% dari Indonesia, Pulau Jawa dihuni oleh sekitar berapa persen penduduk?",
+    "opsi": {
+      "A": "25%",
+      "B": "40%",
+      "C": "56%",
+      "D": "75%"
+    },
+    "kunci": "C",
+    "penjelasan": "Sekitar 56% penduduk Indonesia terkonsentrasi di Pulau Jawa! Ini menunjukkan pentingnya pemerataan pembangunan ke luar Jawa."
+  },
+  {
+    "id": 41,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Setelah peresmian pemekaran wilayah di Pulau Papua, Indonesia saat ini resmi terdiri dari berapa provinsi?",
+    "opsi": {
+      "A": "34 Provinsi",
+      "B": "36 Provinsi",
+      "C": "37 Provinsi",
+      "D": "38 Provinsi"
+    },
+    "kunci": "D",
+    "penjelasan": "38 Provinsi! Data statistik BPS selalu mutakhir mengikuti batas wilayah administrasi pemerintahan terbaru."
+  },
+  {
+    "id": 42,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Menurut batasan klasifikasi BPS, kelompok Generasi Z mencakup mereka yang lahir pada rentang tahun...",
+    "opsi": {
+      "A": "1965 – 1980",
+      "B": "1981 – 1996",
+      "C": "1997 – 2012",
+      "D": "2013 ke atas"
+    },
+    "kunci": "C",
+    "penjelasan": "1997 sampai 2012! Anak-anak SMA saat ini adalah bagian inti dari Generasi Z yang fasih teknologi digital."
+  },
+  {
+    "id": 43,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Inovasi bersejarah apa yang pertama kali diterapkan BPS pada Sensus Penduduk 2020 dibanding sensus sebelumnya?",
+    "opsi": {
+      "A": "Warga mengisi data secara mandiri lewat sensus online",
+      "B": "Sensus hanya dilakukan di kota besar",
+      "C": "Sensus via SMS berbayar",
+      "D": "Petugas sensus menggunakan drone"
+    },
+    "kunci": "A",
+    "penjelasan": "Sensus Penduduk Online! Jutaan keluarga Indonesia secara mandiri mencatatkan data keluarganya langsung melalui internet."
+  },
+  {
+    "id": 44,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Kondisi di mana proporsi penduduk usia produktif (15-64 tahun) mencapai lebih dari 70% di Indonesia disebut...",
+    "opsi": {
+      "A": "Ledakan Penduduk",
+      "B": "Bonus Demografi",
+      "C": "Transisi Ekonomi",
+      "D": "Piramida Terbalik"
+    },
+    "kunci": "B",
+    "penjelasan": "Bonus Demografi! Peluang emas bagi bangsa Indonesia untuk melompat menjadi negara maju dengan generasi produktif yang kompeten."
+  },
+  {
+    "id": 45,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Jika seorang triliuner masuk ke warung kopi berisi 10 orang biasa, ukuran statistik manakah yang TIDAK goyah oleh nilai ekstrem tersebut?",
+    "opsi": {
+      "A": "Rata-rata (Mean)",
+      "B": "Median (Nilai Tengah)",
+      "C": "Jumlah Total",
+      "D": "Nilai Maksimum"
+    },
+    "kunci": "B",
+    "penjelasan": "Median (Nilai Tengah)! Statistisi menggunakan median karena kebal terhadap data pencilan (outlier) ekstrem."
+  },
+  {
+    "id": 46,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Berdasarkan standar ILO yang diadopsi BPS, seseorang dinyatakan 'bekerja' jika bekerja minimal berapa lama dalam seminggu?",
+    "opsi": {
+      "A": "1 jam",
+      "B": "10 jam",
+      "C": "24 jam",
+      "D": "40 jam"
+    },
+    "kunci": "A",
+    "penjelasan": "Minimal 1 jam berturut-turut dalam seminggu dengan maksud memperoleh atau membantu memperoleh pendapatan."
+  },
+  {
+    "id": 47,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Garis Kemiskinan yang dihitung BPS diukur berdasarkan pendekatan kebutuhan dasar dari sisi...",
+    "opsi": {
+      "A": "Jumlah tabungan di bank",
+      "B": "Rata-rata pengeluaran makanan & non-makanan per kapita",
+      "C": "Jumlah kepemilikan kendaraan",
+      "D": "Gaji kotor bulanan"
+    },
+    "kunci": "B",
+    "penjelasan": "Pengeluaran pemenuhan kebutuhan dasar makanan (2100 kkal per hari) dan kebutuhan perumahan, sandang, serta pendidikan minimum."
+  },
+  {
+    "id": 48,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Provinsi manakah yang memiliki tingkat kepadatan penduduk tertinggi per kilometer persegi di Indonesia?",
+    "opsi": {
+      "A": "DKI Jakarta",
+      "B": "Jawa Barat",
+      "C": "Banten",
+      "D": "DI Yogyakarta"
+    },
+    "kunci": "A",
+    "penjelasan": "DKI Jakarta! Kepadatannya melebihi 15.000 jiwa per km², menjadikannya wilayah paling padat di tanah air."
+  },
+  {
+    "id": 49,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Survei tahunan BPS yang memotret pengeluaran makanan, jajan seblak, biaya kuota, dan kesehatan masyarakat bernama...",
+    "opsi": {
+      "A": "Susenas",
+      "B": "Sensus Pertanian",
+      "C": "Survei Industri",
+      "D": "Sakernas"
+    },
+    "kunci": "A",
+    "penjelasan": "Susenas (Survei Sosial Ekonomi Nasional)! Survei ini menjadi rujukan utama penghitungan angka kemiskinan dan ketimpangan sosial."
+  },
+  {
+    "id": 50,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Hasil Sensus Penduduk 2020 mencatat Rasio Jenis Kelamin (Sex Ratio) Indonesia adalah 102. Apa artinya?",
+    "opsi": {
+      "A": "Terdapat 102 laki-laki per 100 perempuan",
+      "B": "Terdapat 102 perempuan per 100 laki-laki",
+      "C": "Jumlah perempuan lebih banyak",
+      "D": "Populasi berimbang sempurna"
+    },
+    "kunci": "A",
+    "penjelasan": "Terdapat 102 laki-laki untuk setiap 100 penduduk perempuan di Indonesia. Secara total, jumlah laki-laki sedikit lebih banyak."
+  },
+  {
+    "id": 51,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Berdasarkan rujukan Keputusan Mendagri yang dibukukan BPS, Indonesia memiliki berapa pulau resmi bernama?",
+    "opsi": {
+      "A": "10.000 pulau",
+      "B": "13.466 pulau",
+      "C": "17.001 pulau",
+      "D": "25.000 pulau"
+    },
+    "kunci": "C",
+    "penjelasan": "17.001 pulau resmi! Menegaskan status nusantara sebagai salah satu negara kepulauan terbesar di muka bumi."
+  },
+  {
+    "id": 52,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Sensus Penduduk di Indonesia secara periodik dan teratur dilaksanakan setiap berapa tahun sekali?",
     "opsi": {
       "A": "5 tahun sekali",
-      "B": "10 tahun sekali",
+      "B": "10 tahun sekali (tahun berakhiran 0)",
       "C": "15 tahun sekali",
       "D": "20 tahun sekali"
     },
     "kunci": "B",
-    "penjelasan": "Betul! Sensus Penduduk dilaksanakan setiap 10 tahun sekali. Indonesia telah melaksanakan SP2020, dan sensus berikutnya secara periodik dijadwalkan pada 2030. Sensus membantu pemerintah mengetahui kondisi penduduk secara menyeluruh!"
+    "penjelasan": "10 tahun sekali pada tahun berakhiran 0 (SP1971, SP1980, SP1990, SP2000, SP2010, SP2020, dan berikutnya SP2030)."
+  },
+  {
+    "id": 53,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Sensus Pertanian (ST) yang memotret struktur pangan dan petani Indonesia rutin diadakan di tahun berakhiran angka...",
+    "opsi": {
+      "A": "Angka 1",
+      "B": "Angka 3 (misal ST2023)",
+      "C": "Angka 5",
+      "D": "Angka 8"
+    },
+    "kunci": "B",
+    "penjelasan": "Tahun berakhiran 3! Kegiatan terbarunya adalah Sensus Pertanian 2023 (ST2023) untuk kedaulatan pangan nasional."
+  },
+  {
+    "id": 54,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Angka Harapan Hidup (AHH) saat lahir penduduk Indonesia rata-rata saat ini telah melampaui...",
+    "opsi": {
+      "A": "55 tahun",
+      "B": "62 tahun",
+      "C": "71 tahun",
+      "D": "85 tahun"
+    },
+    "kunci": "C",
+    "penjelasan": "Lebih dari 71 tahun! Peningkatan akses layanan kesehatan dan gizi mendorong harapan hidup orang Indonesia makin meningkat."
+  },
+  {
+    "id": 55,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Sensus Ekonomi (SE) yang memetakan seluruh aktivitas bisnis non-pertanian diadakan di tahun berakhiran...",
+    "opsi": {
+      "A": "Angka 2",
+      "B": "Angka 6 (misal SE2026)",
+      "C": "Angka 7",
+      "D": "Angka 9"
+    },
+    "kunci": "B",
+    "penjelasan": "Tahun berakhiran 6 (SE1986, SE1996, SE2006, SE2016, dan yang akan datang adalah SE2026)!"
+  },
+  {
+    "id": 56,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Ukuran statistik angka 0 sampai 1 yang digunakan BPS untuk mengukur derajat ketimpangan pengeluaran masyarakat adalah...",
+    "opsi": {
+      "A": "Gini Ratio (Rasio Gini)",
+      "B": "Indeks Williamson",
+      "C": "Standar Deviasi",
+      "D": "Varians Kuartil"
+    },
+    "kunci": "A",
+    "penjelasan": "Gini Ratio! Nilai mendekati 0 berarti pemerataan sempurna, sedangkan mendekati 1 berarti ketimpangan ekstrem."
+  },
+  {
+    "id": 57,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Pulau manakah yang menyumbang kontribusi Produk Domestik Bruto (PDB) ekonomi terbesar bagi Indonesia (>57%)?",
+    "opsi": {
+      "A": "Pulau Sumatera",
+      "B": "Pulau Jawa",
+      "C": "Pulau Kalimantan",
+      "D": "Pulau Sulawesi"
+    },
+    "kunci": "B",
+    "penjelasan": "Pulau Jawa menyumbang lebih dari 57% total perekonomian nasional, disusul oleh Pulau Sumatera di posisi kedua."
+  },
+  {
+    "id": 58,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Apa nama situs web resmi portal data terintegrasi tempat masyarakat bisa mengunduh publikasi BPS secara gratis?",
+    "opsi": {
+      "A": "bps.go.id",
+      "B": "data.com",
+      "C": "statistik.id",
+      "D": "sensusterkini.go.id"
+    },
+    "kunci": "A",
+    "penjelasan": "bps.go.id! Seluruh publikasi statistik dari tingkat nasional hingga kabupaten/kota dapat diakses gratis oleh siapa saja."
+  },
+  {
+    "id": 59,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Aplikasi smartphone resmi dari BPS untuk membaca tabel dan infografis data statistik langsung di genggaman adalah...",
+    "opsi": {
+      "A": "AllStats BPS",
+      "B": "DataKita",
+      "C": "InfoStat",
+      "D": "StatMobile"
+    },
+    "kunci": "A",
+    "penjelasan": "AllStats BPS! Tersedia di Google Play Store dan App Store untuk kemudahan akses data statistik kapan pun."
+  },
+  {
+    "id": 60,
+    "kategori_kode": "data",
+    "kategori_label": "Detektif Data Indonesia",
+    "pertanyaan": "Layanan literasi dan konsultasi statistik kolaborasi antara BPS dengan perguruan tinggi/kampus dinamakan...",
+    "opsi": {
+      "A": "Pojok Statistik",
+      "B": "Posko Data",
+      "C": "Kedai Sensus",
+      "D": "Klinik Angka"
+    },
+    "kunci": "A",
+    "penjelasan": "Pojok Statistik! Dihadirkan di berbagai universitas untuk mendekatkan mahasiswa dan akademisi dengan data statistik resmi."
+  },
+  {
+    "id": 61,
+    "kategori_kode": "stis",
+    "kategori_label": "Pejuang STIS",
+    "pertanyaan": "Bagaimana ketentuan pembiayaan kuliah bagi mahasiswa yang lolos ikatan dinas Politeknik Statistika STIS?",
+    "opsi": {
+      "A": "Membayar UKT tiap semester",
+      "B": "Bebas biaya pendidikan selama masa studi ikatan dinas",
+      "C": "Bayar dulu baru diganti setelah lulus",
+      "D": "Wajib mencari sponsor swasta"
+    },
+    "kunci": "B",
+    "penjelasan": "Bebas biaya kuliah! Sebagai perguruan tinggi kedinasan ikatan dinas, biaya pendidikan mahasiswa STIS ditanggung oleh negara."
+  },
+  {
+    "id": 62,
+    "kategori_kode": "stis",
+    "kategori_label": "Pejuang STIS",
+    "pertanyaan": "Setelah menyelesaikan masa studi dan memenuhi persyaratan kedinasan, lulusan STIS diangkat menjadi apa?",
+    "opsi": {
+      "A": "Pegawai Bank Swasta",
+      "B": "Freelancer Independen",
+      "C": "Calon Pegawai Negeri Sipil (CPNS) di lingkungan BPS",
+      "D": "Staf Khusus Kementerian Luar Negeri"
+    },
+    "kunci": "C",
+    "penjelasan": "Diangkat sebagai CPNS di lingkungan Badan Pusat Statistik (BPS)! Jalur karir pasti sebagai abdi negara di bidang data."
+  },
+  {
+    "id": 63,
+    "kategori_kode": "stis",
+    "kategori_label": "Pejuang STIS",
+    "pertanyaan": "Di manakah lokasi kampus utama Politeknik Statistika STIS berada?",
+    "opsi": {
+      "A": "Jl. Otto Iskandardinata (Otista), Jakarta Timur",
+      "B": "Kawasan Dago, Kota Bandung",
+      "C": "Kawasan Bulaksumur, Yogyakarta",
+      "D": "Margonda, Kota Depok"
+    },
+    "kunci": "A",
+    "penjelasan": "Jl. Otto Iskandardinata No. 64C, Jakarta Timur! Berlokasi strategis di ibu kota negara dengan akses transportasi terpadu."
+  },
+  {
+    "id": 64,
+    "kategori_kode": "stis",
+    "kategori_label": "Pejuang STIS",
+    "pertanyaan": "Tiga program studi resmi yang diselenggarakan di Politeknik Statistika STIS saat ini adalah...",
+    "opsi": {
+      "A": "D-III Statistika, D-IV Statistika, D-IV Komputasi Statistik",
+      "B": "D-IV Informatika, D-IV Akuntansi, D-IV Manajemen",
+      "C": "S1 Matematika, S1 Sains Data, D-III Komputer",
+      "D": "D-IV Perpajakan, D-IV Bea Cukai, D-III Akuntansi"
+    },
+    "kunci": "A",
+    "penjelasan": "D-III Statistika, D-IV Statistika, dan D-IV Komputasi Statistik! Tiga prodi unggulan untuk mencetak talenta data handal."
+  },
+  {
+    "id": 65,
+    "kategori_kode": "stis",
+    "kategori_label": "Pejuang STIS",
+    "pertanyaan": "Bagi kamu yang hobi ngoding, arsitektur database, algoritma AI, dan rekayasa big data, prodi STIS manakah yang paling pas?",
+    "opsi": {
+      "A": "D-IV Komputasi Statistik",
+      "B": "D-III Statistika",
+      "C": "D-IV Statistika",
+      "D": "Manajemen Data"
+    },
+    "kunci": "A",
+    "penjelasan": "D-IV Komputasi Statistik! Memadukan ilmu statistika dengan computer science, machine learning, dan software development modern."
+  },
+  {
+    "id": 66,
+    "kategori_kode": "stis",
+    "kategori_label": "Pejuang STIS",
+    "pertanyaan": "Bagi kamu yang menyukai analisis fenomena ekonomi, perancangan survei sosial, dan inferensi statistika, prodi STIS yang tepat adalah...",
+    "opsi": {
+      "A": "Program Studi Statistika (D-III / D-IV)",
+      "B": "Teknik Telekomunikasi",
+      "C": "Ilmu Komunikasi",
+      "D": "Administrasi Fiskal"
+    },
+    "kunci": "A",
+    "penjelasan": "Program Studi Statistika! Fokus mendalami perancangan metode survei, penarikan sampel (sampling), dan ekonometrika."
+  },
+  {
+    "id": 67,
+    "kategori_kode": "stis",
+    "kategori_label": "Pejuang STIS",
+    "pertanyaan": "Tahap seleksi berbasis komputer menggunakan sistem CAT BKN yang wajib dilalui peserta sekolah kedinasan adalah...",
+    "opsi": {
+      "A": "Seleksi Kompetensi Dasar (SKD)",
+      "B": "Ujian Tulis Berbasis Komputer (UTBK)",
+      "C": "Tes Bahasa Inggris TOEFL",
+      "D": "Ujian Kelulusan Nasional"
+    },
+    "kunci": "A",
+    "penjelasan": "SKD (Seleksi Kompetensi Dasar)! Meliputi Tes Karakteristik Pribadi (TKP), Tes Intelegensia Umum (TIU), dan Tes Wawasan Kebangsaan (TWK)."
+  },
+  {
+    "id": 68,
+    "kategori_kode": "stis",
+    "kategori_label": "Pejuang STIS",
+    "pertanyaan": "Pintu pendaftaran online pertama untuk seleksi sekolah kedinasan STIS terpusat melalui portal resmi...",
+    "opsi": {
+      "A": "dikdin.bkn.go.id (SSCASN BKN)",
+      "B": "snpmb.bppp.kemdikbud.go.id",
+      "C": "portal.stis.ac.id saja",
+      "D": "prakerja.go.id"
+    },
+    "kunci": "A",
+    "penjelasan": "Portal SSCASN Sekolah Kedinasan BKN (dikdin.bkn.go.id) sebelum melanjutkan pengisian berkas di portal SPMB STIS."
+  },
+  {
+    "id": 69,
+    "kategori_kode": "stis",
+    "kategori_label": "Pejuang STIS",
+    "pertanyaan": "Mitos atau Fakta: Siswa lulusan jurusan IPS, Bahasa, atau SMK/MAK dilarang mendaftar ke STIS?",
+    "opsi": {
+      "A": "Fakta, hanya lulusan SMA IPA yang boleh",
+      "B": "Mitos! Lulusan SMA/MA/SMK/MAK semua jurusan kini dapat mendaftar jika memenuhi syarat",
+      "C": "Hanya anak SMK Komputer yang boleh",
+      "D": "Hanya lulusan madrasah aliyah"
+    },
+    "kunci": "B",
+    "penjelasan": "Mitos! Pada ketentuan SPMB terkini, lulusan kelas XII SMA/MA/SMK/MAK semua peminatan jurusan berhak mendaftar asalkan nilai rapor matematika memenuhi syarat."
+  },
+  {
+    "id": 70,
+    "kategori_kode": "stis",
+    "kategori_label": "Pejuang STIS",
+    "pertanyaan": "Mitos atau Fakta: Apakah harus pernah menjuarai olimpiade sains/matematika untuk bisa lulus SPMB STIS?",
+    "opsi": {
+      "A": "Fakta, minimal medali perunggu OSN",
+      "B": "Mitos! Yang terpenting adalah persiapan tekun, logika terlatih, dan disiplin belajar",
+      "C": "Wajib punya piagam internasional",
+      "D": "Harus anak guru matematika"
+    },
+    "kunci": "B",
+    "penjelasan": "Mitos! Ribuan mahasiswa STIS berasal dari berbagai latar belakang sekolah biasa dari pelosok negeri yang gigih berlatih soal."
+  },
+  {
+    "id": 71,
+    "kategori_kode": "stis",
+    "kategori_label": "Pejuang STIS",
+    "pertanyaan": "Jenjang pendidikan Diploma IV (D-IV) di Politeknik Statistika STIS secara regulasi pendidikan setara dengan jenjang...",
+    "opsi": {
+      "A": "Sarjana Terapan (setara S1)",
+      "B": "Magister Terapan (S2)",
+      "C": "Diploma II",
+      "D": "Sekolah Vokasi Menengah"
+    },
+    "kunci": "A",
+    "penjelasan": "Sarjana Terapan (setara S1)! Menekankan keseimbangan teori mendalam dengan keterampilan praktik terapan di dunia nyata."
+  },
+  {
+    "id": 72,
+    "kategori_kode": "stis",
+    "kategori_label": "Pejuang STIS",
+    "pertanyaan": "Setelah diangkat menjadi ASN di lingkungan BPS, lulusan ikatan dinas STIS dapat ditempatkan di mana?",
+    "opsi": {
+      "A": "Hanya di kantor pusat Jakarta",
+      "B": "Hanya di ibu kota provinsi",
+      "C": "Di seluruh unit kerja BPS (Pusat, Provinsi, Kabupaten/Kota) di seluruh Indonesia",
+      "D": "Hanya di pulau asal masing-masing"
+    },
+    "kunci": "C",
+    "penjelasan": "BPS memiliki kantor di Pusat, 38 Provinsi, dan lebih dari 500 Kabupaten/Kota di seluruh Indonesia. Pengabdian sejati untuk nusantara!"
+  },
+  {
+    "id": 73,
+    "kategori_kode": "stis",
+    "kategori_label": "Pejuang STIS",
+    "pertanyaan": "Apa makna penandatanganan Surat Perjanjian Ikatan Dinas (SPID) bagi mahasiswa baru STIS?",
+    "opsi": {
+      "A": "Wajib mengembalikan biaya kuliah jika lulus",
+      "B": "Komitmen bersedia mengabdi dan ditempatkan sebagai ASN di unit kerja BPS",
+      "C": "Larangan memiliki media sosial",
+      "D": "Perjanjian tidak boleh menikah selamanya"
+    },
+    "kunci": "B",
+    "penjelasan": "Komitmen pengabdian! Kuliah dibiayai negara dengan timbal balik kewajiban mengabdi di instansi BPS sesuai masa perjanjian ikatan dinas."
+  },
+  {
+    "id": 74,
+    "kategori_kode": "stis",
+    "kategori_label": "Pejuang STIS",
+    "pertanyaan": "Sebelum bertransformasi menjadi Politeknik Statistika STIS, singkatan STIS pada awalnya merupakan kependekan dari...",
+    "opsi": {
+      "A": "Sekolah Tinggi Ilmu Statistik",
+      "B": "Sekolah Teknik Informasi Statistik",
+      "C": "Sentra Terpadu Informatika Sosial",
+      "D": "Sekolah Tinggi Industri Sensus"
+    },
+    "kunci": "A",
+    "penjelasan": "Sekolah Tinggi Ilmu Statistik (STIS), yang cikal bakalnya telah ada sejak era Akademi Ilmu Statistik (AIS) tahun 1958!"
+  },
+  {
+    "id": 75,
+    "kategori_kode": "stis",
+    "kategori_label": "Pejuang STIS",
+    "pertanyaan": "Politeknik Statistika STIS secara kelembagaan berada di bawah naungan lembaga pemerintah apa?",
+    "opsi": {
+      "A": "Badan Pusat Statistik (BPS RI)",
+      "B": "Kementerian BUMN",
+      "C": "Bank Indonesia",
+      "D": "Kementerian PPN / Bappenas"
+    },
+    "kunci": "A",
+    "penjelasan": "Badan Pusat Statistik (BPS RI)! STIS adalah kawah candradimuka resmi pencetak tenaga ahli statistik bagi negara."
   },
   {
     "id": 76,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "BPS punya survei bernama Susenas. Kira-kira seberapa sering survei ini dilaksanakan?",
+    "kategori_kode": "stis",
+    "kategori_label": "Pejuang STIS",
+    "pertanyaan": "Bagi peserta yang telah dinyatakan lolos nilai ambang batas SKD CAT, tahapan Seleksi Lanjutan tahap pertama adalah...",
     "opsi": {
-      "A": "Setiap 5 tahun",
-      "B": "Setiap 10 tahun",
-      "C": "Setiap bulan tanpa jeda",
-      "D": "Setiap tahun"
+      "A": "Tes Matematika Akademik",
+      "B": "Uji Kemahiran Mengetik",
+      "C": "Wawancara Politik",
+      "D": "Tes Ketangkasan Berenang"
     },
-    "kunci": "D",
-    "penjelasan": "Tepat! Susenas atau Survei Sosial Ekonomi Nasional dilaksanakan setiap tahun. Survei ini mengumpulkan informasi seperti pendidikan, kesehatan, pengeluaran rumah tangga, dan kondisi perumahan masyarakat. Data yang dekat banget dengan kehidupan sehari-hari!"
+    "kunci": "A",
+    "penjelasan": "Tes Matematika Akademik! Menguji penguasaan konsep aljabar, kalkulus dasar, logika analitis, dan penalaran matematika."
   },
   {
     "id": 77,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Bonus demografi adalah salah satu peluang besar Indonesia. Berdasarkan SP2020, berapa persen penduduk Indonesia yang berada di kelompok usia produktif (15–64 tahun)?",
+    "kategori_kode": "stis",
+    "kategori_label": "Pejuang STIS",
+    "pertanyaan": "Tiga sub-tes utama yang diujikan dalam tes Seleksi Kompetensi Dasar (SKD) CAT kedinasan adalah...",
     "opsi": {
-      "A": "45,20%",
-      "B": "55,50%",
-      "C": "70,72%",
-      "D": "90,10%"
+      "A": "TWK, TIU, dan TKP",
+      "B": "Fisika, Kimia, dan Biologi",
+      "C": "TPA, TOEFL, dan Wawancara",
+      "D": "Matematika, Bahasa Indonesia, dan Bahasa Inggris"
     },
-    "kunci": "C",
-    "penjelasan": "Jawabannya 70,72%! Artinya, mayoritas penduduk Indonesia pada 2020 berada dalam kelompok usia produktif. Ini menjadi peluang besar bagi Indonesia apabila didukung pendidikan, keterampilan, dan lapangan kerja yang memadai!"
+    "kunci": "A",
+    "penjelasan": "TWK (Tes Wawasan Kebangsaan), TIU (Tes Intelegensia Umum), dan TKP (Tes Karakteristik Pribadi)."
   },
   {
     "id": 78,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Dalam statistik kependudukan, ada istilah sex ratio atau rasio jenis kelamin. Berdasarkan SP2020, berapa rasio jenis kelamin Indonesia?",
+    "kategori_kode": "stis",
+    "kategori_label": "Pejuang STIS",
+    "pertanyaan": "Penerimaan mahasiswa baru STIS membuka jalur khusus bagi putra-putri daerah tertentu yang disebut...",
     "opsi": {
-      "A": "102 laki-laki per 100 perempuan",
-      "B": "100 laki-laki per 102 perempuan",
-      "C": "150 laki-laki per 100 perempuan",
-      "D": "100 laki-laki per 100 perempuan"
+      "A": "Jalur Afirmasi Kewilayahan",
+      "B": "Jalur Undangan Rapor",
+      "C": "Jalur Atlet Berprestasi",
+      "D": "Jalur Sumbangan Mandiri"
     },
     "kunci": "A",
-    "penjelasan": "Benar! Sex ratio Indonesia pada SP2020 adalah 102. Artinya, terdapat sekitar 102 penduduk laki-laki untuk setiap 100 penduduk perempuan. Statistik bisa membantu kita memahami komposisi penduduk secara lebih detail!"
+    "penjelasan": "Jalur Afirmasi Kewilayahan! Diperuntukkan bagi putra-putri daerah afirmasi (seperti Papua, Maluku, NTT) untuk pemerataan SDM statistik."
   },
   {
     "id": 79,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "Berdasarkan SP2020, berapa rata-rata kepadatan penduduk Indonesia? Artinya, berapa orang yang tinggal di setiap 1 km² wilayah daratan Indonesia?",
+    "kategori_kode": "stis",
+    "kategori_label": "Pejuang STIS",
+    "pertanyaan": "Jalur penerimaan STIS hasil kerja sama dengan Pemerintah Daerah untuk penempatan kembali di Pemda mitra adalah...",
     "opsi": {
-      "A": "50 jiwa/km²",
-      "B": "141 jiwa/km²",
-      "C": "500 jiwa/km²",
-      "D": "1.000 jiwa/km²"
+      "A": "Jalur Pembibitan",
+      "B": "Jalur Konsorsium",
+      "C": "Jalur Mandiri",
+      "D": "Jalur Titipan"
     },
-    "kunci": "B",
-    "penjelasan": "Jawabannya 141 jiwa per km²! Angka ini merupakan rata-rata nasional, bukan berarti semua wilayah memiliki kepadatan yang sama. Jakarta tentu jauh lebih padat dibandingkan banyak wilayah di Kalimantan atau Papua!"
+    "kunci": "A",
+    "penjelasan": "Jalur Pembibitan! Mahasiswa dibiayai dan dipersiapkan untuk menjadi aparatur statistik di pemerintah daerah asal yang bermitra."
   },
   {
     "id": 80,
-    "kategori_kode": "data",
-    "kategori_label": "Detektif Data Indonesia",
-    "pertanyaan": "BPS ternyata tidak hanya mengumpulkan data lewat wawancara langsung. Berikut ini yang juga bisa menjadi sumber data statistik BPS adalah...",
+    "kategori_kode": "stis",
+    "kategori_label": "Pejuang STIS",
+    "pertanyaan": "Gelar akademik vokasi yang berhak disandang oleh lulusan program studi D-IV Statistika STIS adalah...",
     "opsi": {
-      "A": "Rumor yang viral di media sosial",
-      "B": "Tebakan netizen di kolom komentar",
-      "C": "Polling spontan tanpa metode yang jelas",
-      "D": "Data administrasi dari kementerian dan lembaga pemerintah"
+      "A": "S.Tr.Stat (Sarjana Terapan Statistika)",
+      "B": "S.Stat (Sarjana Statistika)",
+      "C": "S.Si (Sarjana Sains)",
+      "D": "A.Md.Stat"
     },
-    "kunci": "D",
-    "penjelasan": "Tepat! Selain sensus dan survei, BPS juga memanfaatkan data administrasi dari kementerian dan lembaga pemerintah. Contohnya, data pendidikan, kesehatan, dan administrasi kependudukan. Data yang baik tidak selalu harus dikumpulkan dari nol!"
+    "kunci": "A",
+    "penjelasan": "S.Tr.Stat (Sarjana Terapan Statistika)! Gelar resmi nasional untuk lulusan sarjana terapan bidang statistik."
   },
   {
     "id": 81,
     "kategori_kode": "stis",
     "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Politeknik Statistika STIS merupakan perguruan tinggi kedinasan yang berada di bawah naungan instansi pemerintah apa?",
+    "pertanyaan": "Gelar akademik vokasi yang disandang oleh lulusan program studi D-IV Komputasi Statistik STIS adalah...",
     "opsi": {
-      "A": "Kementerian Pendidikan Dasar dan Menengah",
-      "B": "Badan Pusat Statistik (BPS)",
-      "C": "Bank Indonesia",
-      "D": "Kementerian Keuangan"
+      "A": "S.Tr.Kom (Sarjana Terapan Komputer)",
+      "B": "S.Kom (Sarjana Komputer)",
+      "C": "S.T (Sarjana Teknik)",
+      "D": "A.Md.Kom"
     },
-    "kunci": "B",
-    "penjelasan": "Betul! Politeknik Statistika STIS berada di bawah Badan Pusat Statistik (BPS). Jadi, mahasiswa STIS dipersiapkan menjadi talenta profesional yang mendukung pengembangan statistik resmi negara!"
+    "kunci": "A",
+    "penjelasan": "S.Tr.Kom (Sarjana Terapan Komputer)! Mengukuhkan keahlian ganda dalam komputasi rekayasa data dan statistik."
   },
   {
     "id": 82,
     "kategori_kode": "stis",
     "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Saat ini Politeknik Statistika STIS punya tiga program studi. Mana kombinasi yang benar?",
+    "pertanyaan": "Bagaimanakah tata tertib busana perkuliahan harian bagi seluruh mahasiswa di lingkungan kampus Politeknik Statistika STIS?",
     "opsi": {
-      "A": "Matematika, Informatika, dan Ekonomi",
-      "B": "Statistika, Akuntansi, dan Manajemen",
-      "C": "Sains Data, Teknologi Informasi, dan Matematika",
-      "D": "D-III Statistika, D-IV Statistika, dan D-IV Komputasi Statistik"
+      "A": "Mengenakan seragam dinas harian (PDH) kampus resmi",
+      "B": "Bebas memakai kaos oblong dan celana jeans",
+      "C": "Wajib memakai setelan jas pesta",
+      "D": "Bebas asalkan sopan tanpa aturan warna"
     },
-    "kunci": "D",
-    "penjelasan": "Yes! Ada tiga program studi, yaitu D-III Statistika, D-IV Statistika, dan D-IV Komputasi Statistik. Masing-masing punya fokus pembelajaran dan profil lulusan yang berbeda. Pilih sesuai minat dan cita-citamu!"
+    "kunci": "A",
+    "penjelasan": "Mengenakan seragam dinas harian (PDH)! Mencerminkan kedisiplinan, kerapian, dan jiwa korsa calon aparatur sipil negara."
   },
   {
     "id": 83,
     "kategori_kode": "stis",
     "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Kamu suka angka, menganalisis fenomena sosial-ekonomi, dan penasaran bagaimana data dikumpulkan lewat survei? Program studi mana yang paling sesuai dengan bidang tersebut?",
+    "pertanyaan": "Kegiatan penelitian survei lapangan akbar berskala nasional yang rutin dijalankan mahasiswa tingkat 3 STIS dinamakan...",
     "opsi": {
-      "A": "Statistika",
-      "B": "Teknik Mesin",
-      "C": "Ilmu Hukum",
-      "D": "Desain Komunikasi Visual"
+      "A": "Praktek Kerja Lapangan (PKL) Nasional",
+      "B": "Kuliah Kerja Nyata (KKN)",
+      "C": "Studi Banding Wisata",
+      "D": "Latihan Militer Dasar"
     },
     "kunci": "A",
-    "penjelasan": "Benar! Program Studi Statistika mempelajari metode statistika, perancangan survei, pengolahan data, hingga analisis data sosial dan ekonomi. Lulusannya dipersiapkan untuk mendukung penghasilan statistik resmi negara sebagai tenaga statistisi!"
+    "penjelasan": "PKL Nasional Mahasiswa STIS! Meneliti langsung fenomena sosial-ekonomi nyata di suatu provinsi secara ilmiah dan terstruktur."
   },
   {
     "id": 84,
     "kategori_kode": "stis",
     "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Kalau kamu lebih tertarik coding, membangun sistem informasi, mengolah big data, dan mengembangkan teknologi untuk mendukung statistik, program studi yang cocok adalah...",
+    "pertanyaan": "Untuk menjaga mutu akademik, STIS memberlakukan sistem evaluasi ketat setiap semester di mana mahasiswa bisa terkena...",
     "opsi": {
-      "A": "D-IV Statistika",
-      "B": "D-III Statistika",
-      "C": "D-IV Komputasi Statistik",
-      "D": "Ilmu Komunikasi"
+      "A": "Drop Out (DO) jika nilai tidak mencapai standar IPK minimum",
+      "B": "Denda uang tunai",
+      "C": "Skorsing kerja sosial",
+      "D": "Wajib mengulang dari semester 1"
     },
-    "kunci": "C",
-    "penjelasan": "Yup! D-IV Komputasi Statistik menggabungkan kemampuan komputasi, pengelolaan data, sains data, dan sistem informasi statistik. Lulusannya dipersiapkan antara lain untuk berperan sebagai pengembang sistem informasi statistik dan pengelola infrastruktur teknologi informasi!"
+    "kunci": "A",
+    "penjelasan": "Drop Out (DO)! Mahasiswa dituntut disiplin dan menjaga capaian IPK serta tidak boleh mendapatkan nilai E pada mata kuliah tertentu."
   },
   {
     "id": 85,
     "kategori_kode": "stis",
     "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Katanya kuliah di STIS bebas biaya pendidikan. Apakah itu berarti semua mahasiswa otomatis mendapatkan uang saku bulanan juga?",
+    "pertanyaan": "Fasilitas riset dan laboratorium komputasi di STIS terhubung langsung dengan penyediaan data apa?",
     "opsi": {
-      "A": "Iya, semua mahasiswa mendapat uang saku besar",
-      "B": "Tidak. Biaya pendidikan dibebaskan, tetapi tidak otomatis mendapatkan uang saku",
-      "C": "Iya, semua kebutuhan hidup ditanggung pemerintah",
-      "D": "Tidak, mahasiswa wajib membayar uang kuliah setiap semester"
+      "A": "Data mikro & publikasi resmi sensus/survei BPS RI",
+      "B": "Data bursa saham wall street",
+      "C": "Data penerbangan militer",
+      "D": "Data telekomunikasi swasta"
     },
-    "kunci": "B",
-    "penjelasan": "Jawabannya B! Mahasiswa STIS dibebaskan dari biaya pendidikan berdasarkan ketentuan ikatan dinas, tetapi bukan berarti otomatis mendapat uang saku. Jadi, kuliah bebas biaya pendidikan bukan berarti semua kebutuhan hidup ditanggung!"
+    "kunci": "A",
+    "penjelasan": "Data mikro dan survei resmi BPS RI! Mahasiswa STIS memiliki akses istimewa untuk meneliti data riil pembangunan nasional."
   },
   {
     "id": 86,
     "kategori_kode": "stis",
     "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Apa sih sebenarnya arti ikatan dinas di sekolah kedinasan seperti Politeknik Statistika STIS?",
+    "pertanyaan": "Rentang batas usia pendaftar SPMB Politeknik Statistika STIS umumnya adalah...",
     "opsi": {
-      "A": "Mahasiswa bebas memilih bekerja di perusahaan mana saja setelah lulus",
-      "B": "Mahasiswa wajib membayar biaya pendidikan setelah lulus",
-      "C": "Mahasiswa otomatis mendapat jabatan pimpinan setelah wisuda",
-      "D": "Lulusan memiliki kewajiban pengabdian atau penempatan kerja sesuai ketentuan ikatan dinas"
+      "A": "16 sampai 22 tahun per 1 September tahun berjalan",
+      "B": "Minimal 25 tahun",
+      "C": "Bebas tanpa batas umur",
+      "D": "Maksimal 18 tahun saja"
     },
-    "kunci": "D",
-    "penjelasan": "Tepat! Ikatan dinas berarti ada komitmen untuk menjalankan kewajiban kedinasan setelah menyelesaikan pendidikan sesuai perjanjian dan ketentuan yang berlaku. Jadi, kuliah kedinasan bukan sekadar kuliah gratis, tetapi juga tentang tanggung jawab pengabdian!"
+    "kunci": "A",
+    "penjelasan": "Umumnya minimal 16 tahun dan maksimal 22 tahun per 1 September tahun pendaftaran berjalan."
   },
   {
     "id": 87,
     "kategori_kode": "stis",
     "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Untuk penerimaan mahasiswa baru STIS Tahun Akademik 2026/2027, ada tiga jalur penerimaan. Mana yang termasuk jalur resminya?",
+    "pertanyaan": "Berapa batas minimal nilai rapor matematika yang disyaratkan untuk mendaftar seleksi SPMB STIS?",
     "opsi": {
-      "A": "Jalur Prestasi Olahraga, Jalur Mandiri, dan Jalur Beasiswa",
-      "B": "Jalur SNBP, SNBT, dan Jalur Mandiri",
-      "C": "Jalur Reguler/Umum, Afirmasi Kewilayahan, dan Pembibitan",
-      "D": "Jalur Undangan, Jalur Prestasi, dan Jalur Rapor"
+      "A": "Minimal 80,00 (skala 100)",
+      "B": "Minimal 60,00",
+      "C": "Minimal 95,00",
+      "D": "Cukup lulus KKM sekolah"
     },
-    "kunci": "C",
-    "penjelasan": "Benar! Pada penerimaan TA 2026/2027, STIS membuka tiga jalur, yaitu Reguler/Umum, Afirmasi Kewilayahan, dan Pembibitan. Setiap jalur memiliki sasaran formasi dan persyaratan masing-masing. Selalu cek pengumuman resmi SPMB sebelum mendaftar!"
+    "kunci": "A",
+    "penjelasan": "Rata-rata nilai matematika minimal 80,00 pada rapor semester yang ditentukan sebagai bukti kesiapan logika numerik."
   },
   {
     "id": 88,
     "kategori_kode": "stis",
     "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Ada jalur Pembibitan di penerimaan STIS. Sebenarnya jalur ini merupakan hasil kerja sama antara STIS dengan siapa?",
+    "pertanyaan": "Tahap seleksi kesehatan dan kebugaran pada SPMB STIS bertujuan untuk menguji apa?",
     "opsi": {
-      "A": "Pemerintah Daerah mitra kerja sama",
-      "B": "Perusahaan swasta",
-      "C": "Universitas luar negeri",
-      "D": "Organisasi olahraga nasional"
+      "A": "Kondisi kesehatan fisik, bebas narkoba, dan ketahanan fisik penunjang kerja",
+      "B": "Kemampuan lari maraton 42 km",
+      "C": "Berat badan tepat 60 kg",
+      "D": "Keahlian bela diri khusus"
     },
     "kunci": "A",
-    "penjelasan": "Tepat! Jalur Pembibitan merupakan jalur penerimaan mahasiswa melalui kerja sama dengan pemerintah daerah untuk memenuhi formasi pegawai di pemerintah daerah mitra. Jadi, ada kebutuhan SDM statistik yang dipersiapkan untuk mendukung daerah!"
+    "penjelasan": "Kesehatan medis menyeluruh (laboratorium & organ dalam) serta kebugaran jasmani agar siap bertugas di pelosok nusantara."
   },
   {
     "id": 89,
     "kategori_kode": "stis",
     "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Mitos atau fakta: Siswa SMK atau MA tidak bisa mendaftar ke Politeknik Statistika STIS karena hanya menerima lulusan SMA IPA. Bagaimana faktanya untuk SPMB TA 2026/2027?",
+    "pertanyaan": "Sapaan akrab penuh kebanggaan bagi seluruh civitas dan mahasiswa/i di Politeknik Statistika STIS adalah...",
     "opsi": {
-      "A": "Benar, hanya SMA IPA yang boleh mendaftar",
-      "B": "Salah, lulusan SMA/MA/SMK/MAK semua jurusan dapat mendaftar jika memenuhi persyaratan",
-      "C": "Benar, hanya lulusan SMK jurusan komputer yang boleh mendaftar",
-      "D": "Benar, hanya SMA IPS yang boleh mendaftar"
+      "A": "Ksatria Data / Korps STIS",
+      "B": "Praja Muda",
+      "C": "Kadet Angka",
+      "D": "Laskar Sensus"
     },
-    "kunci": "B",
-    "penjelasan": "Fakta! Persyaratan SPMB STIS TA 2026/2027 menerima lulusan kelas XII SMA/MA/SMK/MAK semua jurusan. Namun, tetap ada persyaratan akademik dan administrasi lainnya yang wajib dipenuhi. Jadi, jangan minder dulu sebelum cek syaratnya!"
+    "kunci": "A",
+    "penjelasan": "Ksatria Data / Korps STIS! Mencerminkan kehormatan, integritas, dan dedikasi tinggi dalam memperjuangkan kedaulatan data bangsa."
   },
   {
     "id": 90,
     "kategori_kode": "stis",
     "kategori_label": "Pejuang STIS",
-    "pertanyaan": "Sudah lolos Seleksi Kompetensi Dasar (SKD) dalam seleksi STIS TA 2026/2027? Salah satu tahapan seleksi lanjutan pertama yang harus dihadapi adalah...",
+    "pertanyaan": "Apakah lulusan STIS setelah beberapa tahun mengabdi sebagai ASN BPS berpeluang melanjutkan studi S2/S3 di dalam dan luar negeri?",
     "opsi": {
-      "A": "Tes menyanyi",
-      "B": "Tes menggambar bebas",
-      "C": "Tes Matematika",
-      "D": "Tes memasak"
+      "A": "Sangat berpeluang lewat program beasiswa Tugas Belajar ASN BPS / LPDP",
+      "B": "Dilarang kuliah lagi selamanya",
+      "C": "Hanya boleh kuliah di dalam kota saja",
+      "D": "Wajib pensiun dini jika mau S2"
     },
-    "kunci": "C",
-    "penjelasan": "Correct! Setelah SKD, peserta menghadapi Seleksi Lanjutan I berupa tes Matematika, kemudian psikotes dan wawancara, serta pemeriksaan kesehatan dan kebugaran. Persiapkan kemampuan akademik sekaligus kondisi fisikmu!"
+    "kunci": "A",
+    "penjelasan": "Sangat berpeluang! BPS secara aktif mengirimkan pegawainya untuk melanjutkan studi master dan doktoral di kampus terbaik dunia."
   }
 ]
