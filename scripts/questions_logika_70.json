@@ -1,0 +1,772 @@
+[
+  {
+    "pertanyaan": "Lanjutkan pola barisan angka ini: 5, 10, 20, 40, 80, ... ?",
+    "opsi": {
+      "A": "160",
+      "B": "120",
+      "C": "100",
+      "D": "150"
+    },
+    "kunci": "A",
+    "penjelasan": "160! Setiap angka adalah kelipatan 2 (dikali dua) dari angka sebelumnya (80 × 2 = 160)."
+  },
+  {
+    "pertanyaan": "Pola deret bertingkat: 1, 3, 7, 15, 31, ... Berapakah angka selanjutnya?",
+    "opsi": {
+      "A": "48",
+      "B": "63",
+      "C": "62",
+      "D": "64"
+    },
+    "kunci": "B",
+    "penjelasan": "63! Pola kenaikannya adalah +2, +4, +8, +16, lalu +32 (31 + 32 = 63). Atau rumus 2ⁿ - 1."
+  },
+  {
+    "pertanyaan": "Pola pengurangan bertingkat: 100, 95, 85, 70, 50, ... Angka berikutnya berapa?",
+    "opsi": {
+      "A": "30",
+      "B": "20",
+      "C": "25",
+      "D": "35"
+    },
+    "kunci": "C",
+    "penjelasan": "25! Pola pengurangannya membesar secara bertahap: -5, -10, -15, -20, lalu -25 (50 - 25 = 25)."
+  },
+  {
+    "pertanyaan": "Tebak angka berikutnya: 2, 5, 10, 17, 26, ... ?",
+    "opsi": {
+      "A": "35",
+      "B": "36",
+      "C": "38",
+      "D": "37"
+    },
+    "kunci": "D",
+    "penjelasan": "37! Polanya adalah n² + 1: (1²+1), (2²+1), (3²+1), (4²+1), (5²+1), dan berikutnya (6²+1) = 37."
+  },
+  {
+    "pertanyaan": "Deret selisih naik: 1, 2, 4, 7, 11, 16, ... Angka selanjutnya adalah?",
+    "opsi": {
+      "A": "22",
+      "B": "21",
+      "C": "23",
+      "D": "20"
+    },
+    "kunci": "A",
+    "penjelasan": "22! Selisih antar angka bertambah satu: +1, +2, +3, +4, +5, lalu +6 (16 + 6 = 22)."
+  },
+  {
+    "pertanyaan": "Pola pembagian konstan: 80, 40, 20, 10, ... Angka berikutnya adalah?",
+    "opsi": {
+      "A": "2",
+      "B": "5",
+      "C": "0",
+      "D": "2.5"
+    },
+    "kunci": "B",
+    "penjelasan": "5! Setiap angka dibagi 2 dari suku sebelumnya (10 ÷ 2 = 5)."
+  },
+  {
+    "pertanyaan": "Lanjutkan pola ini: 4, 9, 19, 39, 79, ... ?",
+    "opsi": {
+      "A": "159",
+      "B": "149",
+      "C": "158",
+      "D": "160"
+    },
+    "kunci": "A",
+    "penjelasan": "159! Polanya adalah dikali 2 lalu ditambah 1: (79 × 2) + 1 = 158 + 1 = 159."
+  },
+  {
+    "pertanyaan": "Deret Tribonacci (penjumlahan 3 angka sebelumnya): 0, 1, 1, 2, 4, 7, 13, ... Berapakah angka berikutnya?",
+    "opsi": {
+      "A": "20",
+      "B": "22",
+      "C": "24",
+      "D": "26"
+    },
+    "kunci": "C",
+    "penjelasan": "24! Angka berikutnya adalah hasil penjumlahan 3 angka terakhir: 4 + 7 + 13 = 24."
+  },
+  {
+    "pertanyaan": "Saat ini umur Ayah 4 kali umur anaknya. 20 tahun lagi, umur Ayah menjadi 2 kali umur anaknya. Berapakah umur anak sekarang?",
+    "opsi": {
+      "A": "8 tahun",
+      "B": "10 tahun",
+      "C": "12 tahun",
+      "D": "15 tahun"
+    },
+    "kunci": "B",
+    "penjelasan": "10 tahun! Jika umur anak 10 tahun, Ayah 40 tahun. 20 tahun lagi, anak 30 tahun dan Ayah 60 tahun (tepat 2 kali lipat)."
+  },
+  {
+    "pertanyaan": "Sebuah jembatan panjangnya 100 m. Kereta api panjang 100 m melaju 20 m/detik. Berapa detik waktu yang dibutuhkan kereta untuk melintasi jembatan sepenuhnya?",
+    "opsi": {
+      "A": "5 detik",
+      "B": "10 detik",
+      "C": "15 detik",
+      "D": "20 detik"
+    },
+    "kunci": "B",
+    "penjelasan": "10 detik! Agar kereta melintas sepenuhnya, bagian ujung belakang kereta harus keluar jembatan. Jarak total = 100m + 100m = 200m. Waktu = 200 ÷ 20 = 10 detik."
+  },
+  {
+    "pertanyaan": "Satu batang lilin menyala habis dalam waktu 4 jam. Jika kamu menyalakan 3 batang lilin yang sama secara bersamaan, berapa jam lilin akan menyala?",
+    "opsi": {
+      "A": "12 jam",
+      "B": "4 jam",
+      "C": "8 jam",
+      "D": "1,3 jam"
+    },
+    "kunci": "B",
+    "penjelasan": "Tetap 4 jam! Karena dinyalakan bersamaan, ketiga lilin meleleh secara simultan dan akan padam bersamaan setelah 4 jam."
+  },
+  {
+    "pertanyaan": "Jika 5 mesin pabrik membutuhkan waktu 5 menit untuk membuat 5 buah baut, berapa menit waktu yang dibutuhkan 100 mesin untuk membuat 100 buah baut?",
+    "opsi": {
+      "A": "100 menit",
+      "B": "5 menit",
+      "C": "1 menit",
+      "D": "20 menit"
+    },
+    "kunci": "B",
+    "penjelasan": "Tetap 5 menit! Tiap 1 mesin membutuhkan waktu 5 menit untuk menghasilkan 1 baut. Dengan 100 mesin yang bekerja serempak, 100 baut selesai dalam 5 menit."
+  },
+  {
+    "pertanyaan": "1 apel + 1 jeruk = Rp8.000. Jika 2 apel + 1 jeruk = Rp13.000, berapakah harga 1 buah apel?",
+    "opsi": {
+      "A": "Rp4.000",
+      "B": "Rp5.000",
+      "C": "Rp6.000",
+      "D": "Rp3.000"
+    },
+    "kunci": "B",
+    "penjelasan": "Rp5.000! Selisih pembelian kedua dan pertama adalah tepat 1 buah apel: Rp13.000 - Rp8.000 = Rp5.000."
+  },
+  {
+    "pertanyaan": "Sebuah kolam diisi air oleh pipa A penuh dalam 4 jam, dan pipa B penuh dalam 6 jam. Jika kedua pipa dibuka bersamaan, berapa jam kolam akan penuh?",
+    "opsi": {
+      "A": "2,4 jam",
+      "B": "5 jam",
+      "C": "2,5 jam",
+      "D": "3 jam"
+    },
+    "kunci": "A",
+    "penjelasan": "2,4 jam! Debit gabungan = 1/4 + 1/6 = 5/12 kolam per jam. Waktu pengisian = 12/5 = 2,4 jam (2 jam 24 menit)."
+  },
+  {
+    "pertanyaan": "Sebuah dadu standar 6 sisi dilempar satu kali. Berapakah peluang munculnya mata dadu bilangan prima (2, 3, 5)?",
+    "opsi": {
+      "A": "1/6",
+      "B": "1/3",
+      "C": "1/2",
+      "D": "2/3"
+    },
+    "kunci": "C",
+    "penjelasan": "1/2 (50%)! Bilangan prima pada dadu adalah 2, 3, dan 5 (ada 3 angka). Peluangnya = 3/6 = 1/2."
+  },
+  {
+    "pertanyaan": "Rata-rata dari 4 bilangan adalah 20. Jika ditambahkan satu bilangan lagi yaitu 30, berapakah rata-rata dari kelima bilangan tersebut sekarang?",
+    "opsi": {
+      "A": "22",
+      "B": "24",
+      "C": "25",
+      "D": "21"
+    },
+    "kunci": "A",
+    "penjelasan": "22! Jumlah awal = 4 × 20 = 80. Setelah ditambah 30, jumlah baru = 110. Rata-rata baru = 110 ÷ 5 = 22."
+  },
+  {
+    "pertanyaan": "Dalam suatu pertemuan kelompok belajar, 5 orang saling bersalaman satu sama lain masing-masing tepat satu kali. Berapa jumlah total jabat tangan yang terjadi?",
+    "opsi": {
+      "A": "20 kali",
+      "B": "15 kali",
+      "C": "10 kali",
+      "D": "25 kali"
+    },
+    "kunci": "C",
+    "penjelasan": "10 kali jabat tangan! Rumus kombinasi: n × (n - 1) ÷ 2 = 5 × 4 ÷ 2 = 10 kali."
+  },
+  {
+    "pertanyaan": "Berapakah hasil penjumlahan seluruh bilangan bulat dari 1 sampai dengan 10 (1 + 2 + 3 + ... + 10)?",
+    "opsi": {
+      "A": "50",
+      "B": "55",
+      "C": "45",
+      "D": "60"
+    },
+    "kunci": "B",
+    "penjelasan": "55! Rumus Gauss: n × (n + 1) ÷ 2 = 10 × 11 ÷ 2 = 55."
+  },
+  {
+    "pertanyaan": "Jika diketahui x + y = 10 dan x - y = 4, berapakah nilai dari hasil kali x × y?",
+    "opsi": {
+      "A": "24",
+      "B": "20",
+      "C": "21",
+      "D": "16"
+    },
+    "kunci": "C",
+    "penjelasan": "21! Dengan eliminasi, diperoleh 2x = 14 sehingga x = 7, dan y = 3. Maka x × y = 7 × 3 = 21."
+  },
+  {
+    "pertanyaan": "Sebuah toko pakaian memberikan promo diskon bertingkat: diskon 20%, kemudian didiskon lagi 10%. Berapakah persentase diskon total efektifnya?",
+    "opsi": {
+      "A": "30%",
+      "B": "28%",
+      "C": "25%",
+      "D": "32%"
+    },
+    "kunci": "B",
+    "penjelasan": "28%! Harga setelah diskon pertama = 80%. Diskon kedua = 10% dari 80% yaitu 8%. Sisa harga = 72%, sehingga diskon total = 100% - 72% = 28%."
+  },
+  {
+    "pertanyaan": "Seorang atlet lari mengelilingi lapangan berbentuk persegi dengan panjang sisi 50 meter sebanyak 3 putaran penuh. Berapa total jarak yang ia tempuh?",
+    "opsi": {
+      "A": "600 meter",
+      "B": "450 meter",
+      "C": "500 meter",
+      "D": "750 meter"
+    },
+    "kunci": "A",
+    "penjelasan": "600 meter! Keliling 1 putaran lapangan persegi = 4 × 50 m = 200 m. Jarak 3 putaran = 3 × 200 m = 600 m."
+  },
+  {
+    "pertanyaan": "Jika hari ke-3 dalam suatu bulan jatuh pada hari Senin, maka hari ke-24 pada bulan yang sama jatuh pada hari apa?",
+    "opsi": {
+      "A": "Selasa",
+      "B": "Minggu",
+      "C": "Senin",
+      "D": "Rabu"
+    },
+    "kunci": "C",
+    "penjelasan": "Senin! Selisih hari = 24 - 3 = 21 hari. Karena 21 habis dibagi 7 (tepat 3 minggu), harinya tetap sama yaitu hari Senin."
+  },
+  {
+    "pertanyaan": "Bilangan bulat positif terkecil (KPK) yang habis dibagi oleh angka 3, 4, dan 5 secara bersamaan adalah...",
+    "opsi": {
+      "A": "30",
+      "B": "40",
+      "C": "60",
+      "D": "120"
+    },
+    "kunci": "C",
+    "penjelasan": "60! KPK dari 3, 4, dan 5 adalah 3 × 4 × 5 = 60."
+  },
+  {
+    "pertanyaan": "Suatu utas tali panjangnya 24 cm dipotong menjadi dua bagian. Bagian panjang ukurannya 3 kali bagian pendek. Berapa panjang potongan yang pendek?",
+    "opsi": {
+      "A": "6 cm",
+      "B": "8 cm",
+      "C": "4 cm",
+      "D": "7 cm"
+    },
+    "kunci": "A",
+    "penjelasan": "6 cm! Perbandingan panjang = 1 : 3 (total 4 bagian). Panjang bagian pendek = 24 ÷ 4 = 6 cm (bagian panjang 18 cm)."
+  },
+  {
+    "pertanyaan": "Di sebuah peternakan terdapat ayam dan kambing. Total ada 10 kepala dan 28 kaki. Berapa banyak kambing di peternakan itu?",
+    "opsi": {
+      "A": "3 ekor",
+      "B": "4 ekor",
+      "C": "5 ekor",
+      "D": "6 ekor"
+    },
+    "kunci": "B",
+    "penjelasan": "4 ekor kambing! 4 kambing × 4 kaki = 16 kaki. 6 ayam × 2 kaki = 12 kaki. Total 10 hewan dan 28 kaki."
+  },
+  {
+    "pertanyaan": "Berapa kali angka 9 tertulis jika kamu menuliskan seluruh bilangan bulat dari 1 sampai dengan 100?",
+    "opsi": {
+      "A": "10 kali",
+      "B": "19 kali",
+      "C": "20 kali",
+      "D": "11 kali"
+    },
+    "kunci": "C",
+    "penjelasan": "20 kali! Pada posisi satuan ada 10 kali (9, 19, ..., 89, 99) dan pada posisi puluhan ada 10 kali (90, 91, ..., 99). Angka 99 dihitung 2 kali."
+  },
+  {
+    "pertanyaan": "Benda ini memiliki leher tapi sama sekali tidak memiliki kepala. Apakah itu?",
+    "opsi": {
+      "A": "Botol",
+      "B": "Sendok",
+      "C": "Pensil",
+      "D": "Gunting"
+    },
+    "kunci": "A",
+    "penjelasan": "Botol (atau baju)! Botol memiliki bagian leher botol tempat mengalirkan air, tetapi tidak memiliki kepala."
+  },
+  {
+    "pertanyaan": "Benda ini memiliki mata namun tidak bisa melihat apa pun. Apakah itu?",
+    "opsi": {
+      "A": "Cermin",
+      "B": "Jarum jahit",
+      "C": "Kacamata",
+      "D": "Lensa"
+    },
+    "kunci": "B",
+    "penjelasan": "Jarum jahit! Lubang kecil tempat memasukkan benang pada jarum disebut mata jarum."
+  },
+  {
+    "pertanyaan": "Sesuatu yang terus bertambah naik sepanjang waktu dan tidak akan pernah berkurang atau turun. Apakah itu?",
+    "opsi": {
+      "A": "Tinggi badan",
+      "B": "Umur / Usia",
+      "C": "Berat badan",
+      "D": "Nilai uang"
+    },
+    "kunci": "B",
+    "penjelasan": "Umur / Usia! Seiring berjalannya detik waktu, usiamu akan selalu bertambah dan tidak bisa berkurang."
+  },
+  {
+    "pertanyaan": "Angka manakah yang jika diputar terbalik posisinya akan bertambah nilainya sebesar sepertiga?",
+    "opsi": {
+      "A": "Angka 8",
+      "B": "Angka 6",
+      "C": "Angka 9",
+      "D": "Angka 1"
+    },
+    "kunci": "B",
+    "penjelasan": "Angka 6! Jika diputar terbalik 180 derajat menjadi angka 9. Kenaikan dari 6 ke 9 adalah 3, yang mana 3 adalah tepat 1/3 dari 6."
+  },
+  {
+    "pertanyaan": "Sebuah ruangan persegi memiliki 4 sudut. Di setiap sudut duduk seekor kucing. Di depan tiap kucing terlihat 3 kucing lainnya. Berapa total kucing di ruangan itu?",
+    "opsi": {
+      "A": "12 ekor",
+      "B": "4 ekor",
+      "C": "16 ekor",
+      "D": "7 ekor"
+    },
+    "kunci": "B",
+    "penjelasan": "Tetap 4 ekor kucing! Karena masing-masing kucing yang duduk di 4 sudut dapat memandang ke 3 kucing lainnya di sudut yang berbeda."
+  },
+  {
+    "pertanyaan": "Ada 5 buah apel di dalam keranjang buah. Kamu mengambil 3 buah apel dari keranjang tersebut. Berapa buah apel yang kamu pegang sekarang?",
+    "opsi": {
+      "A": "2 apel",
+      "B": "3 apel",
+      "C": "5 apel",
+      "D": "0 apel"
+    },
+    "kunci": "B",
+    "penjelasan": "3 buah apel! Pertanyaannya adalah berapa apel yang kamu pegang/miliki, bukan berapa yang tersisa di keranjang."
+  },
+  {
+    "pertanyaan": "Apa yang dapat memenuhi dan menerangi seluruh ruangan luas tanpa memakan volume ruang fisik sama sekali?",
+    "opsi": {
+      "A": "Udara",
+      "B": "Cahaya",
+      "C": "Suara",
+      "D": "Aroma"
+    },
+    "kunci": "B",
+    "penjelasan": "Cahaya! Satu sumber cahaya lampu dapat menerangi setiap sudut ruangan tanpa memakan tempat."
+  },
+  {
+    "pertanyaan": "Benda apakah yang justru semakin basah jika semakin sering digunakan untuk mengeringkan?",
+    "opsi": {
+      "A": "Spons",
+      "B": "Handuk",
+      "C": "Tisu",
+      "D": "Payung"
+    },
+    "kunci": "B",
+    "penjelasan": "Handuk! Karena menyerap tetesan air saat kamu mengeringkan badan, handuk tersebut menjadi basah."
+  },
+  {
+    "pertanyaan": "Memiliki lembaran daun tapi bukan tanaman, memiliki punggung tapi tidak bertulang. Apakah itu?",
+    "opsi": {
+      "A": "Buku",
+      "B": "Meja",
+      "C": "Pintu",
+      "D": "Lemari"
+    },
+    "kunci": "A",
+    "penjelasan": "Buku! Buku memiliki daun/halaman kertas dan punggung buku tempat menjilid lembaran."
+  },
+  {
+    "pertanyaan": "Benda ini memiliki deretan gigi yang rapat dan rapi, namun tidak bisa menggigit ataupun mengunyah. Apakah itu?",
+    "opsi": {
+      "A": "Sisir rambut",
+      "B": "Gergaji mesin",
+      "C": "Ritsleting",
+      "D": "Garpu"
+    },
+    "kunci": "A",
+    "penjelasan": "Sisir rambut! Bergerigi untuk merapikan rambut tanpa fungsi menggigit makanan."
+  },
+  {
+    "pertanyaan": "Sesuatu yang sah menjadi milik pribadimu, tetapi orang lain menggunakannya jauh lebih sering daripada dirimu sendiri. Apakah itu?",
+    "opsi": {
+      "A": "Nomor HP",
+      "B": "Nama lengkapmu",
+      "C": "Kunci rumah",
+      "D": "Uang tabungan"
+    },
+    "kunci": "B",
+    "penjelasan": "Namamu! Nama adalah identitas pribadimu, namun orang lainlah yang paling sering memanggil dan mengucapkannya."
+  },
+  {
+    "pertanyaan": "Benda apakah yang bisa bepergian menjelajahi berbagai belahan dunia, tetapi posisinya selalu tetap diam menempel di sudut?",
+    "opsi": {
+      "A": "Perangko pos",
+      "B": "Paspor",
+      "C": "Kompas",
+      "D": "Koper bagasi"
+    },
+    "kunci": "A",
+    "penjelasan": "Perangko pos! Perangko ditempel di sudut amplop surat dan melintasi berbagai negara tanpa berpindah dari sudut amplop."
+  },
+  {
+    "pertanyaan": "Benda ini memiliki gambar kota tanpa bangunan, gambar hutan tanpa pepohonan, dan gambar sungai tanpa air. Benda apakah itu?",
+    "opsi": {
+      "A": "Lukisan abstrak",
+      "B": "Peta / Atlas",
+      "C": "Foto udara",
+      "D": "Globe plastik"
+    },
+    "kunci": "B",
+    "penjelasan": "Peta geografis! Menampilkan representasi simbolis wilayah, sungai, dan hutan secara kartografi."
+  },
+  {
+    "pertanyaan": "Bagian tubuh manakah yang bisa kamu sentuh dengan tangan kiri, namun mustahil disentuh oleh tangan kananmu sendiri?",
+    "opsi": {
+      "A": "Bahu kanan",
+      "B": "Siku tangan kanan",
+      "C": "Lutut kanan",
+      "D": "Telinga kanan"
+    },
+    "kunci": "B",
+    "penjelasan": "Siku tangan kanan! Tangan kanan tidak bisa melipat untuk menyentuh sikunya sendiri secara fisik."
+  },
+  {
+    "pertanyaan": "Ayah Mary mempunyai 5 orang anak perempuan: Nana, Nene, Nini, Nono, dan anak yang kelima bernama siapa?",
+    "opsi": {
+      "A": "Nunu",
+      "B": "Mary",
+      "C": "Nina",
+      "D": "Noni"
+    },
+    "kunci": "B",
+    "penjelasan": "Mary! Perhatikan awal kalimat: 'Ayah Mary mempunyai 5 orang anak'. Jadi Mary adalah anak perempuan kelimanya."
+  },
+  {
+    "pertanyaan": "Kamu mempunyai 6 butir telur mentah. Kamu memecahkan 2 butir, memasak 2 butir, dan memakan 2 butir. Berapa butir telur yang masih tersisa utuh?",
+    "opsi": {
+      "A": "0 butir",
+      "B": "2 butir",
+      "C": "4 butir",
+      "D": "6 butir"
+    },
+    "kunci": "C",
+    "penjelasan": "4 butir telur! 2 butir yang kamu pecahkan adalah 2 butir yang sama yang kamu masak dan kemudian kamu makan."
+  },
+  {
+    "pertanyaan": "Jika sebuah roda sepeda motor berputar sebanyak 100 putaran dalam 1 menit, berapa kali roda tersebut berputar dalam waktu 6 detik?",
+    "opsi": {
+      "A": "6 kali",
+      "B": "10 kali",
+      "C": "12 kali",
+      "D": "15 kali"
+    },
+    "kunci": "B",
+    "penjelasan": "10 kali! 6 detik adalah 1/10 dari 60 detik (1 menit). Maka putarannya = 1/10 × 100 = 10 putaran."
+  },
+  {
+    "pertanyaan": "Angka bilangan bulat berapakah yang jika dikalikan dengan bilangan apa pun di dunia ini, hasilnya akan selalu sama dengan bilangan itu sendiri?",
+    "opsi": {
+      "A": "Angka 1",
+      "B": "Angka 0",
+      "C": "Angka -1",
+      "D": "Angka tak hingga"
+    },
+    "kunci": "B",
+    "penjelasan": "Angka 0! Bilangan berapa pun jika dikalikan dengan 0 akan menghasilkan 0 (tetap menghasilkan nilai 0 itu sendiri)."
+  },
+  {
+    "pertanyaan": "Kata apakah dalam Kamus Besar Bahasa Indonesia (KBBI) yang selalu dieja SALAH oleh semua guru dan penutur bahasa?",
+    "opsi": {
+      "A": "Kekeliruan",
+      "B": "Kata 'Salah'",
+      "C": "Galat",
+      "D": "Khilaf"
+    },
+    "kunci": "B",
+    "penjelasan": "Kata 'Salah'! Karena kata 'salah' memang dieja S-A-L-A-H."
+  },
+  {
+    "pertanyaan": "Sesuatu yang selalu berada tepat di hadapan kita, tetapi tidak akan pernah bisa kita lihat wujud aslinya secara langsung. Apakah itu?",
+    "opsi": {
+      "A": "Hidung kita",
+      "B": "Masa depan",
+      "C": "Bayangan",
+      "D": "Cermin"
+    },
+    "kunci": "B",
+    "penjelasan": "Masa depan! Selalu terbentang di depan perjalanan hidup manusia namun penuh misteri dan belum berwujud."
+  },
+  {
+    "pertanyaan": "Berapakah jumlah total seluruh titik sudut yang dimiliki oleh sebuah bangun ruang kubus standar?",
+    "opsi": {
+      "A": "6 titik",
+      "B": "8 titik sudut",
+      "C": "12 titik",
+      "D": "10 titik"
+    },
+    "kunci": "B",
+    "penjelasan": "8 titik sudut! Kubus memiliki 6 sisi datar, 12 rusuk sama panjang, dan 8 titik sudut."
+  },
+  {
+    "pertanyaan": "Sebuah lingkaran memiliki panjang garis tengah (diameter) 14 cm. Berapakah panjang keliling lingkaran tersebut (gunakan π = 22/7)?",
+    "opsi": {
+      "A": "28 cm",
+      "B": "44 cm",
+      "C": "88 cm",
+      "D": "154 cm"
+    },
+    "kunci": "B",
+    "penjelasan": "44 cm! Keliling lingkaran = π × d = 22/7 × 14 cm = 44 cm."
+  },
+  {
+    "pertanyaan": "Suatu angka jika dikalikan 3 kemudian dikurangi 5 menghasilkan angka 16. Angka berapakah yang dimaksud?",
+    "opsi": {
+      "A": "6",
+      "B": "7",
+      "C": "8",
+      "D": "9"
+    },
+    "kunci": "B",
+    "penjelasan": "7! 3x - 5 = 16 => 3x = 21 => x = 7."
+  },
+  {
+    "pertanyaan": "Premis 1: Semua mahasiswa STIS menguasai logika analitis. Premis 2: Danu adalah mahasiswa STIS. Kesimpulan yang sah menurut logika silogisme adalah...",
+    "opsi": {
+      "A": "Danu belum tentu menguasai logika",
+      "B": "Danu menguasai logika analitis",
+      "C": "Orang yang menguasai logika pasti Danu",
+      "D": "Hanya Danu yang menguasai logika"
+    },
+    "kunci": "B",
+    "penjelasan": "Danu menguasai logika analitis! Bentuk silogisme Modus Ponens klasik yang sah."
+  },
+  {
+    "pertanyaan": "Premis 1: Jika turun hujan deras, halaman kampus basah. Premis 2: Pagi ini halaman kampus TIDAK basah. Kesimpulan yang pasti adalah...",
+    "opsi": {
+      "A": "Tidak turun hujan deras",
+      "B": "Hujan deras tapi tertutup atap",
+      "C": "Halaman baru saja dikeringkan",
+      "D": "Matahari bersinar terik"
+    },
+    "kunci": "A",
+    "penjelasan": "Tidak turun hujan deras! Mengikuti kaidah inferensi Modus Tollens: jika p -> q bernilai benar dan ~q benar, maka ~p pasti benar."
+  },
+  {
+    "pertanyaan": "Manakah pernyataan yang merupakan ingkaran/negasi yang sah dari kalimat: 'Semua siswa kelas XII lulus ujian sekolah'?",
+    "opsi": {
+      "A": "Semua siswa kelas XII tidak lulus ujian",
+      "B": "Ada setidaknya satu siswa kelas XII yang tidak lulus ujian",
+      "C": "Hanya sedikit siswa yang lulus",
+      "D": "Ujian sekolah dibatalkan"
+    },
+    "kunci": "B",
+    "penjelasan": "Ada setidaknya satu siswa kelas XII yang tidak lulus ujian! Negasi dari kuantor universal ('semua') adalah kuantor eksistensial ('ada/beberapa yang tidak')."
+  },
+  {
+    "pertanyaan": "Dua bilangan bulat cacah jika dijumlahkan bernilai 15 dan jika dikurangkan berselisih 3. Berapakah hasil kali dari kedua bilangan tersebut?",
+    "opsi": {
+      "A": "50",
+      "B": "54",
+      "C": "48",
+      "D": "60"
+    },
+    "kunci": "B",
+    "penjelasan": "54! Kedua bilangan adalah 9 dan 6 (9 + 6 = 15 dan 9 - 6 = 3). Maka hasil kali = 9 × 6 = 54."
+  },
+  {
+    "pertanyaan": "Sebuah produk jaket mula-mula dinaikkan harganya sebesar 10%, kemudian seminggu kemudian didiskon 10%. Dibanding harga awal, harga jaket sekarang adalah...",
+    "opsi": {
+      "A": "Sama persis seperti harga awal",
+      "B": "Lebih murah 1% dari harga awal",
+      "C": "Lebih mahal 1% dari harga awal",
+      "D": "Lebih murah 2% dari harga awal"
+    },
+    "kunci": "B",
+    "penjelasan": "Lebih murah 1% dari harga awal! Misal harga awal 100, naik 10% jadi 110. Didiskon 10% (11), harga menjadi 99 (turun 1%)."
+  },
+  {
+    "pertanyaan": "Dalam sebuah kotak terdapat 5 kelereng merah, 4 kelereng biru, dan 3 kelereng kuning. Berapa peluang terambilnya 1 kelereng warna biru?",
+    "opsi": {
+      "A": "1/4",
+      "B": "1/3",
+      "C": "1/2",
+      "D": "5/12"
+    },
+    "kunci": "B",
+    "penjelasan": "1/3! Total kelereng = 5 + 4 + 3 = 12 kelereng. Peluang kelereng biru = 4/12 = 1/3."
+  },
+  {
+    "pertanyaan": "Sebuah mobil menempuh jarak 120 km dengan kecepatan tetap 60 km/jam, lalu kembali pulang dengan kecepatan 40 km/jam. Berapakah kecepatan rata-rata seluruh perjalanan?",
+    "opsi": {
+      "A": "50 km/jam",
+      "B": "48 km/jam",
+      "C": "52 km/jam",
+      "D": "45 km/jam"
+    },
+    "kunci": "B",
+    "penjelasan": "48 km/jam! Total jarak = 240 km. Waktu pergi = 120/60 = 2 jam, waktu pulang = 120/40 = 3 jam (total 5 jam). Kecepatan rata-rata = 240 ÷ 5 = 48 km/jam (Harmonic mean)."
+  },
+  {
+    "pertanyaan": "Berapakah nilai dari sudut terkecil yang dibentuk oleh kedua jarum jam dinding saat menunjukkan tepat pukul 03.30?",
+    "opsi": {
+      "A": "90 derajat",
+      "B": "75 derajat",
+      "C": "80 derajat",
+      "D": "85 derajat"
+    },
+    "kunci": "B",
+    "penjelasan": "75 derajat! Pada pukul 03.30, jarum menit di angka 6 (180°), sedangkan jarum jam di antara angka 3 dan 4 (3 × 30° + 15° = 105°). Sudut = 180° - 105° = 75°."
+  },
+  {
+    "pertanyaan": "Berapakah jumlah semua bilangan ganjil positif dari 1 sampai dengan 9 (1 + 3 + 5 + 7 + 9)?",
+    "opsi": {
+      "A": "20",
+      "B": "25",
+      "C": "30",
+      "D": "24"
+    },
+    "kunci": "B",
+    "penjelasan": "25! Jumlah n bilangan ganjil pertama selalu sama dengan n² (ada 5 bilangan ganjil, maka 5² = 25)."
+  },
+  {
+    "pertanyaan": "Berapakah sisa pembagian dari 2¹⁰ dibagi dengan 7?",
+    "opsi": {
+      "A": "1",
+      "B": "2",
+      "C": "4",
+      "D": "3"
+    },
+    "kunci": "B",
+    "penjelasan": "2! 2¹⁰ = 1024. 1024 dibagi 7 = 146 bersisa 2 (karena 146 × 7 = 1022)."
+  },
+  {
+    "pertanyaan": "Pola huruf alfabet lompat: A, C, F, J, O, ... Huruf berikutnya dalam urutan ini adalah?",
+    "opsi": {
+      "A": "T",
+      "B": "U",
+      "C": "S",
+      "D": "V"
+    },
+    "kunci": "B",
+    "penjelasan": "U! Urutan posisi huruf: A(1), C(3: +2), F(6: +3), J(10: +4), O(15: +5), dan berikutnya +6 yaitu huruf ke-21 (U)."
+  },
+  {
+    "pertanyaan": "Jika nilai 20% dari suatu bilangan x adalah 14, maka berapakah nilai dari 50% bilangan x tersebut?",
+    "opsi": {
+      "A": "28",
+      "B": "35",
+      "C": "42",
+      "D": "70"
+    },
+    "kunci": "B",
+    "penjelasan": "35! Jika 20% = 14, maka 100% (bilangan x) = 14 × 5 = 70. Nilai 50% dari 70 = 35."
+  },
+  {
+    "pertanyaan": "Berapa banyak diagonal ruang yang dimiliki oleh sebuah kubus?",
+    "opsi": {
+      "A": "2 diagonal",
+      "B": "4 diagonal ruang",
+      "C": "6 diagonal",
+      "D": "8 diagonal"
+    },
+    "kunci": "B",
+    "penjelasan": "4 diagonal ruang! Menghubungkan titik sudut yang berhadapan melintasi bagian dalam ruang kubus."
+  },
+  {
+    "pertanyaan": "Sebuah tangga memiliki 20 anak tangga. Seekor semut menaiki 3 anak tangga setiap siang dan merosot turun 1 anak tangga setiap malam. Pada hari ke berapa semut sampai di anak tangga ke-20?",
+    "opsi": {
+      "A": "10 hari",
+      "B": "9,5 hari",
+      "C": "10 hari",
+      "D": "10 hari"
+    },
+    "kunci": "A",
+    "penjelasan": "10 hari! Setiap siklus 24 jam semut naik bersih 2 tangga. Di akhir hari ke-9 semut di tangga ke-18. Di siang hari ke-10 semut naik 3 tangga dan mencapai tangga 20+."
+  },
+  {
+    "pertanyaan": "Berapakah hasil dari 15² - 14² tanpa perlu menghitung kuadratnya satu per satu?",
+    "opsi": {
+      "A": "29",
+      "B": "1",
+      "C": "31",
+      "D": "27"
+    },
+    "kunci": "A",
+    "penjelasan": "29! Rumus selisih kuadrat: a² - b² = (a + b)(a - b). Maka (15 + 14)(15 - 14) = 29 × 1 = 29."
+  },
+  {
+    "pertanyaan": "Sebuah bilangan bulat habis dibagi 9 jika dan hanya jika...",
+    "opsi": {
+      "A": "Digit terakhirnya angka 9",
+      "B": "Jumlah seluruh digit-digitnya habis dibagi 9",
+      "C": "Bilangan tersebut genap",
+      "D": "Digit pertamanya angka 9"
+    },
+    "kunci": "B",
+    "penjelasan": "Jumlah digit-digitnya habis dibagi 9! Ini adalah kaidah keterbagian unik angka 9 dalam matematika."
+  },
+  {
+    "pertanyaan": "Di sebuah ruangan ada 3 saklar lampu di luar pintu yang tertutup rapat. Hanya 1 saklar yang menyalakan lampu di dalam. Kamu hanya boleh masuk ke ruangan tersebut 1 KALI saja. Bagaimana cara mengetahui saklar yang tepat?",
+    "opsi": {
+      "A": "Nyalakan saklar 1 selama 10 menit lalu matikan, nyalakan saklar 2 dan langsung masuk (cek lampu nyala atau bohlam panas)",
+      "B": "Nyalakan semua saklar sekaligus",
+      "C": "Mengintip lewat lubang kunci pintu",
+      "D": "Menebak secara acak karena mustahil dipastikan"
+    },
+    "kunci": "A",
+    "penjelasan": "Nyalakan saklar 1 selama 10 menit lalu matikan, nyalakan saklar 2 dan langsung masuk! Jika lampu menyala = saklar 2. Jika mati tapi bohlamnya hangat = saklar 1. Jika mati dan dingin = saklar 3."
+  },
+  {
+    "pertanyaan": "Jika kamu melempar dua buah koin mata uang sekaligus, berapakah peluang munculnya paling sedikit satu sisi Gambar?",
+    "opsi": {
+      "A": "1/4",
+      "B": "1/2",
+      "C": "3/4",
+      "D": "1"
+    },
+    "kunci": "C",
+    "penjelasan": "3/4! Ruang sampel: {GG, GA, AG, AA}. Kejadian paling sedikit satu Gambar ada 3 yaitu {GG, GA, AG}. Peluangnya = 3/4."
+  },
+  {
+    "pertanyaan": "Manakah di antara bilangan berikut ini yang BUKAN merupakan bilangan prima?",
+    "opsi": {
+      "A": "29",
+      "B": "31",
+      "C": "51",
+      "D": "37"
+    },
+    "kunci": "C",
+    "penjelasan": "51! Karena 51 habis dibagi oleh 3 dan 17 (51 = 3 × 17), sehingga bukan bilangan prima."
+  },
+  {
+    "pertanyaan": "Sebuah segitiga siku-siku memiliki panjang sisi tegak 6 cm dan 8 cm. Berapakah panjang sisi miring (hipotenusa) segitiga tersebut?",
+    "opsi": {
+      "A": "9 cm",
+      "B": "10 cm",
+      "C": "12 cm",
+      "D": "14 cm"
+    },
+    "kunci": "B",
+    "penjelasan": "10 cm! Menggunakan Teorema Pythagoras: √(6² + 8²) = √(36 + 64) = √100 = 10 cm (Tripel Pythagoras 3, 4, 5)."
+  },
+  {
+    "pertanyaan": "Berapakah jumlah diagonal bidang yang dimiliki oleh sebuah bidang datar segi-enam beraturan (heksagon)?",
+    "opsi": {
+      "A": "6 diagonal",
+      "B": "9 diagonal",
+      "C": "12 diagonal",
+      "D": "8 diagonal"
+    },
+    "kunci": "B",
+    "penjelasan": "9 diagonal! Rumus jumlah diagonal segi-n: n × (n - 3) ÷ 2 = 6 × 3 ÷ 2 = 9 diagonal."
+  }
+]

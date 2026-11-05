@@ -44,6 +44,14 @@ Aplikasi web kuis interaktif ultra-ringan berbasis scan QR Code ala Kahoot yang 
 ## 📝 Changelog
 
 ### [2026-11-05]
+- **Ekspansi Masif Bank Soal Menjadi 300 Butir (100 Soal per Kategori)**:
+  - Memperbanyak bank soal menjadi total **300 butir soal berkualitas tinggi**:
+    - **100 Soal Logika & Penalaran Kuantitatif** (The Logic Master): teka-teki logika, pola deret angka analitis, probabilitas, silogisme, dan *lateral thinking puzzles*.
+    - **100 Soal Data BPS & Statistik Nasional** (Detektif Data BPS): SP2020 (LPP 1,25%, bonus demografi, aging population, distribusi pulau), ST2023 (28,4 juta RTUP, 6,18 juta petani milenial, petani gurem <0,5 ha), UU 16/1997 (Statistik Dasar, Sektoral, Khusus), Satu Data Indonesia (Perpres 39/2019, BPS Pembina Data Statistik), kerahasiaan data individu, Wilkerstat & Blok Sensus (80-120 RT), Desa Cantik, Romantik BPS, EPSS & Indeks Pembangunan Statistik (IPS), PST BPS, IHK tahun dasar 2022 di 150 kab/kota, bobot beras & rokok kretek di Garis Kemiskinan, P1 (Kedalaman) & P2 (Keparahan), PDB/PDRB, metodologi sampling probability, CAPI/CAWI, NTP, dan inflasi (Inti, Volatile Food, Administered Prices).
+    - **100 Soal Kedinasan & Kampus STIS** (Pejuang STIS): sejarah AIS 1958 dengan bantuan PBB, Keppres 163/1997 STIS, SK Menristekdikti 2017 Polstat STIS, alamat kampus Jl. Otista 64C Jatinegara, Halte Bidara Cina, Stasiun Cawang/Tebet, kurikulum D-III (6 semester/3 tahun) & D-IV (8 semester/144 SKS), paket semester, peminatan Komputasi (Sains Data & RPL) dan Statistika (Ekonomi & Kependudukan/Sosial), tools R/Python/SQL/SPSS/Stata, evaluasi ketat DO semesteran, Skripsi (D-IV) & LTA (D-III), ikatan dinas 2N+1, SPP 100% gratis, golongan awal CPNS III/a (D-IV) & II/c (D-III), jabatan fungsional Statistisi & Pranata Komputer, portal SPMB spmb.stis.ac.id & CAT BKN (TWK, TIU, TKP), syarat bebas buta warna total/parsial, toleransi kacamata, belum menikah, seragam PDH kemeja putih celana biru tua, organisasi SEMA & DEMA, tradisi Papermob, dan PKL Nasional tingkat 3.
+  - **Penyeimbangan Kunci Jawaban Sempurna**: Setiap kategori memiliki sebaran kunci jawaban yang seimbang sempurna, tepat **25 A, 25 B, 25 C, dan 25 D** (total 75 per opsi pada 300 butir soal), sehingga mustahil ditebak dengan pola tebakan acak.
+  - **Zero Duplicate (100% Lolos Audit Validasi)**: Seluruh 300 butir soal telah diverifikasi tanpa duplikasi, opsi lengkap A-D, format baku, dan penjelasan edukatif.
+  - **Update Test Suite**: Pengujian otomatis pada `tests/data_test.test.js` diperbarui memvalidasi 300 butir soal (100 per kategori), 7 test suites lulus 100%.
 - **Deployment Live Server Berhasil (10.133.21.24:3000)**:
   - Repositori resmi telah di-*push* ke GitHub: `https://github.com/muhshi/kuis-bps-stis.git`.
   - Berhasil di-deploy dan berjalan via Docker Compose di server `bpsdemak@10.133.21.24` (`apps/kuis-bps-stis`).

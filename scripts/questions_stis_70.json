@@ -1,0 +1,772 @@
+[
+  {
+    "pertanyaan": "Pada tahun berapakah Akademi Ilmu Statistik (AIS) yang menjadi cikal bakal berdirinya STIS didirikan?",
+    "opsi": {
+      "A": "Tahun 1945",
+      "B": "Tahun 1958",
+      "C": "Tahun 1968",
+      "D": "Tahun 1980"
+    },
+    "kunci": "B",
+    "penjelasan": "Tahun 1958! AIS didirikan pada 11 Agustus 1958 berdasarkan Surat Keputusan Perdana Menteri RI No. 377/PM/1958."
+  },
+  {
+    "pertanyaan": "Pendirian Akademi Ilmu Statistik (AIS) pada tahun 1958 berhasil terealisasi berkat bantuan teknis dan tenaga ahli dari...",
+    "opsi": {
+      "A": "Perserikatan Bangsa-Bangsa (PBB)",
+      "B": "Bank Dunia (World Bank)",
+      "C": "Organisasi Kesehatan Dunia (WHO)",
+      "D": "Uni Eropa"
+    },
+    "kunci": "A",
+    "penjelasan": "Perserikatan Bangsa-Bangsa (PBB)! Bantuan teknis PBB melalui Biro Bantuan Teknis PBB (UNTAA) memfasilitasi pendirian AIS untuk mencetak tenaga statistik nasional."
+  },
+  {
+    "pertanyaan": "Perubahan status Akademi Ilmu Statistik (AIS) menjadi Sekolah Tinggi Ilmu Statistik (STIS) disahkan melalui...",
+    "opsi": {
+      "A": "Keppres No. 163 Tahun 1997",
+      "B": "Inpres No. 5 Tahun 2000",
+      "C": "Permenristekdikti No. 1 Tahun 2010",
+      "D": "UU No. 20 Tahun 2003"
+    },
+    "kunci": "A",
+    "penjelasan": "Keputusan Presiden No. 163 Tahun 1997! Keppres ini resmi menaikkan status AIS menjadi Sekolah Tinggi Ilmu Statistik (STIS)."
+  },
+  {
+    "pertanyaan": "Pada tahun berapakah STIS secara resmi bertransformasi menjadi Politeknik Statistika STIS?",
+    "opsi": {
+      "A": "Tahun 2010",
+      "B": "Tahun 2017",
+      "C": "Tahun 2020",
+      "D": "Tahun 2022"
+    },
+    "kunci": "B",
+    "penjelasan": "Tahun 2017! Transformasi kelembagaan menjadi Politeknik Statistika STIS disahkan melalui SK Menristekdikti RI Nomor 357/KPT/I/2017."
+  },
+  {
+    "pertanyaan": "Di manakah alamat lengkap kampus Politeknik Statistika STIS berada?",
+    "opsi": {
+      "A": "Jl. Otista Raya No. 64C, Jatinegara, Jakarta Timur",
+      "B": "Jl. Salemba Raya No. 10, Jakarta Pusat",
+      "C": "Jl. Pasar Baru No. 1, Jakarta Pusat",
+      "D": "Jl. Margonda Raya No. 100, Depok"
+    },
+    "kunci": "A",
+    "penjelasan": "Jl. Otto Iskandardinata (Otista) No. 64C, Jatinegara, Jakarta Timur! Berlokasi strategis di kawasan Jakarta Timur yang mudah dijangkau."
+  },
+  {
+    "pertanyaan": "Halte Transjakarta (BRT) terdekat yang berada persis di depan kawasan kampus Politeknik Statistika STIS adalah...",
+    "opsi": {
+      "A": "Halte Pasar Baru",
+      "B": "Halte Bidara Cina",
+      "C": "Halte Harmoni",
+      "D": "Halte Senayan"
+    },
+    "kunci": "B",
+    "penjelasan": "Halte Bidara Cina (Koridor 7)! Hanya berjarak beberapa langkah kaki dari gerbang utama kampus Polstat STIS."
+  },
+  {
+    "pertanyaan": "Stasiun KRL Commuter Line yang paling sering menjadi akses transit mahasiswa Politeknik Statistika STIS adalah...",
+    "opsi": {
+      "A": "Stasiun Cawang dan Stasiun Tebet",
+      "B": "Stasiun Manggarai dan Stasiun Juanda",
+      "C": "Stasiun Gambir dan Stasiun Pasar Senen",
+      "D": "Stasiun Tanah Abang dan Stasiun Sudirman"
+    },
+    "kunci": "A",
+    "penjelasan": "Stasiun Cawang dan Tebet! Keduanya berjarak sangat dekat dan terintegrasi dengan angkutan umum langsung menuju Otista."
+  },
+  {
+    "pertanyaan": "Berapa total Satuan Kredit Semester (SKS) yang umumnya wajib diselesaikan mahasiswa program D-IV di STIS?",
+    "opsi": {
+      "A": "80 - 90 SKS",
+      "B": "110 - 120 SKS",
+      "C": "Sekitar 144 SKS",
+      "D": "200 SKS"
+    },
+    "kunci": "C",
+    "penjelasan": "Sekitar 144 SKS! Standar kurikulum nasional pendidikan vokasi Diploma IV setara Sarjana yang ditempuh dalam 8 semester."
+  },
+  {
+    "pertanyaan": "Masa studi normal bagi mahasiswa program Diploma III (D-III) di Politeknik Statistika STIS adalah...",
+    "opsi": {
+      "A": "4 semester (2 tahun)",
+      "B": "6 semester (3 tahun)",
+      "C": "8 semester (4 tahun)",
+      "D": "10 semester (5 tahun)"
+    },
+    "kunci": "B",
+    "penjelasan": "6 semester (3 tahun)! Program D-III dirancang menghasilkan tenaga teknisi statistisi terampil siap kerja."
+  },
+  {
+    "pertanyaan": "Masa studi normal bagi mahasiswa program Diploma IV (D-IV) di Politeknik Statistika STIS adalah...",
+    "opsi": {
+      "A": "6 semester (3 tahun)",
+      "B": "8 semester (4 tahun)",
+      "C": "10 semester (5 tahun)",
+      "D": "12 semester (6 tahun)"
+    },
+    "kunci": "B",
+    "penjelasan": "8 semester (4 tahun)! Lulusan D-IV dibekali kemampuan analitis metodologi riset dan pemodelan data mendalam."
+  },
+  {
+    "pertanyaan": "Bagaimanakah sistem pengambilan mata kuliah yang diterapkan di Politeknik Statistika STIS?",
+    "opsi": {
+      "A": "Bebas memilih kelas dan dosen sendiri setiap semester",
+      "B": "Sistem Paket Semester (seluruh mata kuliah telah dijadwalkan oleh kampus)",
+      "C": "Bebas mengambil hingga 30 SKS per semester tanpa syarat",
+      "D": "Boleh kuliah online mandiri tanpa batas waktu"
+    },
+    "kunci": "B",
+    "penjelasan": "Sistem Paket Semester! Setiap semester mahasiswa menempuh daftar mata kuliah yang telah terstruktur rapi bersama kelas masing-masing."
+  },
+  {
+    "pertanyaan": "Dua bahasa pemrograman populer untuk analisis data dan data science yang diajarkan intensif di STIS adalah...",
+    "opsi": {
+      "A": "Pascal dan Fortran",
+      "B": "R dan Python",
+      "C": "Visual Basic dan Delphi",
+      "D": "ActionScript dan Perl"
+    },
+    "kunci": "B",
+    "penjelasan": "R dan Python! R menjadi standar analisis statistika tingkat tinggi, sedangkan Python unggul dalam machine learning dan big data pipeline."
+  },
+  {
+    "pertanyaan": "Dua software analisis data statistik berlisensi yang lazim dipelajari mahasiswa STIS untuk survei adalah...",
+    "opsi": {
+      "A": "CorelDRAW dan Illustrator",
+      "B": "SPSS dan Stata",
+      "C": "Blender dan Maya",
+      "D": "AutoCAD dan SketchUp"
+    },
+    "kunci": "B",
+    "penjelasan": "SPSS dan Stata! Software ini umum digunakan dalam pengolahan data survei ekonomi, sosial, dan kependudukan."
+  },
+  {
+    "pertanyaan": "Dua peminatan (konsentrasi) bidang studi pada Program Studi D-IV Komputasi Statistik di STIS adalah...",
+    "opsi": {
+      "A": "Teknik Jaringan dan Animasi",
+      "B": "Sains Data (Data Science) dan Rekayasa Perangkat Lunak (Software Engineering)",
+      "C": "Multimedia dan E-Commerce",
+      "D": "Desain Grafis dan Robotika"
+    },
+    "kunci": "B",
+    "penjelasan": "Sains Data dan Rekayasa Perangkat Lunak! Mahasiswa dipersiapkan menjadi arsitek data modern dan pengembang sistem informasi statistik BPS."
+  },
+  {
+    "pertanyaan": "Dua peminatan bidang aplikasi data pada Program Studi D-IV Statistika di STIS adalah...",
+    "opsi": {
+      "A": "Statistika Olahraga dan Statistika Medis",
+      "B": "Statistika Ekonomi dan Statistika Kependudukan & Sosial",
+      "C": "Statistika Astronomi dan Statistika Geologi",
+      "D": "Statistika Militer dan Kriminologi"
+    },
+    "kunci": "B",
+    "penjelasan": "Statistika Ekonomi serta Statistika Kependudukan & Sosial! Dua pilar utama yang menopang penghitungan indikator makro strategis BPS."
+  },
+  {
+    "pertanyaan": "Sanksi akademik terberat yang dijatuhkan STIS jika mahasiswa tidak memenuhi batas nilai IP atau gagal mata kuliah prasyarat adalah...",
+    "opsi": {
+      "A": "Denda uang kuliah dua kali lipat",
+      "B": "Dikeluarkan dari kampus (Drop Out / DO)",
+      "C": "Ditugaskan piket perpustakaan satu tahun",
+      "D": "Tidak boleh ikut wisuda tetapi tetap lulus"
+    },
+    "kunci": "B",
+    "penjelasan": "Drop Out (DO)! Kedisiplinan dan standar mutu akademik STIS sangat ketat demi menjamin kualifikasi unggul calon aparatur negara."
+  },
+  {
+    "pertanyaan": "Karya tulis ilmiah tugas akhir yang wajib diselesaikan oleh mahasiswa jenjang D-IV STIS untuk memperoleh gelar sarjana terapan dinamakan...",
+    "opsi": {
+      "A": "Makalah Ilmiah Ringkas",
+      "B": "Skripsi",
+      "C": "Disertasi",
+      "D": "Tesis Doktor"
+    },
+    "kunci": "B",
+    "penjelasan": "Skripsi! Berisi riset metodologi atau pemodelan statistik/komputasi data yang diuji di hadapan dewan penguji dosen ahli."
+  },
+  {
+    "pertanyaan": "Karya tulis akhir yang wajib disusun oleh mahasiswa jenjang D-III Statistika STIS sebagai syarat kelulusan dinamakan...",
+    "opsi": {
+      "A": "Laporan Tugas Akhir (LTA)",
+      "B": "Disertasi Mandiri",
+      "C": "Monografi Daerah",
+      "D": "Buku Panduan Komputasi"
+    },
+    "kunci": "A",
+    "penjelasan": "Laporan Tugas Akhir (LTA)! Memfokuskan pada pengolahan, penyajian, dan analisis deskriptif data statistik terapan."
+  },
+  {
+    "pertanyaan": "Berdasarkan ketentuan ikatan dinas, berapa lama formula masa wajib kerja (ikatan dinas) bagi lulusan ikatan dinas STIS?",
+    "opsi": {
+      "A": "Satu tahun saja",
+      "B": "Sesuai rumus 2N + 1 (di mana N adalah masa tahun studi)",
+      "C": "Bebas memilih langsung berhenti",
+      "D": "Tergantung kesepakatan orang tua"
+    },
+    "kunci": "B",
+    "penjelasan": "Rumus 2N + 1 tahun! Untuk D-IV (N=4 tahun), masa dinas sekitar 9 tahun, dan untuk D-III (N=3 tahun) sekitar 7 tahun."
+  },
+  {
+    "pertanyaan": "Ketika diangkat menjadi Calon Pegawai Negeri Sipil (CPNS), lulusan D-IV STIS memulai karier pada golongan ruang...",
+    "opsi": {
+      "A": "Golongan II/a",
+      "B": "Golongan II/c",
+      "C": "Golongan III/a (Penata Muda)",
+      "D": "Golongan III/c"
+    },
+    "kunci": "C",
+    "penjelasan": "Golongan III/a (Penata Muda)! Golongan ini setara dengan lulusan sarjana (S1) atau sarjana terapan (D-IV) dalam skema PNS."
+  },
+  {
+    "pertanyaan": "Sedangkan lulusan jenjang D-III Statistika STIS saat diangkat menjadi CPNS memulai karier pada golongan ruang...",
+    "opsi": {
+      "A": "Golongan I/d",
+      "B": "Golongan II/c (Pengatur)",
+      "C": "Golongan III/a",
+      "D": "Golongan III/b"
+    },
+    "kunci": "B",
+    "penjelasan": "Golongan II/c (Pengatur)! Sesuai dengan ketentuan standar pengangkatan aparatur sipil negara berpendidikan Diploma III."
+  },
+  {
+    "pertanyaan": "Jabatan Fungsional Tertentu (JFT) yang umumnya diampu oleh lulusan D-IV Statistika STIS di BPS adalah...",
+    "opsi": {
+      "A": "Auditor Ahli",
+      "B": "Statistisi Ahli Pertama",
+      "C": "Arsiparis Pelaksana",
+      "D": "Analis Kebijakan Madya"
+    },
+    "kunci": "B",
+    "penjelasan": "Statistisi Ahli Pertama! Bertanggung jawab mendesain kuesioner, metodologi sampling, analisis ekonometrika, dan rilis statistik."
+  },
+  {
+    "pertanyaan": "Jabatan Fungsional Tertentu (JFT) yang umumnya diampu oleh lulusan D-IV Komputasi Statistik STIS di BPS adalah...",
+    "opsi": {
+      "A": "Pranata Laboratorium",
+      "B": "Pranata Komputer Ahli Pertama",
+      "C": "Pengelola Pengadaan Barang",
+      "D": "Widyaiswara Muda"
+    },
+    "kunci": "B",
+    "penjelasan": "Pranata Komputer Ahli Pertama (Prakom)! Bertugas merancang arsitektur sistem informasi, rekayasa big data, dan keamanan TI BPS."
+  },
+  {
+    "pertanyaan": "Berapa biaya seleksi pendaftaran SPMB STIS yang disetorkan peserta ke kas negara melalui mekanisme kode billing PNBP BKN?",
+    "opsi": {
+      "A": "Gratis tanpa biaya",
+      "B": "Rp 300.000,-",
+      "C": "Rp 1.500.000,-",
+      "D": "Rp 5.000.000,-"
+    },
+    "kunci": "B",
+    "penjelasan": "Rp 300.000,-! Biaya ini merupakan tarif resmi Penerimaan Negara Bukan Pajak (PNBP) yang disetor langsung ke kas negara untuk ujian CAT."
+  },
+  {
+    "pertanyaan": "Apakah pendaftar yang mengalami buta warna parsial (misal buta warna merah-hijau) diperbolehkan mendaftar SPMB STIS?",
+    "opsi": {
+      "A": "Boleh asalkan nilai rapor tinggi",
+      "B": "Tidak boleh, disyaratkan sehat jasmani dan rohani serta TIDAK BUTA WARNA (baik total maupun parsial)",
+      "C": "Boleh khusus untuk prodi komputasi",
+      "D": "Boleh dengan surat rekomendasi bupati"
+    },
+    "kunci": "B",
+    "penjelasan": "Tidak boleh! Ketajaman warna mutlak diperlukan dalam membaca peta tematik, visualisasi grafik data, dan pemetaan citra satelit."
+  },
+  {
+    "pertanyaan": "Bagaimanakah ketentuan penggunaan kacamata/lensa kontak bagi calon mahasiswa yang ingin mendaftar ke STIS?",
+    "opsi": {
+      "A": "Dilarang keras memakai kacamata sama sekali",
+      "B": "Diperbolehkan memakai kacamata/lensa kontak dengan batas toleransi ukuran koreksi tertentu (maksimal minus/plus)",
+      "C": "Hanya boleh memakai kacamata silinder",
+      "D": "Wajib menjalani operasi lasik sebelum mendaftar"
+    },
+    "kunci": "B",
+    "penjelasan": "Diperbolehkan! Calon pendaftar yang menggunakan kacamata masih dapat mendaftar dengan toleransi lensa koreksi (biasanya maks 6 dioptri)."
+  },
+  {
+    "pertanyaan": "Ketentuan mengenai status pernikahan bagi mahasiswa selama menempuh ikatan dinas di STIS adalah...",
+    "opsi": {
+      "A": "Boleh menikah setelah semester 2",
+      "B": "Belum pernah menikah dan bersedia untuk TIDAK MENIKAH selama menjalani masa perkuliahan",
+      "C": "Wajib bertunangan saat tingkat akhir",
+      "D": "Bebas tanpa batasan"
+    },
+    "kunci": "B",
+    "penjelasan": "Belum menikah dan bersedia tidak menikah selama studi! Aturan kedinasan ini bertujuan agar mahasiswa fokus penuh menyelesaikan studinya."
+  },
+  {
+    "pertanyaan": "Bagaimana warna seragam resmi Pakaian Dinas Harian (PDH) yang dikenakan mahasiswa Politeknik Statistika STIS?",
+    "opsi": {
+      "A": "Kemeja oranye dan celana hitam",
+      "B": "Kemeja putih beremblem dinas lengkap dengan celana/rok biru tua dan dasi",
+      "C": "Kemeja batik bebas setiap hari",
+      "D": "Seragam loreng militer hijau"
+    },
+    "kunci": "B",
+    "penjelasan": "Kemeja putih dan bawahan biru tua! Dilengkapi emblem STIS, papan nama, dan dasi, mencerminkan kerapian dan kedisiplinan calon birokrat."
+  },
+  {
+    "pertanyaan": "Lembaga perwakilan mahasiswa tertinggi yang menjalankan fungsi pengawasan dan legislasi di kampus STIS dinamakan...",
+    "opsi": {
+      "A": "Senat Mahasiswa (SEMA) / Dewan Perwakilan Mahasiswa",
+      "B": "Badan Musyawarah Daerah",
+      "C": "Komisi Yudisial Kampus",
+      "D": "Majelis Wali Amanat"
+    },
+    "kunci": "A",
+    "penjelasan": "Senat Mahasiswa (SEMA)! Bertindak sebagai lembaga legislatif mahasiswa yang menyerap aspirasi dan mengawasi jalannya roda organisasi kampus."
+  },
+  {
+    "pertanyaan": "Lembaga eksekutif mahasiswa yang dipimpin oleh Ketua untuk menyelenggarakan beragam program kerja kegiatan di STIS bernama...",
+    "opsi": {
+      "A": "Dewan Eksekutif Mahasiswa (DEMA)",
+      "B": "Badan Koordinasi Wilayah",
+      "C": "Ikatan Alumni Pusat",
+      "D": "Dewan Kerukunan Taruna"
+    },
+    "kunci": "A",
+    "penjelasan": "Dewan Eksekutif Mahasiswa (DEMA)! Mengoordinasikan seluruh unit kegiatan mahasiswa (UKM) dan kepanitiaan di kampus."
+  },
+  {
+    "pertanyaan": "Dalam tradisi wisuda dan festival penyambutan di Politeknik Statistika STIS, formasi kartu mozaik visual atraktif berskala besar dinamakan...",
+    "opsi": {
+      "A": "Flashmob Tarian",
+      "B": "Papermob STIS",
+      "C": "Pawai Obor",
+      "D": "Karnaval Data"
+    },
+    "kunci": "B",
+    "penjelasan": "Papermob STIS! Ribuan mahasiswa membentuk formasi gambar logo dan pesan nasionalisme yang memukau dengan koordinasi presisi tinggi."
+  },
+  {
+    "pertanyaan": "Akun Instagram resmi Politeknik Statistika STIS yang memberikan update terpercaya mengenai informasi SPMB dan kegiatan kampus adalah...",
+    "opsi": {
+      "A": "@polstatstis",
+      "B": "@stis_jakarta_official",
+      "C": "@bps_stis_keren",
+      "D": "@sekolah_kedinasan_stis"
+    },
+    "kunci": "A",
+    "penjelasan": "@polstatstis! Merupakan akun resmi centang biru kampus untuk memverifikasi seluruh pengumuman pendaftaran."
+  },
+  {
+    "pertanyaan": "Dalam tes Seleksi Kompetensi Dasar (SKD) SPMB STIS, sub-tes apakah yang menguji wawasan Pancasila, UUD 1945, NKRI, dan Bhinneka Tunggal Ika?",
+    "opsi": {
+      "A": "Tes Karakteristik Pribadi (TKP)",
+      "B": "Tes Intelegensia Umum (TIU)",
+      "C": "Tes Wawasan Kebangsaan (TWK)",
+      "D": "Tes Potensi Akademik (TPA)"
+    },
+    "kunci": "C",
+    "penjelasan": "Tes Wawasan Kebangsaan (TWK)! Menilai komitmen nasionalisme dan pemahaman calon abdi negara terhadap pilar-pilar kebangsaan."
+  },
+  {
+    "pertanyaan": "Sub-tes dalam SKD yang menguji logika analogi verbal, deret angka numerik, dan penalaran silogisme analitis adalah...",
+    "opsi": {
+      "A": "Tes Wawasan Kebangsaan (TWK)",
+      "B": "Tes Karakteristik Pribadi (TKP)",
+      "C": "Tes Inteligensia Umum (TIU)",
+      "D": "Tes Pengetahuan Khusus"
+    },
+    "kunci": "C",
+    "penjelasan": "Tes Inteligensia Umum (TIU)! Mengukur kemampuan kognitif logis calon mahasiswa dalam pemecahan masalah kuantitatif dan verbal."
+  },
+  {
+    "pertanyaan": "Mata uji dalam Seleksi Lanjutan Tahap I di SPMB Politeknik Statistika STIS (setelah lulus perankingan SKD) adalah...",
+    "opsi": {
+      "A": "Tes Kemampuan Bahasa Mandarin",
+      "B": "Tes Matematika dan Psikotes",
+      "C": "Tes Berenang dan Menembak",
+      "D": "Tes Pidato Debat Terbuka"
+    },
+    "kunci": "B",
+    "penjelasan": "Matematika dan Psikotes! STIS membutuhkan kandidat dengan dasar logika matematika yang solid serta profil psikologis yang adaptif."
+  },
+  {
+    "pertanyaan": "Bagaimanakah kebijakan Politeknik Statistika STIS terhadap tindakan kecurangan akademik seperti mencontek atau plagiasi skripsi?",
+    "opsi": {
+      "A": "Mendapat teguran lisan satu kali",
+      "B": "Zero Tolerance: Pelaku langsung dijatuhi sanksi Dikeluarkan (Drop Out)",
+      "C": "Dipotong uang saku separuh",
+      "D": "Hanya mengulang ujian di semester berikutnya"
+    },
+    "kunci": "B",
+    "penjelasan": "Zero Tolerance (Dikeluarkan/Drop Out)! Integritas dan kejujuran data adalah harga mati bagi insan statistika."
+  },
+  {
+    "pertanyaan": "Kompetisi nasional bergengsi bidang TIK yang rutin diikuti mahasiswa prodi Komputasi Statistik STIS untuk kategori Big Data dan AI adalah...",
+    "opsi": {
+      "A": "Gemastik (Pagelaran Mahasiswa Nasional Bidang TIK)",
+      "B": "Festival Band Kampus",
+      "C": "Lomba Catur Cepat",
+      "D": "Debat Parlemen Mahasiswa"
+    },
+    "kunci": "A",
+    "penjelasan": "Gemastik! Mahasiswa STIS rutin menorehkan prestasi membanggakan dalam divisi data mining, UX design, dan software development."
+  },
+  {
+    "pertanyaan": "Platform data science global berbasis kompetisi dan sharing model machine learning yang sering dijelajahi mahasiswa STIS adalah...",
+    "opsi": {
+      "A": "TikTok",
+      "B": "Kaggle",
+      "C": "Pinterest",
+      "D": "Spotify"
+    },
+    "kunci": "B",
+    "penjelasan": "Kaggle! Platform milik Google tempat para data scientist menguji akurasi model predictive analytics pada dataset riil."
+  },
+  {
+    "pertanyaan": "Di manakah unit kerja penempatan tugas bagi alumni ikatan dinas Politeknik Statistika STIS setelah lulus?",
+    "opsi": {
+      "A": "Hanya bertugas di kantor Jakarta",
+      "B": "Tersebar di BPS Pusat, BPS Provinsi, maupun BPS Kabupaten/Kota di seluruh pelosok Indonesia",
+      "C": "Diperbolehkan memilih hanya di kota kelahirannya",
+      "D": "Hanya di kantor kedutaan luar negeri"
+    },
+    "kunci": "B",
+    "penjelasan": "Tersebar di seluruh Indonesia! Alumni STIS siap ditempatkan di 38 provinsi dan lebih dari 500 kantor kabupaten/kota dari Sabang sampai Merauke."
+  },
+  {
+    "pertanyaan": "Mata kuliah di STIS yang mempelajari konsep algoritma pengurutan, pohon (tree), graf, antrian (queue), dan tumpukan (stack) dinamakan...",
+    "opsi": {
+      "A": "Struktur Data dan Algoritma",
+      "B": "Filsafat Ilmu Komputer",
+      "C": "Kriptografi Kuno",
+      "D": "Sejarah Komputer Klasik"
+    },
+    "kunci": "A",
+    "penjelasan": "Struktur Data dan Algoritma! Fondasi dasar bagi mahasiswa komputasi untuk merancang program yang hemat memori dan cepat dieksekusi."
+  },
+  {
+    "pertanyaan": "Mata kuliah wajib di STIS yang mendalami teknik pengambilan sampel acak sederhana, bertingkat, dan sistematik dinamakan...",
+    "opsi": {
+      "A": "Metodologi Penarikan Sampel (Sampling Techniques)",
+      "B": "Kalkulus Lanjut",
+      "C": "Aljabar Matriks Elementer",
+      "D": "Manajemen Pemasaran"
+    },
+    "kunci": "A",
+    "penjelasan": "Teknik Penarikan Sampel! Ilmu kunci BPS dalam merancang survei skala nasional dengan sampel yang representatif dan presisi tinggi."
+  },
+  {
+    "pertanyaan": "Mata kuliah di STIS yang mempelajari penaksiran titik, selang kepercayaan, dan pengujian hipotesis statistik dinamakan...",
+    "opsi": {
+      "A": "Statistika Deskriptif",
+      "B": "Statistika Inferensia (Inferential Statistics)",
+      "C": "Statistika Sejarah",
+      "D": "Teori Akuntansi Dasar"
+    },
+    "kunci": "B",
+    "penjelasan": "Statistika Inferensia! Memungkinkan mahasiswa menarik kesimpulan valid tentang karakteristik seluruh populasi dari data sampel."
+  },
+  {
+    "pertanyaan": "Mata kuliah di STIS yang menganalisis pola hubungan ketergantungan antara variabel respons dengan variabel prediktor disebut...",
+    "opsi": {
+      "A": "Analisis Regresi",
+      "B": "Analisis Frekuensi Suara",
+      "C": "Sosiologi Industri",
+      "D": "Retorika Komunikasi"
+    },
+    "kunci": "A",
+    "penjelasan": "Analisis Regresi! Digunakan luas untuk memprediksi pengaruh inflasi terhadap kemiskinan, tren pupuk terhadap panen, dan fenomena lainnya."
+  },
+  {
+    "pertanyaan": "Mata kuliah di STIS yang memodelkan dan meramalkan tren data yang dicatat secara berkala menurut urutan waktu dinamakan...",
+    "opsi": {
+      "A": "Analisis Deret Waktu (Time Series Analysis)",
+      "B": "Analisis Klaster Hierarki",
+      "C": "Analisis Diskriminan Linear",
+      "D": "Analisis Faktor Komponen"
+    },
+    "kunci": "A",
+    "penjelasan": "Analisis Deret Waktu (Time Series)! Esensial untuk memprediksi angka inflasi bulanan, pertumbuhan ekonomi, dan ekspor di masa depan."
+  },
+  {
+    "pertanyaan": "Mata kuliah yang mengkaji perancangan query SQL, normalisasi data (1NF, 2NF, 3NF), dan arsitektur database relasional adalah...",
+    "opsi": {
+      "A": "Sistem Basis Data (Database Systems)",
+      "B": "Pemrograman Web Dinamis",
+      "C": "Sistem Operasi Komputer",
+      "D": "Interaksi Manusia dan Komputer"
+    },
+    "kunci": "A",
+    "penjelasan": "Sistem Basis Data! Mengajarkan cara menyimpan, mengelola, dan mengamankan jutaan baris data sensus penduduk secara efisien."
+  },
+  {
+    "pertanyaan": "Mata kuliah modern di STIS yang mempelajari pembuatan model kecerdasan buatan seperti Random Forest, SVM, dan Neural Networks adalah...",
+    "opsi": {
+      "A": "Pembelajaran Mesin (Machine Learning)",
+      "B": "Teknik Kompilator",
+      "C": "Arsitektur Mikroprosesor",
+      "D": "Pengolahan Sinyal Analog"
+    },
+    "kunci": "A",
+    "penjelasan": "Pembelajaran Mesin (Machine Learning)! Dipergunakan BPS untuk deteksi tutupan lahan otomatis via citra satelit dan analisis big data."
+  },
+  {
+    "pertanyaan": "Unsur kurva distribusi normal (lonceng Gauss) pada lambang resmi Politeknik Statistika STIS melambangkan...",
+    "opsi": {
+      "A": "Bentuk atap gedung kampus",
+      "B": "Simbol keilmuan statistika dan kebenaran empiris data",
+      "C": "Gunung tempat perkemahan mahasiswa",
+      "D": "Jembatan persahabatan antar daerah"
+    },
+    "kunci": "B",
+    "penjelasan": "Simbol ilmu statistika! Distribusi normal Gauss merupakan fondasi teoritis sentral dalam teori peluang dan statistika inferensial."
+  },
+  {
+    "pertanyaan": "Berapa persentase minimal kehadiran kuliah yang diwajibkan bagi mahasiswa STIS agar berhak mengikuti Ujian Akhir Semester (UAS)?",
+    "opsi": {
+      "A": "Minimal 50 persen",
+      "B": "Minimal 60 persen",
+      "C": "Minimal 80 persen",
+      "D": "Tidak ada syarat kehadiran"
+    },
+    "kunci": "C",
+    "penjelasan": "Minimal 80 persen kehadiran! Ketidakhadiran tanpa keterangan resmi di atas 20% dapat menggugurkan hak mahasiswa mengikuti ujian akhir."
+  },
+  {
+    "pertanyaan": "Masa orientasi pengenalan kampus dan pembinaan nilai-nilai kedinasan bagi mahasiswa baru STIS dinamakan...",
+    "opsi": {
+      "A": "Masa Orientasi Siswa (MOS)",
+      "B": "Masa Pembinaan dan Pengenalan Kampus (MP2K)",
+      "C": "Latihan Dasar Militer Mandiri",
+      "D": "Kemah Budaya Pemuda"
+    },
+    "kunci": "B",
+    "penjelasan": "MP2K (Masa Pembinaan dan Pengenalan Kampus)! Wadah adaptasi mahasiswa baru mengenal etika akademik, kultur kedinasan, dan nilai BerAKHLAK."
+  },
+  {
+    "pertanyaan": "Format berkas terstruktur terbuka (open data format) yang umum dipakai dalam ekspor-impor dataset statistik di kampus STIS adalah...",
+    "opsi": {
+      "A": "CSV dan JSON",
+      "B": "MP3 dan WAV",
+      "C": "AVI dan MP4",
+      "D": "EXE dan BAT"
+    },
+    "kunci": "A",
+    "penjelasan": "CSV dan JSON! Format teks terstruktur ini ringan, universal, dan kompatibel dengan berbagai pustaka komputasi Python, R, maupun SQL."
+  },
+  {
+    "pertanyaan": "Mata kuliah di STIS yang berfokus pada estetika grafis, pembuatan dashboard analitis, dan prinsip visualisasi informasi adalah...",
+    "opsi": {
+      "A": "Visualisasi Data (Data Visualization)",
+      "B": "Desain Grafis Periklanan",
+      "C": "Fotografi Jurnalistik",
+      "D": "Teknik Melukis Manual"
+    },
+    "kunci": "A",
+    "penjelasan": "Visualisasi Data! Mahasiswa dilatih menyajikan data statistik yang rumit menjadi grafik dan peta interaktif yang mudah dipahami publik."
+  },
+  {
+    "pertanyaan": "Program kegiatan mahasiswa STIS tingkat akhir untuk mempraktikkan kompetensinya langsung di lingkungan kantor BPS dinamakan...",
+    "opsi": {
+      "A": "Kuliah Kerja Nyata Pengabdian",
+      "B": "Magang / Praktik Kerja Lapangan Instansional",
+      "C": "Studi Banding Wisata",
+      "D": "Karyawisata Sekolah"
+    },
+    "kunci": "B",
+    "penjelasan": "Praktik Kerja Magang! Mahasiswa diterjunkan langsung menangani pengolahan survei riil dan pembuatan dashboard analitik instansi."
+  },
+  {
+    "pertanyaan": "Nilai-nilai dasar (Core Values) ASN yang ditanamkan kuat kepada seluruh calon aparatur sipil negara di Politeknik Statistika STIS adalah...",
+    "opsi": {
+      "A": "BerAKHLAK (Berorientasi Pelayanan, Akuntabel, Kompeten, Harmonis, Loyal, Adaptif, Kolaboratif)",
+      "B": "Cepat, Santai, dan Menguntungkan",
+      "C": "Efisien Tanpa Aturan",
+      "D": "Komersial dan Mandiri"
+    },
+    "kunci": "A",
+    "penjelasan": "BerAKHLAK! Nilai dasar aparatur sipil negara yang dicanangkan Presiden RI sebagai standar moral dan etika kerja ASN di seluruh Indonesia."
+  },
+  {
+    "pertanyaan": "Dies Natalis (peringatan hari ulang tahun) berdirinya Politeknik Statistika STIS dirayakan setiap tanggal...",
+    "opsi": {
+      "A": "1 Januari",
+      "B": "11 Agustus",
+      "C": "26 September",
+      "D": "10 November"
+    },
+    "kunci": "B",
+    "penjelasan": "11 Agustus! Memperingati tanggal berdirinya Akademi Ilmu Statistik (AIS) pada tahun 1958."
+  },
+  {
+    "pertanyaan": "Bagi mahasiswa D-IV Statistika peminatan Statistika Ekonomi, salah satu materi kajian aplikatif yang didalami adalah...",
+    "opsi": {
+      "A": "Tabel Input-Output (I-O) dan Neraca Finansial",
+      "B": "Teknik Pembuatan Game 3D",
+      "C": "Perancangan Animasi Kartun",
+      "D": "Navigasi Laut Lepas"
+    },
+    "kunci": "A",
+    "penjelasan": "Tabel Input-Output (I-O)! Kerangka kerja analisis struktur keterkaitan antar sektor ekonomi yang sangat vital dalam menyusun PDB/PDRB."
+  },
+  {
+    "pertanyaan": "Bagi mahasiswa peminatan Statistika Kependudukan dan Sosial, salah satu topik inti yang dipelajari secara mendalam adalah...",
+    "opsi": {
+      "A": "Demografi dan Analisis Mortalitas/Fertilitas",
+      "B": "Sistem Keamanan Siber Jaringan Bank",
+      "C": "Teknik Pengelasan Logam",
+      "D": "Manajemen Perhotelan Internasional"
+    },
+    "kunci": "A",
+    "penjelasan": "Demografi Terapan! Mempelajari dinamika kelahiran (fertilitas), kematian (mortalitas), dan perpindahan penduduk (migrasi)."
+  },
+  {
+    "pertanyaan": "Sistem perkuliahan di Politeknik Statistika STIS menekankan perpaduan antara teori dan praktikum dengan proporsi vokasi sekitar...",
+    "opsi": {
+      "A": "10 persen praktikum, 90 persen ceramah",
+      "B": "Sekitar 60 persen praktikum / aplikatif dan 40 persen konsep teori",
+      "C": "100 persen teori hafalan buku",
+      "D": "Hanya diskusi daring tanpa tatap muka"
+    },
+    "kunci": "B",
+    "penjelasan": "Sekitar 60% praktikum dan 40% teori! Ciri khas pendidikan vokasi adalah membekali mahasiswa keterampilan teknis riil yang siap pakai."
+  },
+  {
+    "pertanyaan": "Lembaga kemahasiswaan bidang keagamaan Islam di lingkungan kampus Politeknik Statistika STIS adalah...",
+    "opsi": {
+      "A": "Badan Amal Zakat Kampus",
+      "B": "Bina Rohani Islam / Badan Amal Islam (BAI) STIS",
+      "C": "Yayasan Pondok Modern",
+      "D": "Majelis Dzikir Otista"
+    },
+    "kunci": "B",
+    "penjelasan": "BAI STIS (Badan Kerohanian Islam)! Mengoordinasikan kajian keislaman, buka puasa bersama, dan kegiatan sosial kepedulian masyarakat."
+  },
+  {
+    "pertanyaan": "Wadah persekutuan mahasiswa Kristiani (Protestan dan Katolik) di kampus STIS terwadahi dalam organisasi...",
+    "opsi": {
+      "A": "PMK (Persekutuan Mahasiswa Kristen) dan KMK (Keluarga Mahasiswa Katolik)",
+      "B": "Gereja Katedral Jakarta",
+      "C": "Sinode Gereja Persekutuan",
+      "D": "Asosiasi Teologi Nasional"
+    },
+    "kunci": "A",
+    "penjelasan": "PMK dan KMK STIS! Mewadahi pembinaan spiritual, perayaan hari besar keagamaan, dan kegiatan kasih sosial mahasiswa nasrani di STIS."
+  },
+  {
+    "pertanyaan": "Gedung pertemuan dan auditorium megah di lingkungan kampus STIS yang menjadi pusat agenda kuliah umum dan wisuda berlokasi di...",
+    "opsi": {
+      "A": "Gedung Auditorium Polstat STIS",
+      "B": "Stadion Gelora Bung Karno",
+      "C": "Balai Sidang Jakarta Convention Center",
+      "D": "Gedung Kesenian Jakarta"
+    },
+    "kunci": "A",
+    "penjelasan": "Auditorium Polstat STIS! Berada di dalam area kompleks kampus Otista, dilengkapi sarana multimedia dan tata suara modern."
+  },
+  {
+    "pertanyaan": "Apakah mahasiswa Politeknik Statistika STIS memiliki kewajiban menjaga Indeks Prestasi Kumulatif (IPK) di atas batas minimal?",
+    "opsi": {
+      "A": "Tidak, IPK berapa pun tetap dijamin lulus",
+      "B": "Ya, wajib menjaga batas minimal IP/IPK (biasanya minimal 2,75) setiap semester agar tidak terkena evaluasi ketat",
+      "C": "Hanya berlaku untuk mahasiswa tingkat 1",
+      "D": "Hanya jika ingin mendapat piagam penghargaan"
+    },
+    "kunci": "B",
+    "penjelasan": "Ya, batas minimal evaluasi semester sangat ketat! Mahasiswa harus konsisten menjaga performa akademik di setiap mata kuliah."
+  },
+  {
+    "pertanyaan": "Pemanfaatan data berukuran sangat raksasa dan heterogen (Big Data) di BPS diajarkan di STIS melalui mata kuliah...",
+    "opsi": {
+      "A": "Big Data Analytics",
+      "B": "Teknik Cetak Buku",
+      "C": "Manajemen Toko Retail",
+      "D": "Kelistrikan Dasar"
+    },
+    "kunci": "A",
+    "penjelasan": "Big Data Analytics! Mengkaji pemanfaatan Mobile Positioning Data (MPD), web scraping harga e-commerce, dan data sensor IoT."
+  },
+  {
+    "pertanyaan": "Alat bantu survei berbasis geospasial yang dipelajari mahasiswa STIS untuk memetakan titik koordinat tempat tinggal responden adalah...",
+    "opsi": {
+      "A": "GIS (Geographic Information System)",
+      "B": "Photoshop Elements",
+      "C": "Sony Vegas Pro",
+      "D": "Game Engine Unity"
+    },
+    "kunci": "A",
+    "penjelasan": "Sistem Informasi Geografis (GIS)! Mengintegrasikan data statistik dengan koordinat spasial peta digital berbasis polygon dan titik lokasi."
+  },
+  {
+    "pertanyaan": "Bagi mahasiswa tingkat tiga, survei PKL Nasional STIS menghasilkan luaran utama berupa...",
+    "opsi": {
+      "A": "Album musik pop kampus",
+      "B": "Laporan Riset Komprehensif dan Diseminasi Data Publik kepada Pemda serta Media",
+      "C": "Pentas teater musikal komersial",
+      "D": "Buku harian petualangan pribadi"
+    },
+    "kunci": "B",
+    "penjelasan": "Laporan Riset Ilmiah dan Diseminasi Data! Temuan survei dipaparkan langsung di depan bupati/walikota dan kepala BPS daerah setempat."
+  },
+  {
+    "pertanyaan": "Salah satu syarat batas minimal nilai rapor matematika bagi pendaftar SPMB STIS dalam beberapa tahun terakhir adalah...",
+    "opsi": {
+      "A": "Minimal nilai 80,00 (pada skala 100)",
+      "B": "Minimal nilai 50,00",
+      "C": "Minimal nilai 65,00",
+      "D": "Cukup lulus KKM sekolah tanpa batas minimal"
+    },
+    "kunci": "A",
+    "penjelasan": "Minimal 80,00! Karena kurikulum perkuliahan STIS sarat dengan matematika analitis, aljabar linier, dan kalkulus diferensial-integral."
+  },
+  {
+    "pertanyaan": "Di manakah peserta seleksi kedinasan STIS dapat mengecek pengumuman resmi jadwal tes dan daftar peserta yang lulus setiap tahapan?",
+    "opsi": {
+      "A": "Portal spmb.stis.ac.id",
+      "B": "Grup chat pesan berantai WhatsApp",
+      "C": "Papan mading kantor pos terdekat",
+      "D": "Akun forum gosip anonim"
+    },
+    "kunci": "A",
+    "penjelasan": "Portal spmb.stis.ac.id! Seluruh pengumuman resmi tahapan verifikasi berkas, SKD, ujian matematika, hingga kelulusan final diunggah di web resmi ini."
+  },
+  {
+    "pertanyaan": "Jika seorang mahasiswa STIS dinyatakan lulus seleksi dan diterima di program ikatan dinas, apakah dikenakan uang pangkal gedung?",
+    "opsi": {
+      "A": "Dikenakan uang gedung puluhan juta rupiah",
+      "B": "TIDAK dikenakan uang pangkal gedung sama sekali (GRATIS)",
+      "C": "Dikenakan sesuai nilai lelang sumbangan",
+      "D": "Wajib membeli saham kampus"
+    },
+    "kunci": "B",
+    "penjelasan": "GRATIS tanpa uang gedung! Seluruh biaya sarana dan perkuliahan kedinasan dibiayai penuh melalui Anggaran Pendapatan dan Belanja Negara (APBN)."
+  },
+  {
+    "pertanyaan": "Lulusan Politeknik Statistika STIS menerima Ijazah Pendidikan Tinggi Vokasi yang diakui oleh kementerian yang membidangi...",
+    "opsi": {
+      "A": "Pendidikan Tinggi dan Riset Republik Indonesia",
+      "B": "Kementerian Perdagangan Antar Pulau",
+      "C": "Organisasi Buruh Internasional",
+      "D": "Kementerian Pemuda dan Olahraga"
+    },
+    "kunci": "A",
+    "penjelasan": "Kementerian Pendidikan Tinggi, Sains, dan Teknologi RI! Ijazah resmi terdaftar dalam Pangkalan Data Pendidikan Tinggi (PDDikti)."
+  },
+  {
+    "pertanyaan": "Setelah menyelesaikan masa ikatan dinas wajib kerja, apakah alumni STIS dapat melanjutkan studi ke jenjang S2 atau S3?",
+    "opsi": {
+      "A": "Sama sekali tidak boleh melanjutkan studi",
+      "B": "Sangat berpeluang, baik melalui beasiswa BPS, LPDP, Pusbindiklatren Bappenas, maupun beasiswa luar negeri (AAS, Chevening, Fulbright, dll.)",
+      "C": "Hanya boleh mengambil kursus non-gelar",
+      "D": "Wajib pensiun dini jika ingin kuliah lagi"
+    },
+    "kunci": "B",
+    "penjelasan": "Sangat terbuka luas! Ratusan alumni STIS telah berhasil meraih gelar Master (M.Sc) dan Doktor (Ph.D) di kampus-kampus top dunia."
+  },
+  {
+    "pertanyaan": "Karakter utama yang diharapkan melekat pada setiap lulusan Politeknik Statistika STIS adalah...",
+    "opsi": {
+      "A": "Berpikir kritis, berintegritas tinggi, menjunjung etika data, dan mengabdi untuk kemajuan bangsa",
+      "B": "Hanya mencari kenyamanan pribadi dan menghindari penugasan daerah",
+      "C": "Mengutamakan kepentingan bisnis kelompok komersial",
+      "D": "Membocorkan rahasia data demi popularitas"
+    },
+    "kunci": "A",
+    "penjelasan": "Integritas, profesionalisme, dan pengabdian bangsa! Lulusan STIS menjadi garda terdepan penjaga kedaulatan data statistik Indonesia."
+  }
+]

@@ -7,7 +7,7 @@ const { sanitizeNickname } = require('../src/utils/profanity');
 
 test('Validasi Bank Soal: format dan kelengkapan data', (t) => {
   const data = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/data/questions.json'), 'utf8'));
-  assert.equal(data.length, 90, 'Bank soal harus berisi 90 butir soal');
+  assert.equal(data.length, 300, 'Bank soal harus berisi 300 butir soal');
 
   const categories = { logika: 0, data: 0, stis: 0 };
   const validKeys = new Set(['A', 'B', 'C', 'D']);
@@ -23,9 +23,9 @@ test('Validasi Bank Soal: format dan kelengkapan data', (t) => {
     categories[q.kategori_kode]++;
   });
 
-  assert.equal(categories.logika, 30);
-  assert.equal(categories.data, 30);
-  assert.equal(categories.stis, 30);
+  assert.equal(categories.logika, 100);
+  assert.equal(categories.data, 100);
+  assert.equal(categories.stis, 100);
 });
 
 test('Validasi School Normalizer: normalisasi variasi penulisan sekolah', (t) => {
