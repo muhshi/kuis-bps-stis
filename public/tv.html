@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Live Leaderboard Booth - BPS & STIS</title>
-  <link rel="stylesheet" href="/css/tv.css">
+  <link rel="stylesheet" href="/css/tv.css?v=5.0">
 </head>
 <body>
 
   <!-- TV TOP BAR -->
   <header class="tv-header">
     <div class="tv-brand">
-      <div class="tv-logo-badge">BPS × STIS</div>
+      <div class="tv-logo-badge">🏛️ BPS × STIS</div>
       <div class="tv-title-box">
         <h1>LIVE LEADERBOARD PAMERAN PENDIDIKAN</h1>
         <p>Badan Pusat Statistik & Politeknik Statistika STIS</p>
@@ -27,65 +27,104 @@
     </div>
   </header>
 
-  <!-- CATEGORY TABS -->
-  <div class="tv-tabs-bar">
-    <button class="tv-tab active" data-cat="all">👑 JUARA UMUM (AKUMULASI)</button>
-    <button class="tv-tab" data-cat="logika">⚡ THE LOGIC MASTER</button>
-    <button class="tv-tab" data-cat="data">📊 DETEKTIF DATA BPS</button>
-    <button class="tv-tab" data-cat="stis">🎓 PEJUANG STIS</button>
-  </div>
+  <!-- CATEGORY TABS & AUTO-CYCLE STATUS -->
+  <nav class="tv-tabs-bar" aria-label="Kategori Leaderboard">
+    <div class="tv-tabs-group">
+      <button class="tv-tab active" data-cat="all" type="button">
+        <span class="tv-tab-icon">👑</span>
+        <span class="tv-tab-text">Juara Umum (Akumulasi)</span>
+      </button>
+      <button class="tv-tab" data-cat="logika" type="button">
+        <span class="tv-tab-icon">⚡</span>
+        <span class="tv-tab-text">The Logic Master</span>
+      </button>
+      <button class="tv-tab" data-cat="data" type="button">
+        <span class="tv-tab-icon">📊</span>
+        <span class="tv-tab-text">Detektif Data BPS</span>
+      </button>
+      <button class="tv-tab" data-cat="stis" type="button">
+        <span class="tv-tab-icon">🎓</span>
+        <span class="tv-tab-text">Pejuang STIS</span>
+      </button>
+    </div>
+
+    <div class="tv-cycle-box" id="tv-cycle-box" title="Klik untuk menjeda atau melanjutkan pergantian kategori otomatis">
+      <span class="cycle-pulse"></span>
+      <span id="cycle-label">Auto-Cycle: 10s</span>
+      <button id="btn-toggle-cycle" class="btn-cycle-pause" type="button" aria-label="Pause Auto Cycle">⏸️</button>
+    </div>
+  </nav>
 
   <!-- TV CONTENT GRID -->
   <main class="tv-grid">
 
-    <!-- LEFT: TOP 10 PLAYERS -->
-    <section class="tv-card">
+    <!-- LEFT COLUMN: TOP 10 PLAYERS -->
+    <section class="tv-card left-col">
       <div class="tv-card-header">
-        <h2 id="tv-board-title">🏆 TOP 10 JUARA UMUM</h2>
-        <span style="font-size: 0.85rem; color: #94a3b8; font-weight: 600;" id="tv-board-sub">Total Skor Akumulasi</span>
+        <div class="header-title-wrap">
+          <h2 id="tv-board-title">🏆 TOP 10 JUARA UMUM</h2>
+          <span class="header-badge-sub" id="tv-board-sub">Akumulasi Skor Semua Kategori</span>
+        </div>
+        <div class="header-tag" id="tv-board-tag">10 Posisi Terbaik</div>
       </div>
 
       <div class="leaderboard-list" id="players-list">
-        <div style="text-align: center; padding: 40px; color: #64748b;">
-          Memuat data leaderboard...
+        <div class="lb-loading">
+          <div class="spinner"></div>
+          <div>Memuat data leaderboard...</div>
         </div>
       </div>
     </section>
 
-    <!-- RIGHT: SCHOOL BATTLE & LIVE STATS -->
+    <!-- RIGHT COLUMN: SCHOOL BATTLE & LIVE QR STATS -->
     <div class="right-col">
 
       <!-- TOP 5 SCHOOL BATTLE -->
-      <section class="tv-card" style="flex: 1.2;">
+      <section class="tv-card school-card">
         <div class="tv-card-header">
-          <h2>🏫 TOP 5 SCHOOL BATTLE</h2>
-          <span style="font-size: 0.85rem; color: #10b981; font-weight: 700;">Klasemen Sekolah</span>
+          <div class="header-title-wrap">
+            <h2>🏫 TOP 5 SCHOOL BATTLE</h2>
+            <span class="header-badge-sub" style="color: #34d399;">Klasemen Poin Sekolah</span>
+          </div>
+          <div class="header-tag green">Gengsi Sekolah</div>
         </div>
 
         <div class="school-list" id="schools-list">
-          <div style="text-align: center; padding: 20px; color: #64748b;">
-            Memuat klasemen sekolah...
+          <div class="lb-loading">
+            <div>Memuat klasemen sekolah...</div>
           </div>
         </div>
       </section>
 
-      <!-- BOTTOM: QR CODE CALL-TO-ACTION & STATS -->
-      <section class="tv-card" style="flex: 0.8; justify-content: center;">
+      <!-- BOTTOM: LIVE QR CODE & BOOTH STATS -->
+      <section class="tv-card stats-card">
         <div class="tv-bottom-box">
+          
+          <!-- Real Scannable SVG QR Code -->
           <div class="qr-box">
-            <div class="qr-mock">📱</div>
+            <div class="qr-frame">
+              <img id="tv-qr-img" src="/api/qrcode" alt="QR Code Web Kuis" width="92" height="92">
+            </div>
             <div class="qr-desc">
-              <h4>Scan & Main di HP-mu!</h4>
-              <p>Selesaikan 3 Kategori</p>
-              <p style="font-weight: 800; color: #fff; margin-top: 4px;" id="tv-domain-hint">Scan QR di Booth</p>
+              <div class="qr-tag">📲 SCAN DI HP-MU</div>
+              <h4>Main Langsung Tanpa Antre!</h4>
+              <p>Buka di browser smartphone:</p>
+              <div class="domain-pill" id="tv-domain-hint">http://localhost:3000</div>
             </div>
           </div>
 
+          <!-- Live Metrics -->
           <div class="stats-box">
-            <div class="stats-number" id="stats-total-peserta">0</div>
-            <div class="stats-label">Total Peserta Ikut Serta</div>
-            <div style="font-size: 0.75rem; color: #64748b; margin-top: 2px;">Data Resmi Booth BPS</div>
+            <div class="stat-unit">
+              <div class="stats-number" id="stats-total-peserta">0</div>
+              <div class="stats-label">Total Peserta Kuis</div>
+            </div>
+            <div class="stat-unit">
+              <div class="stats-number" id="stats-total-sekolah" style="color: #38bdf8;">0</div>
+              <div class="stats-label">Sekolah Terdaftar</div>
+            </div>
           </div>
+
         </div>
       </section>
 
@@ -93,6 +132,6 @@
 
   </main>
 
-  <script src="/js/tv.js"></script>
+  <script src="/js/tv.js?v=5.0"></script>
 </body>
 </html>

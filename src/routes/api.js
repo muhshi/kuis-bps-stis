@@ -2,10 +2,41 @@ const express = require('express');
 const router = express.Router();
 const quizService = require('../services/quizService');
 const db = require('../db');
+let QRCode = null;
+try {
+  QRCode = require('qrcode');
+} catch (e) {}
 
 // Healthcheck
 router.get('/health', (req, res) => {
   res.json({ status: 'ok', uptime: process.uptime(), timestamp: new Date().toISOString() });
+});
+
+// QR Code SVG generator for TV Booth & Promos
+router.get('/qrcode', async (req, res) => {
+  try {
+    const host = req.get('host') || 'localhost:3000';
+    const protocol = req.protocol || 'http';
+    const defaultUrl = `${protocol}://${host}`;
+    const targetUrl = req.query.url || defaultUrl;
+
+    if (QRCode) {
+      const svg = await QRCode.toString(targetUrl, {
+        type: 'svg',
+        margin: 1,
+        color: {
+          dark: '#0f172a',
+          light: '#ffffff'
+        }
+      });
+      res.setHeader('Content-Type', 'image/svg+xml');
+      res.setHeader('Cache-Control', 'public, max-age=3600');
+      return res.send(svg);
+    }
+    res.status(503).send('QR Code module not available');
+  } catch (err) {
+    res.status(500).send('Error creating QR Code');
+  }
 });
 
 // Get participant status & completed categories

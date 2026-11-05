@@ -44,6 +44,13 @@ Aplikasi web kuis interaktif ultra-ringan berbasis scan QR Code ala Kahoot yang 
 ## 📝 Changelog
 
 ### [2026-11-05]
+- **Perombakan Total Layar TV Booth (tv.html & tv.css v5.0)**:
+  - **Tombol Tab Kategori Interaktif**: Tombol tab kategori didesain ulang dengan gaya glassmorphic pill bercahaya, transisi taktil, dan reset tampilan `appearance: none !important` agar tombol tidak kembali ke default kotak putih bawaan browser.
+  - **Fungsi Klik Tab & Kontrol Auto-Cycle**: Memperbaiki fungsi klik tab agar langsung mengganti kategori secara instan dan menyertakan tombol jeda/lanjutkan (`⏸️` / `▶️`) dengan hitung mundur detik transparan (`Auto-Cycle: 10s`).
+  - **Eliminasi Ruang Kosong (Dynamic Placeholders)**: Menghilangkan kesan kosong saat peserta masih sedikit dengan menambahkan slot placeholder elegan (`#3 Menunggu Penantang... Rebut Posisi 3 Besar!`) dan (`#3 Harumkan nama sekolahmu di sini!`) sehingga mendorong pengunjung booth untuk segera mencoba.
+  - **Hierarki Juara (Gold, Silver, Bronze Podium)**: Peringkat #1, #2, dan #3 memiliki gradasi glow dinamis emas, perak, dan perunggu yang menonjol di monitor 1080p.
+  - **Live Scannable SVG QR Code**: Menggantikan emoji HP dengan generator kode QR SVG nyata (`/api/qrcode`) beresolusi tinggi di kartu bawah layar agar siswa dapat langsung mengarahkan kamera HP ke TV untuk mulai bermain.
+  - **Pencegahan Cache TV**: Memperbarui link file statis menjadi `tv.css?v=5.0` dan `tv.js?v=5.0`.
 - **Koreksi Data Akademik STIS (Bank Soal)**:
   - Memperbaiki soal gelar akademik D-IV Komputasi Statistik: Seluruh lulusan jenjang Diploma IV di Politeknik Statistika STIS (baik D-IV Statistika maupun D-IV Komputasi Statistik) menyandang gelar resmi yang sama, yaitu **S.Tr.Stat** (*Sarjana Terapan Statistika*). Tidak ada gelar S.Tr.Kom.
   - Soal nomor 80 disesuaikan untuk mengedukasi bahwa seluruh lulusan D-IV bergelar **S.Tr.Stat**, dan soal nomor 81 difokuskan pada gelar akademik lulusan program studi Diploma III (D-III) Statistika, yaitu **A.Md.Stat** (*Ahli Madya Statistika*).
