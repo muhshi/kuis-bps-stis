@@ -8,10 +8,11 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./data:/app/src/data
+      - ./data:/app/data
     environment:
       - NODE_ENV=production
       - PORT=3000
+      - DATA_DIR=/app/data
       - ADMIN_TOKEN=bps-stis-2026
       # (Opsional) Jika ingin menghubungkan ke PostgreSQL server:
       # - PGHOST=10.133.21.24

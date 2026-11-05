@@ -9,8 +9,8 @@ RUN npm ci --only=production
 # Copy application source code
 COPY . .
 
-# Ensure data directory exists
-RUN mkdir -p /app/src/data
+# Ensure data directories exist
+RUN mkdir -p /app/data /app/src/data
 
 # Expose web port
 EXPOSE 3000

@@ -7,7 +7,8 @@ let pool = null;
 let useInMemory = false;
 
 // File persistence path for zero-setup mode (so server restarts don't lose sessions!)
-const DEV_STORE_PATH = path.join(__dirname, '../data/dev_store.json');
+const DEV_STORE_DIR = process.env.DATA_DIR || path.join(__dirname, '../data');
+const DEV_STORE_PATH = path.join(DEV_STORE_DIR, 'dev_store.json');
 
 function loadDevStore() {
   try {
