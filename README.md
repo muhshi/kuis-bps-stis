@@ -44,6 +44,8 @@ Aplikasi web kuis interaktif ultra-ringan berbasis scan QR Code ala Kahoot yang 
 ## 📝 Changelog
 
 ### [2026-11-05]
+- **Pembesaran Tampilan QR Code Layar TV**:
+  - Memperbesar bingkai kode QR di layar TV monitor booth dari 92px menjadi **130px** (+41% lebih besar dengan resolusi vektor SVG tajam), sehingga pengunjung booth dapat memindai (*scan*) QR Code secara instan dari jarak 2–3 meter.
 - **Anti-Spam & Keadilan Peringkat (Eliminasi Tombol Ganti Peserta)**:
   - Menghapus tombol "Ganti Nama / Peserta Lain" di menu kategori agar siswa tidak dapat menghapus sesi dan bermain berulang kali dengan nama yang sama untuk mengakali papan peringkat (*leaderboard integrity*).
 - **Audit Menyeluruh & Penyeimbangan Bank Soal (Total 90 Soal)**:
