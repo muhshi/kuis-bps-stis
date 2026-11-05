@@ -1,0 +1,329 @@
+:root {
+  --bg-tv: #090d16;
+  --card-tv: rgba(19, 27, 46, 0.85);
+  --border-tv: rgba(56, 189, 248, 0.2);
+  --gold: #fbbf24;
+  --silver: #cbd5e1;
+  --bronze: #d97706;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-tv);
+  background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, #090d16 80%);
+  color: #fff;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* TV Top Bar */
+.tv-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 16px;
+}
+
+.tv-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.tv-logo-badge {
+  background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+  color: #fff;
+  font-weight: 900;
+  font-size: 1.4rem;
+  padding: 10px 18px;
+  border-radius: 14px;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+}
+
+.tv-title-box h1 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  background: linear-gradient(90deg, #38bdf8, #818cf8, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tv-title-box p {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.tv-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.live-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #f87171;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.live-pill.reconnecting {
+  background: rgba(245, 158, 11, 0.2);
+  border-color: rgba(245, 158, 11, 0.4);
+  color: #fbbf24;
+}
+
+.live-dot {
+  width: 10px;
+  height: 10px;
+  background: #ef4444;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ef4444;
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.7; }
+}
+
+.tv-clock {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #cbd5e1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* TV Main Content Grid */
+.tv-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px;
+  flex: 1;
+  min-height: 0; /* important for flex scrolling */
+}
+
+/* Card Styles */
+.tv-card {
+  background: var(--card-tv);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-tv);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.tv-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 10px;
+}
+
+.tv-card-header h2 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #e2e8f0;
+}
+
+/* Top 10 Table */
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: hidden;
+  flex: 1;
+}
+
+.lb-row {
+  display: grid;
+  grid-template-columns: 50px 1.4fr 1.2fr 100px 90px;
+  align-items: center;
+  padding: 10px 14px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.lb-row.rank-1 {
+  background: linear-gradient(90deg, rgba(251, 191, 36, 0.25) 0%, rgba(15, 23, 42, 0.7) 100%);
+  border-color: rgba(251, 191, 36, 0.5);
+}
+
+.lb-row.rank-2 {
+  background: linear-gradient(90deg, rgba(203, 213, 225, 0.2) 0%, rgba(15, 23, 42, 0.7) 100%);
+  border-color: rgba(203, 213, 225, 0.4);
+}
+
+.lb-row.rank-3 {
+  background: linear-gradient(90deg, rgba(217, 119, 6, 0.2) 0%, rgba(15, 23, 42, 0.7) 100%);
+  border-color: rgba(217, 119, 6, 0.4);
+}
+
+.lb-rank {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #94a3b8;
+}
+
+.lb-row.rank-1 .lb-rank { color: var(--gold); }
+.lb-row.rank-2 .lb-rank { color: var(--silver); }
+.lb-row.rank-3 .lb-rank { color: var(--bronze); }
+
+.lb-player {
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lb-school {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lb-score {
+  font-weight: 900;
+  color: #38bdf8;
+  text-align: right;
+  font-size: 1.15rem;
+}
+
+.lb-time {
+  color: #64748b;
+  font-size: 0.85rem;
+  text-align: right;
+}
+
+/* Right Column Cards */
+.right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.school-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.school-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+.school-name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #f1f5f9;
+}
+
+.school-meta {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.school-score {
+  font-weight: 900;
+  font-size: 1.15rem;
+  color: #10b981;
+}
+
+/* QR & Live Stats Box */
+.tv-bottom-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px dashed rgba(56, 189, 248, 0.3);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.qr-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.qr-mock {
+  width: 76px;
+  height: 76px;
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-size: 2.2rem;
+  font-weight: 900;
+}
+
+.qr-desc h4 {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+.qr-desc p {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.stats-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  padding-left: 16px;
+}
+
+.stats-number {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #fbbf24;
+}
+
+.stats-label {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-weight: 600;
+}

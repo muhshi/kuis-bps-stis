@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Leaderboard Booth - BPS & STIS</title>
+  <link rel="stylesheet" href="/css/tv.css">
+</head>
+<body>
+
+  <!-- TV TOP BAR -->
+  <header class="tv-header">
+    <div class="tv-brand">
+      <div class="tv-logo-badge">BPS × STIS</div>
+      <div class="tv-title-box">
+        <h1>LIVE LEADERBOARD PAMERAN PENDIDIKAN</h1>
+        <p>Badan Pusat Statistik & Politeknik Statistika STIS</p>
+      </div>
+    </div>
+
+    <div class="tv-meta">
+      <div id="live-indicator" class="live-pill">
+        <span class="live-dot"></span>
+        <span id="live-text">LIVE UPDATE</span>
+      </div>
+      <div id="tv-clock" class="tv-clock">00:00:00</div>
+    </div>
+  </header>
+
+  <!-- TV CONTENT GRID -->
+  <main class="tv-grid">
+
+    <!-- LEFT: TOP 10 PLAYERS -->
+    <section class="tv-card">
+      <div class="tv-card-header">
+        <h2>🏆 TOP 10 MASTER DATA & LOGIKA</h2>
+        <span style="font-size: 0.85rem; color: #94a3b8; font-weight: 600;">Skor Teratas & Kecepatan</span>
+      </div>
+
+      <div class="leaderboard-list" id="players-list">
+        <div style="text-align: center; padding: 40px; color: #64748b;">
+          Memuat data leaderboard...
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT: SCHOOL BATTLE & LIVE STATS -->
+    <div class="right-col">
+
+      <!-- TOP 5 SCHOOL BATTLE -->
+      <section class="tv-card" style="flex: 1.2;">
+        <div class="tv-card-header">
+          <h2>🏫 TOP 5 SCHOOL BATTLE</h2>
+          <span style="font-size: 0.85rem; color: #10b981; font-weight: 700;">Klasemen Sekolah</span>
+        </div>
+
+        <div class="school-list" id="schools-list">
+          <div style="text-align: center; padding: 20px; color: #64748b;">
+            Memuat klasemen sekolah...
+          </div>
+        </div>
+      </section>
+
+      <!-- BOTTOM: QR CODE CALL-TO-ACTION & STATS -->
+      <section class="tv-card" style="flex: 0.8; justify-content: center;">
+        <div class="tv-bottom-box">
+          <div class="qr-box">
+            <div class="qr-mock">📱</div>
+            <div class="qr-desc">
+              <h4>Ayo Scan & Ikut!</h4>
+              <p>10 Soal Asah Otak</p>
+              <p style="font-weight: 800; color: #fff; margin-top: 4px;" id="tv-domain-hint">Scan QR di Booth</p>
+            </div>
+          </div>
+
+          <div class="stats-box">
+            <div class="stats-number" id="stats-total-peserta">0</div>
+            <div class="stats-label">Total Peserta Ikut Serta</div>
+            <div style="font-size: 0.75rem; color: #64748b; margin-top: 2px;">Data Resmi Booth BPS</div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <script src="/js/tv.js"></script>
+</body>
+</html>

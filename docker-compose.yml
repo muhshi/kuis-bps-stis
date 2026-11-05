@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  kuis-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kuis-sosialisasi-stis
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DATABASE_URL=${DATABASE_URL:-}
+      - PGHOST=${PGHOST:-host.docker.internal}
+      - PGPORT=${PGPORT:-5432}
+      - PGUSER=${PGUSER:-postgres}
+      - PGPASSWORD=${PGPASSWORD:-postgres}
+      - PGDATABASE=${PGDATABASE:-kuis_stis}
+      - ADMIN_TOKEN=${ADMIN_TOKEN:-bps-stis-2026}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
