@@ -1,7 +1,14 @@
+/* TV DISPLAY STYLESHEET - Polished for 1080p Booth Monitor */
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 :root {
   --bg-tv: #090d16;
-  --card-tv: rgba(19, 27, 46, 0.85);
-  --border-tv: rgba(56, 189, 248, 0.2);
+  --card-tv: rgba(19, 27, 46, 0.88);
+  --border-tv: rgba(56, 189, 248, 0.22);
   --gold: #fbbf24;
   --silver: #cbd5e1;
   --bronze: #d97706;
@@ -56,6 +63,7 @@ body {
   font-size: 1.6rem;
   font-weight: 900;
   letter-spacing: -0.5px;
+  text-wrap: balance;
   background: linear-gradient(90deg, #38bdf8, #818cf8, #f472b6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -130,7 +138,9 @@ body {
   font-size: 0.92rem;
   font-weight: 800;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition-property: transform, background-color, border-color, color, box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
 }
 
 .tv-tab.active {
@@ -149,10 +159,11 @@ body {
   min-height: 0;
 }
 
-/* Card Styles */
+/* Concentric Radius: Outer 20px, inner list items 12px */
 .tv-card {
   background: var(--card-tv);
   backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-tv);
   border-radius: 20px;
   padding: 18px;
@@ -194,7 +205,8 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   font-size: 0.96rem;
-  transition: all 0.3s ease;
+  transition-property: background-color, border-color, transform;
+  transition-duration: 200ms;
 }
 
 .lb-row.rank-1 {
@@ -216,6 +228,7 @@ body {
   font-size: 1.2rem;
   font-weight: 900;
   color: #94a3b8;
+  font-variant-numeric: tabular-nums;
 }
 
 .lb-row.rank-1 .lb-rank { color: var(--gold); }
@@ -243,12 +256,14 @@ body {
   color: #38bdf8;
   text-align: right;
   font-size: 1.1rem;
+  font-variant-numeric: tabular-nums;
 }
 
 .lb-time {
   color: #64748b;
   font-size: 0.82rem;
   text-align: right;
+  font-variant-numeric: tabular-nums;
 }
 
 /* Right Column */
@@ -284,12 +299,14 @@ body {
 .school-meta {
   font-size: 0.82rem;
   color: #94a3b8;
+  font-variant-numeric: tabular-nums;
 }
 
 .school-score {
   font-weight: 900;
   font-size: 1.1rem;
   color: #10b981;
+  font-variant-numeric: tabular-nums;
 }
 
 /* QR & Live Stats Box */
@@ -346,6 +363,7 @@ body {
   font-size: 1.7rem;
   font-weight: 900;
   color: #fbbf24;
+  font-variant-numeric: tabular-nums;
 }
 
 .stats-label {
