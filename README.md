@@ -44,6 +44,11 @@ Aplikasi web kuis interaktif ultra-ringan berbasis scan QR Code ala Kahoot yang 
 ## 📝 Changelog
 
 ### [2026-11-05]
+- **Default Light Mode Layar TV Booth (tv.html & tv.css v6.0)**:
+  - **Standarisasi Default Light Mode**: Menjadikan **Mode Terang (Light Mode)** sebagai setelan baku (*default*) resmi untuk tampilan TV monitor booth, dengan kartu putih bersih, kanvas *slate* cerah, teks *slate-900* berkontras tinggi yang sangat mudah terbaca dari jarak jauh di ruangan pameran yang terang benderang.
+  - **Aksen Podium Light Mode**: Juara #1 dihiasi gradasi emas hangat (*amber*), Juara #2 perak (*slate*), Juara #3 perunggu (*copper*), dan School Battle beraksen hijau zamrud (*emerald*).
+  - **Tombol Toggle Tema TV**: Disediakan tombol saklar tema (`☀️ Mode Terang` / `🌙 Mode Gelap`) pada header atas layar TV jika operator booth ingin beralih ke mode gelap di malam hari.
+  - **Versi Aset TV Diperbarui**: Cache busting dinaikkan ke `v=6.0` (`tv.css?v=6.0` & `tv.js?v=6.0`).
 - **Perombakan Total Layar TV Booth (tv.html & tv.css v5.0)**:
   - **Tombol Tab Kategori Interaktif**: Tombol tab kategori didesain ulang dengan gaya glassmorphic pill bercahaya, transisi taktil, dan reset tampilan `appearance: none !important` agar tombol tidak kembali ke default kotak putih bawaan browser.
   - **Fungsi Klik Tab & Kontrol Auto-Cycle**: Memperbaiki fungsi klik tab agar langsung mengganti kategori secara instan dan menyertakan tombol jeda/lanjutkan (`⏸️` / `▶️`) dengan hitung mundur detik transparan (`Auto-Cycle: 10s`).

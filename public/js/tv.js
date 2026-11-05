@@ -35,6 +35,51 @@ if (tvQrImg) {
   tvQrImg.src = `/api/qrcode?url=${encodeURIComponent(currentOrigin)}`;
 }
 
+// ==========================================
+// THEME MANAGEMENT (Default is LIGHT MODE)
+// ==========================================
+function initTvTheme() {
+  const savedTheme = localStorage.getItem('bps_tv_theme');
+  // Default is LIGHT MODE
+  if (savedTheme === 'dark') {
+    applyTvTheme('dark');
+  } else {
+    applyTvTheme('light');
+  }
+}
+
+function applyTvTheme(theme) {
+  const isDark = (theme === 'dark');
+  if (isDark) {
+    document.body.classList.add('dark-mode');
+  } else {
+    document.body.classList.remove('dark-mode');
+  }
+
+  const tvThemeIcon = document.getElementById('tv-theme-icon');
+  const tvThemeLabel = document.getElementById('tv-theme-label');
+  const btnTvTheme = document.getElementById('btn-tv-theme');
+
+  if (tvThemeIcon && tvThemeLabel) {
+    tvThemeIcon.textContent = isDark ? '🌙' : '☀️';
+    tvThemeLabel.textContent = isDark ? 'Mode Gelap' : 'Mode Terang';
+  }
+
+  if (btnTvTheme) {
+    btnTvTheme.title = isDark ? 'Beralih ke Mode Terang' : 'Beralih ke Mode Gelap';
+  }
+  localStorage.setItem('bps_tv_theme', theme);
+}
+
+const btnTvTheme = document.getElementById('btn-tv-theme');
+if (btnTvTheme) {
+  btnTvTheme.addEventListener('click', () => {
+    const isDark = document.body.classList.contains('dark-mode');
+    applyTvTheme(isDark ? 'light' : 'dark');
+  });
+}
+initTvTheme();
+
 // 1. Live Clock
 function updateClock() {
   const now = new Date();
