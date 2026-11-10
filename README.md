@@ -43,6 +43,10 @@ Aplikasi web kuis interaktif ultra-ringan berbasis scan QR Code ala Kahoot yang 
 
 ## 📝 Changelog
 
+### [2026-11-10]
+- **Penyesuaian Lokal Kabupaten Demak**:
+  - Mengubah *placeholder* kolom Asal Sekolah/Madrasah di `public/index.html` dari `Contoh: SMAN 1 Semarang` menjadi `Contoh: SMAN 1 Demak`.
+
 ### [2026-11-05]
 - **Ekspansi Masif Bank Soal Menjadi 300 Butir (100 Soal per Kategori)**:
   - Memperbanyak bank soal menjadi total **300 butir soal berkualitas tinggi**:
