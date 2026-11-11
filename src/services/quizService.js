@@ -431,11 +431,126 @@ async function getLeaderboardSnapshot(kategori = 'all') {
   return snapshot;
 }
 
+async function getAdminOverview() {
+  const queryRes = await db.query(
+    `SELECT p.id, p.nama, p.nama_clean, p.sekolah, p.sekolah_clean, p.wa,
+            s.kategori_kode, s.total_score, s.correct_count, s.total_time_ms, s.badge_title, s.started_at, s.finished_at
+     FROM participants p
+     LEFT JOIN quiz_sessions s ON s.participant_id = p.id
+     ORDER BY s.total_score DESC NULLS LAST, p.created_at ASC`
+  );
+
+  const rows = queryRes.rows || [];
+  const participantMap = new Map();
+
+  for (const r of rows) {
+    if (!participantMap.has(r.id)) {
+      participantMap.set(r.id, {
+        id: r.id,
+        nama: r.nama_clean || r.nama || 'Peserta',
+        namaAsli: r.nama || '',
+        sekolah: r.sekolah_clean || r.sekolah || 'Sekolah Lainnya',
+        wa: r.wa || '',
+        createdAt: r.started_at || null,
+        scores: { logika: null, data: null, stis: null },
+        categoriesFinished: 0,
+        totalScore: 0,
+        totalCorrect: 0,
+        totalTimeMs: 0,
+        lastFinishedAt: null
+      });
+    }
+
+    const p = participantMap.get(r.id);
+    if (r.started_at && (!p.createdAt || r.started_at < p.createdAt)) {
+      p.createdAt = r.started_at;
+    }
+
+    const isValidCat = ['logika', 'data', 'stis'].includes(r.kategori_kode);
+    if (isValidCat && r.finished_at) {
+      const score = parseInt(r.total_score || 0, 10);
+      const correct = parseInt(r.correct_count || 0, 10);
+      const timeMs = parseInt(r.total_time_ms || 0, 10);
+
+      if (p.scores[r.kategori_kode] === null) {
+        p.scores[r.kategori_kode] = score;
+        p.categoriesFinished += 1;
+        p.totalScore += score;
+        p.totalCorrect += correct;
+        p.totalTimeMs += timeMs;
+      }
+
+      if (!p.lastFinishedAt || r.finished_at > p.lastFinishedAt) {
+        p.lastFinishedAt = r.finished_at;
+      }
+    }
+  }
+
+  const participants = Array.from(participantMap.values())
+    .map(p => ({
+      ...p,
+      totalTimeSeconds: (p.totalTimeMs / 1000).toFixed(1)
+    }))
+    .sort((a, b) => b.totalScore - a.totalScore || a.totalTimeMs - b.totalTimeMs || a.id - b.id);
+
+  // Build full school rankings (not capped to top 5)
+  const schoolMap = new Map();
+  for (const p of participants) {
+    const key = p.sekolah;
+    if (!schoolMap.has(key)) {
+      schoolMap.set(key, {
+        sekolah: key,
+        pesertaCount: 0,
+        finishedPesertaCount: 0,
+        totalPoints: 0
+      });
+    }
+    const sc = schoolMap.get(key);
+    sc.pesertaCount += 1;
+    if (p.categoriesFinished > 0) {
+      sc.finishedPesertaCount += 1;
+      sc.totalPoints += p.totalScore;
+    }
+  }
+
+  const schools = Array.from(schoolMap.values())
+    .map(sc => ({
+      ...sc,
+      avgScore: sc.finishedPesertaCount > 0 ? Math.round(sc.totalPoints / sc.finishedPesertaCount) : 0
+    }))
+    .sort((a, b) => b.totalPoints - a.totalPoints || b.pesertaCount - a.pesertaCount || a.sekolah.localeCompare(b.sekolah))
+    .map((sc, idx) => ({ rank: idx + 1, ...sc }));
+
+  const totalSelesaiSesi = participants.reduce((sum, p) => sum + p.categoriesFinished, 0);
+  const totalTuntasAll = participants.filter(p => p.categoriesFinished === 3).length;
+  const totalWithWa = participants.filter(p => p.wa && p.wa.trim().length > 0).length;
+
+  return {
+    summary: {
+      totalPeserta: participants.length,
+      totalSelesaiSesi,
+      totalTuntasAll,
+      totalSekolah: schools.length,
+      totalWithWa
+    },
+    questionBank: {
+      total: questionsData.length,
+      logika: byCategory.logika.length,
+      data: byCategory.data.length,
+      stis: byCategory.stis.length
+    },
+    schools,
+    participants,
+    updatedAt: new Date().toISOString()
+  };
+}
+
 module.exports = {
   startSession,
   finishSession,
   getParticipantStatus,
   getLeaderboardSnapshot,
+  getAdminOverview,
   calculateQuestionScore,
   determineBadge,
   generate10QuestionsForCategory,

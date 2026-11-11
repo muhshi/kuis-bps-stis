@@ -30,6 +30,7 @@ const btnThemeToggle = document.getElementById('btn-theme-toggle');
 const formRegister = document.getElementById('form-register');
 const inputNama = document.getElementById('input-nama');
 const inputSekolah = document.getElementById('input-sekolah');
+const schoolSuggestions = document.getElementById('school-suggestions');
 const inputWa = document.getElementById('input-wa');
 const btnStart = document.getElementById('btn-start');
 
@@ -42,6 +43,7 @@ const catCards = document.querySelectorAll('.cat-card');
 const badgeCatLogika = document.getElementById('badge-cat-logika');
 const badgeCatData = document.getElementById('badge-cat-data');
 const badgeCatStis = document.getElementById('badge-cat-stis');
+const btnShareCardCat = document.getElementById('btn-share-card-cat');
 const btnViewLbFromCat = document.getElementById('btn-view-lb-from-cat');
 
 // Quiz Screen DOM
@@ -74,8 +76,20 @@ const resCumulative = document.getElementById('res-cumulative');
 const offlineRetryBox = document.getElementById('offline-retry-box');
 const btnRetrySubmit = document.getElementById('btn-retry-submit');
 const btnNextCategory = document.getElementById('btn-next-category');
+const btnShareCardRes = document.getElementById('btn-share-card-res');
 const btnBackToMenu = document.getElementById('btn-back-to-menu');
 const btnViewLbFromRes = document.getElementById('btn-view-lb-from-res');
+
+// Score Card Modal DOM
+const modalScoreCard = document.getElementById('modal-scorecard');
+const btnCloseModalSc = document.getElementById('btn-close-modal-sc');
+const scThemePills = document.querySelectorAll('.sc-theme-pill');
+const scCanvas = document.getElementById('scorecard-canvas');
+const scPreviewImg = document.getElementById('scorecard-preview-img');
+const btnScShare = document.getElementById('btn-sc-share');
+const btnScDownload = document.getElementById('btn-sc-download');
+let currentScTheme = 'light';
+let currentScBlob = null;
 
 // Mobile Leaderboard Modal DOM
 const btnCloseModalLb = document.getElementById('btn-close-modal-lb');
@@ -223,6 +237,14 @@ function renderCategoryScreen(status) {
   updateCatCard('logika', completedMap.get('logika'), badgeCatLogika);
   updateCatCard('data', completedMap.get('data'), badgeCatData);
   updateCatCard('stis', completedMap.get('stis'), badgeCatStis);
+
+  if (btnShareCardCat) {
+    if (status.completedCategories.length > 0) {
+      btnShareCardCat.classList.remove('hidden');
+    } else {
+      btnShareCardCat.classList.add('hidden');
+    }
+  }
 }
 
 function updateCatCard(catCode, score, badgeEl) {
@@ -570,4 +592,220 @@ function escapeHtml(str) {
     '"': '&quot;',
     "'": '&#39;'
   }[m]));
+}
+
+// ==========================================
+// 7. AUTOCOMPLETE DAFTAR SEKOLAH KAB. DEMAK
+// ==========================================
+(function initSchoolAutocomplete() {
+  if (!inputSekolah || !schoolSuggestions) return;
+  const schools = Array.isArray(window.DEMAK_SCHOOLS) ? window.DEMAK_SCHOOLS : [];
+  let activeIdx = -1;
+
+  function getSchoolLevelTag(name) {
+    if (/^SMKN|^SMK/i.test(name)) return 'SMK';
+    if (/^MAN|^MA\s/i.test(name)) return 'MA';
+    return 'SMA';
+  }
+
+  function closeSuggestions() {
+    schoolSuggestions.classList.add('hidden');
+    inputSekolah.setAttribute('aria-expanded', 'false');
+    activeIdx = -1;
+  }
+
+  function renderSuggestions(query) {
+    const q = (query || '').trim().toLowerCase();
+    const matches = q.length === 0
+      ? schools.slice(0, 8)
+      : schools.filter(name => name.toLowerCase().includes(q)).slice(0, 10);
+
+    if (matches.length === 0) {
+      closeSuggestions();
+      return;
+    }
+
+    activeIdx = -1;
+    schoolSuggestions.innerHTML = matches.map((name, idx) => `
+      <button type="button" class="autocomplete-item" role="option" data-idx="${idx}" data-val="${escapeHtml(name)}">
+        <span>${escapeHtml(name)}</span>
+        <span class="autocomplete-tag">${getSchoolLevelTag(name)}</span>
+      </button>
+    `).join('');
+
+    schoolSuggestions.classList.remove('hidden');
+    inputSekolah.setAttribute('aria-expanded', 'true');
+  }
+
+  inputSekolah.addEventListener('focus', () => {
+    renderSuggestions(inputSekolah.value);
+  });
+
+  inputSekolah.addEventListener('input', () => {
+    renderSuggestions(inputSekolah.value);
+  });
+
+  inputSekolah.addEventListener('keydown', (e) => {
+    const items = schoolSuggestions.querySelectorAll('.autocomplete-item');
+    if (schoolSuggestions.classList.contains('hidden') || items.length === 0) return;
+
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      activeIdx = (activeIdx + 1) % items.length;
+      updateActiveItem(items);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      activeIdx = (activeIdx - 1 + items.length) % items.length;
+      updateActiveItem(items);
+    } else if (e.key === 'Enter' && activeIdx >= 0) {
+      e.preventDefault();
+      inputSekolah.value = items[activeIdx].getAttribute('data-val');
+      closeSuggestions();
+    } else if (e.key === 'Escape') {
+      closeSuggestions();
+    }
+  });
+
+  function updateActiveItem(items) {
+    items.forEach((el, idx) => {
+      el.classList.toggle('active', idx === activeIdx);
+      if (idx === activeIdx) el.scrollIntoView({ block: 'nearest' });
+    });
+  }
+
+  schoolSuggestions.addEventListener('pointerdown', (e) => {
+    const btn = e.target.closest('.autocomplete-item');
+    if (!btn) return;
+    e.preventDefault();
+    inputSekolah.value = btn.getAttribute('data-val');
+    closeSuggestions();
+  });
+
+  document.addEventListener('pointerdown', (e) => {
+    if (!e.target.closest('.autocomplete-wrap')) {
+      closeSuggestions();
+    }
+  });
+})();
+
+// ==========================================
+// 8. KARTU SKOR DIGITAL (SHAREABLE IG / WA)
+// ==========================================
+async function openScoreCardModal() {
+  if (!modalScoreCard || !window.ScoreCardGenerator) return;
+
+  // Sync default card theme with current app theme
+  currentScTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+  updateScThemePills();
+
+  modalScoreCard.classList.remove('hidden');
+
+  if (state.participantId && !state.participantStatus) {
+    await refreshParticipantStatus();
+  }
+  generateAndPreviewScoreCard();
+}
+
+function updateScThemePills() {
+  scThemePills.forEach(pill => {
+    pill.classList.toggle('active', pill.getAttribute('data-sc-theme') === currentScTheme);
+  });
+}
+
+function buildScoreCardPayload() {
+  const status = state.participantStatus;
+  const scores = { logika: null, data: null, stis: null };
+
+  if (status && Array.isArray(status.completedCategories)) {
+    status.completedCategories.forEach(c => {
+      scores[c.kategori_kode] = c.total_score;
+    });
+  }
+
+  const completedCount = status && Array.isArray(status.completedCategories)
+    ? status.completedCategories.length
+    : 0;
+
+  return {
+    nama: (status && status.participant && status.participant.nama) || (state.participant && state.participant.nama) || 'Peserta Kuis',
+    sekolah: (status && status.participant && status.participant.sekolah) || (state.participant && state.participant.sekolah) || 'SMAN 1 Demak',
+    totalScore: (status && status.totalScore) || 0,
+    completedCount,
+    scores
+  };
+}
+
+function generateAndPreviewScoreCard() {
+  if (!scCanvas || !scPreviewImg || !window.ScoreCardGenerator) return;
+  const payload = buildScoreCardPayload();
+  window.ScoreCardGenerator.renderScoreCardCanvas(scCanvas, payload, currentScTheme);
+
+  const dataUrl = scCanvas.toDataURL('image/png');
+  scPreviewImg.src = dataUrl;
+
+  const safeSlug = String(payload.nama || 'peserta').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  if (btnScDownload) {
+    btnScDownload.href = dataUrl;
+    btnScDownload.download = `kartu-skor-bps-stis-${safeSlug}.png`;
+  }
+
+  scCanvas.toBlob((blob) => {
+    currentScBlob = blob;
+  }, 'image/png');
+}
+
+if (btnShareCardCat) {
+  btnShareCardCat.addEventListener('click', openScoreCardModal);
+}
+if (btnShareCardRes) {
+  btnShareCardRes.addEventListener('click', openScoreCardModal);
+}
+if (btnCloseModalSc) {
+  btnCloseModalSc.addEventListener('click', () => {
+    modalScoreCard.classList.add('hidden');
+  });
+}
+if (modalScoreCard) {
+  modalScoreCard.addEventListener('click', (e) => {
+    if (e.target === modalScoreCard) {
+      modalScoreCard.classList.add('hidden');
+    }
+  });
+}
+
+scThemePills.forEach(pill => {
+  pill.addEventListener('click', () => {
+    currentScTheme = pill.getAttribute('data-sc-theme') || 'light';
+    updateScThemePills();
+    generateAndPreviewScoreCard();
+  });
+});
+
+if (btnScShare) {
+  btnScShare.addEventListener('click', async () => {
+    const payload = buildScoreCardPayload();
+    const shareText = `Skorku di Kuis BPS Kab. Demak × Polstat STIS: ${Number(payload.totalScore).toLocaleString('id-ID')} poin (${payload.completedCount}/3 kategori)! Ayo tantang dirimu di Booth BPS Demak! 🎯`;
+
+    if (currentScBlob && navigator.share && navigator.canShare) {
+      const file = new File([currentScBlob], 'kartu-skor-bps-stis.png', { type: 'image/png' });
+      if (navigator.canShare({ files: [file] })) {
+        try {
+          await navigator.share({
+            files: [file],
+            title: 'Kartu Skor Kuis BPS × STIS',
+            text: shareText
+          });
+          return;
+        } catch (err) {
+          if (err && err.name === 'AbortError') return;
+        }
+      }
+    }
+
+    // Fallback: trigger download PNG directly
+    if (btnScDownload && btnScDownload.href) {
+      btnScDownload.click();
+      alert('Kartu skor berhasil diunduh sebagai gambar PNG! Silakan langsung unggah ke IG Story atau Status WhatsApp kamu.');
+    }
+  });
 }

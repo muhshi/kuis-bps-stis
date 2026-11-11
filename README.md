@@ -36,12 +36,26 @@ Aplikasi web kuis interaktif ultra-ringan berbasis scan QR Code ala Kahoot yang 
   * STIS: `http://<IP-SERVER-ATAU-DOMAIN>/?kategori=stis`  
 * **Layar TV Monitor Booth (Fullscreen F11):**  
   `http://<IP-SERVER-ATAU-DOMAIN>/tv.html`
+* **Panel Operator Booth (Monitoring, Klasemen Semua Sekolah, Undian Doorprize & CSV 1-Klik):**  
+  `http://<IP-SERVER-ATAU-DOMAIN>/admin.html`
 * **Ekspor Data Peserta (CSV Laporan Akhir):**  
   `http://<IP-SERVER-ATAU-DOMAIN>/api/admin/export-csv?token=bps-stis-2026`
 
 ---
 
 ## 📝 Changelog
+
+### [2026-11-11]
+- **Autocomplete Daftar SMA/SMK/MA se-Kabupaten Demak**:
+  - Menambahkan daftar kurasi SMA, SMK, dan MA (Negeri & Swasta) se-Kabupaten Demak di `public/js/schools-demak.js` dengan dropdown interaktif ramah layar sentuh (`44px+` tap height, keyboard navigation, tetap mendukung ketik manual bagi peserta luar daerah).
+  - Memperbarui `src/utils/schoolNormalizer.js` untuk menormalisasi variasi penulisan sekolah di Demak (seperti `MA Negeri Demak` → `MAN Demak`, `SMA NU Demak`, dll.).
+- **Panel Operator Ringan (`/admin.html`)**:
+  - Membangun halaman operator khusus (`public/admin.html`, `public/css/admin.css`, `public/js/admin.js`) yang terproteksi token (`ADMIN_TOKEN`) dengan endpoint API baru `GET /api/admin/overview`.
+  - Dilengkapi 4 kartu KPI statistik real-time, tabel daftar peserta lengkap dengan pencarian & filter, klasemen seluruh sekolah (bukan hanya Top 5), ekspor CSV sekali klik, tab preview QR Code, dan fitur **Undian Doorprize (Lucky Draw)** dengan pemilih kandidat fleksibel (*read-only*, tanpa menghapus data).
+- **Kartu Skor Digital (*Shareable Score Card* untuk IG Story / WA)**:
+  - Menambahkan generator gambar Canvas 2D murni (`public/js/scorecard.js`, rasio 9:16 resolusi tinggi `1080×1920 px`) yang berjalan 100% di sisi klien tanpa pustaka eksternal.
+  - Siswa dapat memilih tema kartu (**☀️ Cerah** atau **🌌 Elegan Gelap**), melihat pratinjau langsung dari layar hasil atau menu kategori, membagikannya langsung ke Instagram Story / WhatsApp via *Web Share API*, atau menyimpannya sebagai PNG.
+- **Automated Tests**: Menambahkan cakupan uji API `/api/admin/overview`, `/admin.html`, dan normalisasi sekolah Demak pada `tests/api.test.js` dan `tests/data_test.test.js` (seluruh 7 test suites lulus 100%).
 
 ### [2026-11-10]
 - **Penyesuaian Lokal Kabupaten Demak**:

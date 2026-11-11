@@ -119,12 +119,31 @@ router.get('/leaderboard', async (req, res) => {
   }
 });
 
+function isValidAdminToken(req) {
+  const token = req.query.token || req.headers['x-admin-token'];
+  const validToken = process.env.ADMIN_TOKEN || 'bps-stis-2026';
+  return token === validToken;
+}
+
+// Admin Overview (Stats, All Schools, Participant List)
+router.get('/admin/overview', async (req, res) => {
+  try {
+    if (!isValidAdminToken(req)) {
+      return res.status(401).json({ success: false, error: 'Unauthorized: Token operator salah' });
+    }
+    const overview = await quizService.getAdminOverview();
+    res.set('Cache-Control', 'no-store');
+    res.json({ success: true, data: overview });
+  } catch (err) {
+    console.error('Error on /api/admin/overview:', err);
+    res.status(500).json({ success: false, error: 'Gagal memuat data operator' });
+  }
+});
+
 // Admin CSV Export
 router.get('/admin/export-csv', async (req, res) => {
   try {
-    const token = req.query.token || req.headers['x-admin-token'];
-    const validToken = process.env.ADMIN_TOKEN || 'bps-stis-2026';
-    if (token !== validToken) {
+    if (!isValidAdminToken(req)) {
       return res.status(401).json({ success: false, error: 'Unauthorized: Token admin salah' });
     }
 

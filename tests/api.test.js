@@ -68,4 +68,24 @@ test('API Tests: multi-category session flow, leaderboard filter, and export', a
   assert.equal(exportRes.status, 200);
   assert.ok(exportRes.text.includes('Rian Dwi'));
   assert.ok(exportRes.text.includes('SMAN 3 Semarang'));
+
+  // 8. GET /api/admin/overview (Unauthorized & Authorized)
+  const unauthRes = await request(app).get('/api/admin/overview?token=salah');
+  assert.equal(unauthRes.status, 401);
+
+  const overviewRes = await request(app).get('/api/admin/overview?token=bps-stis-2026');
+  assert.equal(overviewRes.status, 200);
+  assert.equal(overviewRes.body.success, true);
+  assert.equal(overviewRes.body.data.summary.totalPeserta, 1);
+  assert.equal(overviewRes.body.data.summary.totalSelesaiSesi, 1);
+  assert.equal(overviewRes.body.data.questionBank.total, 300);
+  assert.equal(overviewRes.body.data.schools.length, 1);
+  assert.equal(overviewRes.body.data.schools[0].sekolah, 'SMAN 3 Semarang');
+  assert.equal(overviewRes.body.data.participants[0].nama, 'Rian Dwi');
+  assert.equal(overviewRes.body.data.participants[0].categoriesFinished, 1);
+
+  // 9. GET /admin.html static page
+  const adminPage = await request(app).get('/admin.html');
+  assert.equal(adminPage.status, 200);
+  assert.ok(adminPage.text.includes('Panel Operator Booth'));
 });

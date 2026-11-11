@@ -37,13 +37,14 @@ function normalizeSchoolName(input) {
 
   // Normalize MAN / MA Negeri
   lower = lower.replace(/\bma\s+negeri\s+(\d+)\b/gi, 'MAN $1');
+  lower = lower.replace(/\bma\s+negeri\s+(?!\d)/gi, 'MAN ');
   lower = lower.replace(/\bman(\d+)\b/gi, 'MAN $1');
   lower = lower.replace(/\bman\s+(\d+)\b/gi, 'MAN $1');
 
   // Format capitalized
   const parts = lower.split(' ').map((p) => {
     const upperP = p.toUpperCase();
-    if (upperP.startsWith('SMAN') || upperP.startsWith('SMKN') || upperP.startsWith('MAN') || upperP === 'SMA' || upperP === 'SMK' || upperP === 'MA') {
+    if (upperP.startsWith('SMAN') || upperP.startsWith('SMKN') || upperP.startsWith('MAN') || upperP === 'SMA' || upperP === 'SMK' || upperP === 'MA' || upperP === 'NU' || upperP === 'PGRI' || upperP === 'IT') {
       return upperP;
     }
     return p.charAt(0).toUpperCase() + p.slice(1).toLowerCase();

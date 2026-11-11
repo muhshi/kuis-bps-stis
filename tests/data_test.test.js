@@ -35,6 +35,10 @@ test('Validasi School Normalizer: normalisasi variasi penulisan sekolah', (t) =>
   assert.equal(normalizeSchoolName('smk negeri 2 kudus'), 'SMKN 2 Kudus');
   assert.equal(normalizeSchoolName('smkn2 kudus'), 'SMKN 2 Kudus');
   assert.equal(normalizeSchoolName('man 1 medan'), 'MAN 1 Medan');
+  assert.equal(normalizeSchoolName('ma negeri demak'), 'MAN Demak');
+  assert.equal(normalizeSchoolName('sma n 1 demak'), 'SMAN 1 Demak');
+  assert.equal(normalizeSchoolName('smkn1 sayung'), 'SMKN 1 Sayung');
+  assert.equal(normalizeSchoolName('sma nu demak'), 'SMA NU Demak');
   assert.equal(normalizeSchoolName(''), 'Sekolah Lainnya');
   assert.equal(normalizeSchoolName(null), 'Sekolah Lainnya');
 });

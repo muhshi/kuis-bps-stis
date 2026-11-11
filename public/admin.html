@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Operator Booth — Kuis BPS Demak × STIS</title>
+  <link rel="stylesheet" href="/css/admin.css?v=1.0">
+</head>
+<body>
+
+  <!-- AUTH LOGIN OVERLAY -->
+  <div id="admin-auth-screen" class="auth-wrap">
+    <div class="auth-card">
+      <div class="brand-pill">🏛️ BPS DEMAK × POLSTAT STIS</div>
+      <h1>Panel Operator Booth</h1>
+      <p class="auth-sub">Masukkan token operator untuk memantau klasemen seluruh sekolah, rekap peserta, undian doorprize, dan ekspor CSV.</p>
+
+      <form id="form-admin-auth">
+        <label for="input-admin-token">Token Operator</label>
+        <input type="password" id="input-admin-token" placeholder="Masukkan token akses..." required autocomplete="off">
+        <div id="auth-error" class="auth-error hidden">Token tidak valid. Periksa kembali token operator Anda.</div>
+        <button type="submit" id="btn-admin-login" class="btn-primary">Masuk Panel Operator ➔</button>
+      </form>
+
+      <div class="auth-links">
+        <a href="/">← Kembali ke Kuis Siswa</a>
+        <span>•</span>
+        <a href="/tv.html" target="_blank">📺 Layar TV Booth</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN OPERATOR DASHBOARD -->
+  <div id="admin-dashboard" class="admin-shell hidden">
+    <!-- Top Header -->
+    <header class="admin-header">
+      <div class="header-left">
+        <div class="brand-pill">🏛️ OPERATOR BOOTH</div>
+        <div>
+          <h1 class="header-title">Dashboard Kuis BPS Demak × STIS</h1>
+          <div class="header-meta" id="bank-soal-meta">Bank Soal: Memuat...</div>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button id="btn-auto-refresh" class="btn-chip active" type="button" title="Aktifkan/Matikan pembaruan otomatis setiap 10 detik">
+          🔄 Auto: 10s
+        </button>
+        <button id="btn-manual-refresh" class="btn-chip" type="button">
+          ↻ Refresh
+        </button>
+        <button id="btn-admin-theme" class="btn-chip" type="button">
+          ☀️ Mode Terang
+        </button>
+        <a id="btn-download-csv" class="btn-export" href="#" download>
+          ⬇️ Download CSV
+        </a>
+        <a class="btn-chip link-chip" href="/tv.html" target="_blank">
+          📺 TV Booth
+        </a>
+        <button id="btn-admin-logout" class="btn-chip danger-chip" type="button" title="Keluar dari panel operator">
+          🔒 Keluar
+        </button>
+      </div>
+    </header>
+
+    <!-- KPI Cards -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-lbl">TOTAL PESERTA TERDAFTAR</div>
+        <div class="kpi-val" id="kpi-peserta">0</div>
+        <div class="kpi-sub" id="kpi-wa">0 mengisi nomor WA</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-lbl">SESI KUIS SELESAI</div>
+        <div class="kpi-val" id="kpi-sesi">0</div>
+        <div class="kpi-sub">Total ronde kategori tuntas</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-lbl">TUNTAS 3/3 KATEGORI</div>
+        <div class="kpi-val kpi-green" id="kpi-tuntas">0</div>
+        <div class="kpi-sub">Penantang Juara Umum</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-lbl">SEKOLAH BERPARTISIPASI</div>
+        <div class="kpi-val kpi-blue" id="kpi-sekolah">0</div>
+        <div class="kpi-sub" id="kpi-updated">Terakhir update: -</div>
+      </div>
+    </section>
+
+    <!-- Navigation Tabs -->
+    <nav class="admin-tabs">
+      <button class="tab-btn active" data-tab="participants" type="button">👥 Daftar Peserta</button>
+      <button class="tab-btn" data-tab="schools" type="button">🏫 Klasemen Semua Sekolah</button>
+      <button class="tab-btn" data-tab="doorprize" type="button">🎁 Undian Doorprize</button>
+      <button class="tab-btn" data-tab="qrcode" type="button">📱 QR Code Booth</button>
+    </nav>
+
+    <!-- TAB 1: PARTICIPANTS -->
+    <section id="tab-participants" class="tab-panel">
+      <div class="panel-controls">
+        <input type="search" id="search-participant" class="search-input" placeholder="🔍 Cari nama siswa, nama sekolah, atau nomor WA...">
+        <div class="filter-pills">
+          <button class="filter-pill active" data-filter="all" type="button">Semua</button>
+          <button class="filter-pill" data-filter="finished3" type="button">Tuntas 3/3</button>
+          <button class="filter-pill" data-filter="haswa" type="button">Ada Nomor WA</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Peserta</th>
+              <th>Asal Sekolah</th>
+              <th>WhatsApp</th>
+              <th>⚡ Logika</th>
+              <th>📊 Data</th>
+              <th>🎓 STIS</th>
+              <th>Total Skor</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-participants">
+            <tr><td colspan="8" class="empty-cell">Memuat data peserta...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TAB 2: ALL SCHOOLS -->
+    <section id="tab-schools" class="tab-panel hidden">
+      <div class="panel-controls">
+        <input type="search" id="search-school" class="search-input" placeholder="🔍 Filter nama sekolah...">
+        <div class="hint-inline">Menampilkan seluruh sekolah yang terdaftar (bukan hanya Top 5 di TV).</div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Peringkat</th>
+              <th>Nama Sekolah / Madrasah</th>
+              <th>Siswa Terdaftar</th>
+              <th>Siswa Selesai ≥1 Kat</th>
+              <th>Rata-rata Skor</th>
+              <th>Total Akumulasi Poin</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-schools">
+            <tr><td colspan="6" class="empty-cell">Memuat klasemen sekolah...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TAB 3: DOORPRIZE LUCKY DRAW -->
+    <section id="tab-doorprize" class="tab-panel hidden">
+      <div class="doorprize-box">
+        <h2>🎁 Undian Doorprize Booth BPS Demak</h2>
+        <p class="doorprize-sub">Pilih kriteria kandidat undian secara adil dari peserta aktif, lalu acak pemenang langsung di layar.</p>
+
+        <div class="doorprize-filters">
+          <label class="radio-pill">
+            <input type="radio" name="dp-pool" value="any1" checked>
+            <span>Selesai minimal 1 Kategori</span>
+          </label>
+          <label class="radio-pill">
+            <input type="radio" name="dp-pool" value="all3">
+            <span>Khusus Tuntas 3/3 Kategori</span>
+          </label>
+          <label class="radio-pill">
+            <input type="radio" name="dp-pool" value="haswa">
+            <span>Memiliki Nomor WA Aktif</span>
+          </label>
+        </div>
+
+        <div class="doorprize-pool-info" id="dp-pool-count">Kandidat eligible: 0 peserta</div>
+
+        <div class="doorprize-stage">
+          <div class="dp-winner-badge" id="dp-status-tag">SIAP DIUNDI</div>
+          <div class="dp-winner-name" id="dp-winner-name">Tekan Tombol Acak!</div>
+          <div class="dp-winner-school" id="dp-winner-school">Nama & sekolah pemenang akan muncul di sini</div>
+          <div class="dp-winner-meta" id="dp-winner-meta"></div>
+        </div>
+
+        <button id="btn-spin-doorprize" class="btn-spin" type="button">
+          🎲 Acak Pemenang Doorprize
+        </button>
+      </div>
+    </section>
+
+    <!-- TAB 4: QR CODE BOOTH -->
+    <section id="tab-qrcode" class="tab-panel hidden">
+      <div class="qr-panel-grid">
+        <div class="qr-box-card">
+          <h3>📱 QR Code Utama (Semua Kategori)</h3>
+          <p>Arahkan siswa memindai QR ini untuk registrasi dan memilih 3 kategori bebas.</p>
+          <img id="qr-img-main" class="qr-svg-preview" alt="QR Code Utama" />
+          <div class="qr-url-label" id="qr-url-main"></div>
+        </div>
+        <div class="qr-box-card">
+          <h3>⚡ QR Langsung Kategori Logika</h3>
+          <p>Opsional untuk banner terpisah langsung masuk tantangan Logika.</p>
+          <img id="qr-img-logika" class="qr-svg-preview" alt="QR Code Logika" />
+          <div class="qr-url-label" id="qr-url-logika"></div>
+        </div>
+        <div class="qr-box-card">
+          <h3>📊 QR Langsung Kategori Data BPS</h3>
+          <p>Opsional untuk banner terpisah langsung masuk tantangan Data BPS.</p>
+          <img id="qr-img-data" class="qr-svg-preview" alt="QR Code Data" />
+          <div class="qr-url-label" id="qr-url-data"></div>
+        </div>
+        <div class="qr-box-card">
+          <h3>🎓 QR Langsung Kategori STIS</h3>
+          <p>Opsional untuk banner terpisah langsung masuk tantangan STIS.</p>
+          <img id="qr-img-stis" class="qr-svg-preview" alt="QR Code STIS" />
+          <div class="qr-url-label" id="qr-url-stis"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="/js/admin.js?v=1.0"></script>
+</body>
+</html>
